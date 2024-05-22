@@ -7,7 +7,7 @@
 size = Vector2(4000, 4000)
 
 [node name="PlayerCamera" type="Camera2D"]
-offset = Vector2(576, 324)
+anchor_mode = 0
 script = ExtResource("1_okwfa")
 BulletPrefab = ExtResource("2_86q4p")
 

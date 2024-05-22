@@ -1,4 +1,5 @@
 extends Camera2D
+class_name Player
 
 static var GameStarted : bool = false;
 static var CurrentX : float = 0.0;
@@ -17,7 +18,7 @@ func _process(delta):
 	if GameStarted == false: 
 		pass;
 	var width : float = get_viewport_rect().size.x;
-	CurrentX = position.x - (width / 64.0);
+	CurrentX = global_position.x + width;
 	
 	var my_pos = position;
 	my_pos.x += 32.0 * delta;

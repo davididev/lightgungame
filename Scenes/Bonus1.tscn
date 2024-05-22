@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5rcm0wo6vrd3"]
+[gd_scene load_steps=7 format=3 uid="uid://b5rcm0wo6vrd3"]
 
 [ext_resource type="TileSet" uid="uid://doutxwg3by1sj" path="res://Tilesets/BonusLevel.tres" id="1_usl5t"]
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="2_7jlvk"]
+[ext_resource type="PackedScene" uid="uid://8n7438h7kc8v" path="res://Prefabs/Enemies/spawn_point.tscn" id="3_imsgo"]
 [ext_resource type="PackedScene" uid="uid://ba0qwtrj8uf84" path="res://Prefabs/Enemies/Target/TargetRedJump.tscn" id="3_vy4v4"]
+[ext_resource type="PackedScene" uid="uid://cpowr3ao3d2rj" path="res://Prefabs/Enemies/Target/TargetGreenJump.tscn" id="5_tf778"]
+[ext_resource type="PackedScene" uid="uid://kl8ybcl4afwa" path="res://Prefabs/Enemies/Target/TargetBlueJump.tscn" id="6_khdwr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,5 +16,31 @@ layer_0/tile_data = PackedInt32Array(0, 0, 1, 1, 0, 1, 2, 0, 1, 65538, 0, 1, 655
 
 [node name="PlayerCamera" parent="." instance=ExtResource("2_7jlvk")]
 
-[node name="RigidBody2D" parent="." instance=ExtResource("3_vy4v4")]
-position = Vector2(483, 518)
+[node name="SpawnPoint" parent="." instance=ExtResource("3_imsgo")]
+position = Vector2(749, 517)
+enemy_to_spawn = ExtResource("3_vy4v4")
+
+[node name="SpawnPoint2" parent="." instance=ExtResource("3_imsgo")]
+position = Vector2(838, 559)
+enemy_to_spawn = ExtResource("3_vy4v4")
+
+[node name="SpawnPoint3" parent="." instance=ExtResource("3_imsgo")]
+position = Vector2(950, 559)
+enemy_to_spawn = ExtResource("3_vy4v4")
+
+[node name="SpawnPoint4" parent="." instance=ExtResource("3_imsgo")]
+position = Vector2(1074, 559)
+enemy_to_spawn = ExtResource("3_vy4v4")
+
+[node name="SpawnPoint5" parent="." instance=ExtResource("3_imsgo")]
+position = Vector2(1215, 543)
+enemy_to_spawn = ExtResource("5_tf778")
+
+[node name="SpawnPoint6" parent="." instance=ExtResource("3_imsgo")]
+position = Vector2(1341, 543)
+enemy_to_spawn = ExtResource("5_tf778")
+
+[node name="SpawnPoint7" parent="." instance=ExtResource("3_imsgo")]
+position = Vector2(1341, 543)
+enemy_to_spawn = ExtResource("6_khdwr")
+delay = 8.0

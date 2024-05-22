@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpowr3ao3d2rj"]
+
+[ext_resource type="Script" path="res://Prefabs/Enemies/Target/TargetJumping.gd" id="1_gmbj4"]
+[ext_resource type="PackedScene" uid="uid://c0jkncyr4aa84" path="res://Prefabs/Particles/Target/green_target_particle_system.tscn" id="2_avq0w"]
+[ext_resource type="Texture2D" uid="uid://kw8x488t8wqv" path="res://Sprites/Enemies/Targets/GreenTarget.png" id="3_rkddo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anr6c"]
+radius = 32.0
+
+[node name="TargetJumpGreen" type="RigidBody2D"]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 8
+collision_mask = 4
+gravity_scale = 0.8
+script = ExtResource("1_gmbj4")
+JumpForce = 800.0
+PointsOnShoot = 3
+TargetExplosion = ExtResource("2_avq0w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_anr6c")
+
+[node name="RedTarget" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("3_rkddo")
+
+[connection signal="on_shot" from="." to="." method="_on_on_shot"]

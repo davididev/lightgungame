@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_anr6c"]
 radius = 32.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="TargetJumpRed" type="RigidBody2D"]
 light_mask = 2
 visibility_layer = 2
 collision_layer = 8
