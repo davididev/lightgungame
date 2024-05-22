@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://byosm6kwjujrd"]
+
+[ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
+[ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aa34"]
+size = Vector2(4000, 4000)
+
+[node name="PlayerCamera" type="Camera2D"]
+offset = Vector2(576, 324)
+script = ExtResource("1_okwfa")
+BulletPrefab = ExtResource("2_86q4p")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_3aa34")
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

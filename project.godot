@@ -1,0 +1,34 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TEMP"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
+[layer_names]
+
+2d_render/layer_1="Tiles"
+2d_render/layer_2="Enemy"
+2d_render/layer_3="Bullet"
+2d_physics/layer_1="Static"
+2d_physics/layer_2="BulletField"
+2d_physics/layer_3="Bullet"
+2d_physics/layer_4="Enemy"
+
+[rendering]
+
+renderer/rendering_method="mobile"
