@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="TEMP"
+run/main_scene="res://Scenes/Bonus1.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -23,7 +24,8 @@ window/stretch/aspect="keep_height"
 
 2d_render/layer_1="Tiles"
 2d_render/layer_2="Enemy"
-2d_render/layer_3="Bullet"
+2d_render/layer_3="Foreground"
+2d_render/layer_4="Bullet"
 2d_physics/layer_1="Static"
 2d_physics/layer_2="BulletField"
 2d_physics/layer_3="Bullet"

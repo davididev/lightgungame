@@ -10,14 +10,18 @@ height = 20.0
 
 [node name="Area2D" type="Area2D"]
 top_level = true
+light_mask = 9
+visibility_layer = 8
 collision_layer = 4
-collision_mask = 4
+collision_mask = 12
 script = ExtResource("1_aohyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qujmc")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+light_mask = 8
+visibility_layer = 8
 mesh = SubResource("SphereMesh_fnlox")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

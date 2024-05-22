@@ -18,5 +18,7 @@ func _process(delta):
 		scale = my_scale;
 
 
-func _on_area_entered(area):
-	pass # Replace with function body.  Should be when you shoot an enemy
+
+func _on_body_entered(body):
+	body.emit_signal("on_shot")
+	pass # Replace with function body.
