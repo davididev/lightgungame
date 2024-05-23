@@ -3,6 +3,7 @@ class_name Player
 
 static var GameStarted : bool = false;
 static var CurrentX : float = 0.0;
+static var CameraX : float = 0.0;
 @export var BulletPrefab : PackedScene;
 
 
@@ -19,9 +20,9 @@ func _process(delta):
 		pass;
 	var width : float = get_viewport_rect().size.x;
 	CurrentX = global_position.x + width;
-	
+	CameraX = global_position.x;
 	var my_pos = position;
-	my_pos.x += 32.0 * delta;
+	my_pos.x += SceneVars.MoveSpeed * delta;
 	position = my_pos;
 	
 	if jiggle_shape == true:

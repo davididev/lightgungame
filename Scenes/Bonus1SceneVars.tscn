@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://biutsnx7r65lo"]
+
+[ext_resource type="Script" path="res://LevelVars/scene_vars.gd" id="1_kgx7n"]
+[ext_resource type="Script" path="res://LevelVars/level_step.gd" id="2_5sbne"]
+
+[sub_resource type="Resource" id="Resource_br0p6"]
+script = ExtResource("2_5sbne")
+horizontal_speed = 32.0
+ending_x = 300.0
+
+[sub_resource type="Resource" id="Resource_nlo6i"]
+script = ExtResource("2_5sbne")
+horizontal_speed = 128.0
+ending_x = 700.0
+
+[sub_resource type="Resource" id="Resource_ukjuf"]
+script = ExtResource("2_5sbne")
+horizontal_speed = 16.0
+ending_x = 3400.0
+
+[node name="SceneVars" type="Node2D"]
+script = ExtResource("1_kgx7n")
+steps = Array[ExtResource("2_5sbne")]([SubResource("Resource_br0p6"), SubResource("Resource_nlo6i"), SubResource("Resource_ukjuf")])

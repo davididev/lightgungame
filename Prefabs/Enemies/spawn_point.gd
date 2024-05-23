@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	if spawned == false:
 		var check_x = global_position.x + 256.0;
-		print("Check ", check_x, "vs ", Player.CurrentX)
+		#print("Check ", check_x, "vs ", Player.CurrentX)
 		if Player.CurrentX > check_x:
 			if delay > 0.0:
 				delay -= delta;
