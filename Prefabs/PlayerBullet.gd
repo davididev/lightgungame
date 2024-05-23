@@ -20,5 +20,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	body.emit_signal("on_shot")
+	var e : Error = body.emit_signal("on_shot")
+	#if e != @GlobalScope.ERR_UNAVAILABLE:
+		#  This is how to do error checking in the future
 	pass # Replace with function body.
