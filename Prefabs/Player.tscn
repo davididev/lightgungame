@@ -32,16 +32,19 @@ offset_bottom = 34.0
 text = "Health:"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-offset_left = 216.0
-offset_right = 582.0
+offset_left = 296.0
+offset_right = 662.0
 offset_bottom = 34.0
 text = "Score: 0000000000"
 
 [node name="HealthBG" type="TextureRect" parent="CanvasLayer"]
 offset_left = 72.0
-offset_right = 200.0
-offset_bottom = 64.0
+offset_top = 2.0
+offset_right = 263.0
+offset_bottom = 66.0
 texture = ExtResource("3_xvyfe")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Unit0" type="TextureRect" parent="CanvasLayer/HealthBG"]
 modulate = Color(1, 0, 0, 1)
@@ -71,6 +74,22 @@ modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_left = 97.0
 offset_right = 129.0
+offset_bottom = 64.0
+texture = ExtResource("4_hpysl")
+
+[node name="Unit4" type="TextureRect" parent="CanvasLayer/HealthBG"]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 0
+offset_left = 130.0
+offset_right = 162.0
+offset_bottom = 64.0
+texture = ExtResource("4_hpysl")
+
+[node name="Unit5" type="TextureRect" parent="CanvasLayer/HealthBG"]
+modulate = Color(0, 0.509804, 1, 1)
+layout_mode = 0
+offset_left = 159.0
+offset_right = 191.0
 offset_bottom = 64.0
 texture = ExtResource("4_hpysl")
 
