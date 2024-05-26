@@ -101,14 +101,14 @@ texture = ExtResource("4_hpysl")
 [node name="ForcefieldChargeBG" type="TextureRect" parent="CanvasLayer"]
 offset_left = 73.0
 offset_top = 71.0
-offset_right = 223.0
+offset_right = 253.0
 offset_bottom = 91.0
 texture = ExtResource("6_emh5t")
 
 [node name="ForcefieldChargeFG" type="NinePatchRect" parent="CanvasLayer/ForcefieldChargeBG"]
 material = SubResource("CanvasItemMaterial_pxakj")
 layout_mode = 0
-offset_right = 150.0
+offset_right = 180.0
 offset_bottom = 20.0
 texture = ExtResource("7_p2ehw")
 patch_margin_left = 8

@@ -53,6 +53,10 @@ func set_score(s : int):
 
 
 func set_forcefield_perc(perc : float):
+	if perc == 0.0:
+		get_node("ForcefieldChargeBG/ForcefieldChargeFG").visible = false;
+	else:
+		get_node("ForcefieldChargeBG/ForcefieldChargeFG").visible = true;
 	var s = get_node("ForcefieldChargeBG/ForcefieldChargeFG").size;
-	s.x = 150 * perc;
+	s.x = 180.0 * perc;
 	get_node("ForcefieldChargeBG/ForcefieldChargeFG").size = s;
