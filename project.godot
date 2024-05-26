@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="TEMP"
+config/name="Green Alien Hunter"
+config/description="A lightgun style game in which you hunt green aliens and shoot them before they shoot you."
 run/main_scene="res://Scenes/Bonus1.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
