@@ -1,0 +1,12 @@
+Graphics:
+	Character design by Mike D
+	Backgrounds by Davidi and Nuez
+
+Fonts:
+	Blah blah blah
+	
+Audio:
+	Blah blah blah
+	
+Coding
+	Coded in Godot by Davidi and Nuez
