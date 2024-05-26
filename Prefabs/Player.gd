@@ -6,7 +6,6 @@ static var CurrentX : float = 0.0;
 static var CameraX : float = 0.0;
 @export var BulletPrefab : PackedScene;
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameStarted = true;
