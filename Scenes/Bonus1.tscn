@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5rcm0wo6vrd3"]
+[gd_scene load_steps=9 format=3 uid="uid://b5rcm0wo6vrd3"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="2_7jlvk"]
 [ext_resource type="PackedScene" uid="uid://8n7438h7kc8v" path="res://Prefabs/Enemies/spawn_point.tscn" id="3_imsgo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cpowr3ao3d2rj" path="res://Prefabs/Enemies/Target/TargetGreenJump.tscn" id="5_tf778"]
 [ext_resource type="Texture2D" uid="uid://ce5xl8dpxhg1" path="res://Backgrounds/BonusBackground1.png" id="6_gc0fw"]
 [ext_resource type="PackedScene" uid="uid://kl8ybcl4afwa" path="res://Prefabs/Enemies/Target/TargetBlueJump.tscn" id="6_khdwr"]
+[ext_resource type="Texture2D" uid="uid://c12mdi8fltfyt" path="res://Backgrounds/BonusBackground2.png" id="7_jqjwa"]
 [ext_resource type="PackedScene" uid="uid://biutsnx7r65lo" path="res://Scenes/Bonus1SceneVars.tscn" id="7_rofu0"]
 
 [node name="Node2D" type="Node2D"]
@@ -45,13 +46,33 @@ delay = 8.0
 position = Vector2(576, 320)
 texture = ExtResource("6_gc0fw")
 
+[node name="BonusBackground8" type="Sprite2D" parent="."]
+position = Vector2(-720, 320)
+texture = ExtResource("6_gc0fw")
+
 [node name="BonusBackground2" type="Sprite2D" parent="."]
-position = Vector2(1728, 320)
+position = Vector2(1224, 320)
 texture = ExtResource("6_gc0fw")
 
 [node name="BonusBackground3" type="Sprite2D" parent="."]
-position = Vector2(2880, 320)
+position = Vector2(1872, 320)
 texture = ExtResource("6_gc0fw")
+
+[node name="BonusBackground5" type="Sprite2D" parent="."]
+position = Vector2(3168, 320)
+texture = ExtResource("6_gc0fw")
+
+[node name="BonusBackground4" type="Sprite2D" parent="."]
+position = Vector2(2520, 320)
+texture = ExtResource("7_jqjwa")
+
+[node name="BonusBackground7" type="Sprite2D" parent="."]
+position = Vector2(-72, 320)
+texture = ExtResource("7_jqjwa")
+
+[node name="BonusBackground6" type="Sprite2D" parent="."]
+position = Vector2(3816, 320)
+texture = ExtResource("7_jqjwa")
 
 [node name="SceneVars" parent="." instance=ExtResource("7_rofu0")]
 position = Vector2(-127, 391)
