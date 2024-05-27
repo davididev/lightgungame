@@ -33,13 +33,28 @@ func set_ui_elements(delta):
 		uiRef.set_score(Score);
 		_last_score = Score;
 
-	if forcefieldNegateTime >= 0.0:
-		forcefieldChargeTime = 0.0;
-	else:
-		forcefieldChargeTime += delta;
-		if forcefieldChargeTime > FORCEFIELD_TIME:
-			forcefieldChargeTime = FORCEFIELD_TIME;
-		uiRef.set_forcefield_perc(forcefieldChargeTime / FORCEFIELD_TIME);
+	if forcefield_button_on == true: #Forcefield button on, rechrage
+		forcefieldChargeTime -= delta * 2.0;
+		if forcefieldChargeTime < 0.0:
+			forcefieldNegateTime = FORCEFIELD_NEGATE_TIME;
+			forcefieldChargeTime = -0.01;
+			forcefield_button_on = false;  #Forcefield broke, turn it off
+	else: #Forcefield button off, rechrage
+		if forcefieldNegateTime >= 0.0:
+			forcefieldChargeTime = 0.0;
+			forcefieldNegateTime -= delta;
+		else:
+			forcefieldChargeTime += delta;
+			if forcefieldChargeTime > FORCEFIELD_TIME:
+				forcefieldChargeTime = FORCEFIELD_TIME;
+	
+	uiRef.set_forcefield_perc(forcefieldChargeTime / FORCEFIELD_TIME);
+
+func run_damage_flash():
+	damage_routine = false;
+	get_node("CanvasLayer/FlashImage").visible = true;
+	await get_tree().create_timer(0.05).timeout;
+	get_node("CanvasLayer/FlashImage").visible = false;
 
 var  jiggle_shape : bool = true;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,6 +62,8 @@ func _process(delta):
 	if GameStarted == false: 
 		pass;
 	
+	if damage_routine == true:
+		run_damage_flash();
 	set_ui_elements(delta);
 		
 	var width : float = get_viewport_rect().size.x;
@@ -61,6 +78,11 @@ func _process(delta):
 	else:
 		get_node("RigidBody2D").position = Vector2(0.0, 0.0)
 	jiggle_shape = !jiggle_shape;
+	
+	if forcefield_button_on == true: #Forcefield button on, do overlay
+		get_node("RigidBody2D/ForcefieldOverlay").visible = true;
+	else:
+		get_node("RigidBody2D/ForcefieldOverlay").visible = false;
 
 func fire_bullet(screenPos : Vector2):
 	var canvas_pos = get_viewport().get_canvas_transform().affine_inverse() * screenPos
@@ -74,3 +96,19 @@ func _on_rigid_body_2d_input_event(viewport, event, shape_idx):
 		fire_bullet(event.position);
 	if event is InputEventScreenTouch and event.pressed:
 		fire_bullet(event.position);
+
+static var forcefield_button_on : bool = false;  #So we can handle damage as a static function
+static var damage_routine : bool = false;  #So we can handle damage as a static function
+
+static func Damage(amt : int):
+	if forcefield_button_on == false:  #Only damage is forcefield is inactive
+		Health -= amt;
+		damage_routine = true;
+		
+
+func _on_forcefield_button_button_down():
+	forcefield_button_on = true;
+
+
+func _on_forcefield_button_button_up():
+	forcefield_button_on = false;

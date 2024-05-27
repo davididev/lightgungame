@@ -9,7 +9,12 @@ signal on_shot
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	apply_impulse(Vector2.UP * JumpForce);
+	test_damage();
 	pass # Replace with function body.
+	
+func test_damage():
+	await get_tree().create_timer(2.0).timeout;
+	Player.Damage(1);
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
