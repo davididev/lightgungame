@@ -279,6 +279,7 @@ layout_mode = 0
 offset_right = 180.0
 offset_bottom = 20.0
 texture = ExtResource("7_p2ehw")
+region_rect = Rect2(0, 0, 128, 16)
 patch_margin_left = 8
 patch_margin_right = 8
 
