@@ -3,7 +3,8 @@ Graphics:
 	Backgrounds by Davidi and Nuez
 
 Fonts:
-	Blah blah blah
+	Lazenby Computer à € by Disaster Fonts 
+	SubZer0 by Avendrakon
 	
 Audio:
 	Blah blah blah

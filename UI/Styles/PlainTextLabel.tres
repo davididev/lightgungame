@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bohv013kb04n8"]
+
+[ext_resource type="FontFile" uid="uid://b4bpptuuu7q4d" path="res://fonts/LazenbyCompSmooth.ttf" id="1_43rhe"]
+
+[resource]
+default_font = ExtResource("1_43rhe")

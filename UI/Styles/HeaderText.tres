@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cwt8r6m5gmd65"]
+
+[ext_resource type="FontFile" uid="uid://dhjyru3u25kc4" path="res://fonts/SubZER0.ttf" id="1_l8jk8"]
+
+[resource]
+default_font = ExtResource("1_l8jk8")
+default_font_size = 64
+RichTextLabel/colors/default_color = Color(0.215686, 0.784314, 0.215686, 1)
+RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0.215686, 0, 0.784314)
+RichTextLabel/constants/outline_size = 1
+RichTextLabel/constants/shadow_offset_x = 3
+RichTextLabel/constants/shadow_offset_y = 3
+RichTextLabel/constants/shadow_outline_size = 3
