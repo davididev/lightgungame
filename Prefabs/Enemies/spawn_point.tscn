@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" path="res://Prefabs/Enemies/spawn_point.gd" id="1_apy8n"]
 
-[node name="SpawnPoint" type="Node2D"]
+[node name="SpawnPoint" type="Node2D" node_paths=PackedStringArray("spawn_location")]
 script = ExtResource("1_apy8n")
+spawn_location = NodePath(".")

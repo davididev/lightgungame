@@ -1,0 +1,134 @@
+[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://bdiiw2qxl2ws0"]
+
+[ext_resource type="Texture2D" uid="uid://b7icg6esv7fvi" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f01.png" id="1_mj2m2"]
+[ext_resource type="Texture2D" uid="uid://cilv5kpe82ffa" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f02.png" id="2_x0t0o"]
+[ext_resource type="Texture2D" uid="uid://b0fxorox5xmwo" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f03.png" id="3_8cx5o"]
+[ext_resource type="Texture2D" uid="uid://cdf6m41etl37" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f04.png" id="4_l2pdx"]
+[ext_resource type="Texture2D" uid="uid://cqxm5lsgw8v57" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f05.png" id="5_wsmhv"]
+[ext_resource type="Texture2D" uid="uid://bp6kla60tdgr8" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f06.png" id="6_yr7a4"]
+[ext_resource type="Texture2D" uid="uid://c2w2nsylmliw" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f07.png" id="7_kwtpq"]
+[ext_resource type="Texture2D" uid="uid://b8xljmck5rmts" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f08.png" id="8_b12l0"]
+[ext_resource type="Texture2D" uid="uid://o23qgvrryhk3" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f09.png" id="9_t0p5l"]
+[ext_resource type="Texture2D" uid="uid://dhrm0fbvcyrmv" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f10.png" id="10_d0iub"]
+[ext_resource type="Texture2D" uid="uid://cdi2efwri2cdo" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f11.png" id="11_e5ey0"]
+[ext_resource type="Texture2D" uid="uid://crniub3kfj4gm" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f12.png" id="12_ppm5b"]
+[ext_resource type="Texture2D" uid="uid://cywswufl13rv0" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f13.png" id="13_x7n64"]
+[ext_resource type="Texture2D" uid="uid://1gaxwe8w48oy" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f14.png" id="14_h2old"]
+[ext_resource type="Texture2D" uid="uid://daglueet1tdjr" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f15.png" id="15_dy72b"]
+[ext_resource type="Texture2D" uid="uid://dwjt3iwmbeiak" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f16.png" id="16_1j60p"]
+[ext_resource type="Texture2D" uid="uid://dx7ft1gcfvlcq" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f17.png" id="17_0xo4h"]
+[ext_resource type="Texture2D" uid="uid://cdtsqtghmsk6m" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f18.png" id="18_4qq32"]
+[ext_resource type="Texture2D" uid="uid://bf4umuyb7qgw8" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f19.png" id="19_24fp6"]
+[ext_resource type="Texture2D" uid="uid://dxepmvvo5kcda" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f21.png" id="20_ndpt1"]
+[ext_resource type="Texture2D" uid="uid://dxgiyom1uwtah" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f20.png" id="21_ajtwc"]
+[ext_resource type="Texture2D" uid="uid://un8kbcxqtm17" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f22.png" id="22_kcq4c"]
+[ext_resource type="Texture2D" uid="uid://cv3aa7oamt38m" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f23.png" id="23_vcle4"]
+[ext_resource type="Texture2D" uid="uid://c6i38hwgvabn6" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f24.png" id="24_0l2go"]
+[ext_resource type="Texture2D" uid="uid://78ecsj3plerx" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f25.png" id="25_kxs1x"]
+[ext_resource type="Texture2D" uid="uid://b87biiedg3xy1" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f26.png" id="26_djl7w"]
+[ext_resource type="Texture2D" uid="uid://bsto0pu8hpvcs" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f27.png" id="27_tm122"]
+[ext_resource type="Texture2D" uid="uid://c1u4hry2skrn6" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorSequence_f28.png" id="28_4ibc5"]
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mj2m2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mj2m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x0t0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8cx5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l2pdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wsmhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yr7a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kwtpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b12l0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t0p5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d0iub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e5ey0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ppm5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x7n64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_h2old")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x7n64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dy72b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1j60p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0xo4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4qq32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_24fp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ndpt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ajtwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_kcq4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_vcle4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0l2go")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_kxs1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_djl7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_tm122")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_4ibc5")
+}],
+"loop": false,
+"name": &"open",
+"speed": 25.0
+}]

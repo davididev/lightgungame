@@ -65,4 +65,5 @@ theme = ExtResource("2_jf18w")
 text = "Quit"
 
 [connection signal="button_down" from="CanvasLayer/ButtonTestLevel1" to="CanvasLayer" method="_on_button_test_level_1_button_down"]
+[connection signal="button_down" from="CanvasLayer/ButtonTestLevel2" to="CanvasLayer" method="_on_button_test_level_2_button_down"]
 [connection signal="button_down" from="CanvasLayer/Button Quit" to="CanvasLayer" method="_on_button_quit_button_down"]

@@ -22,6 +22,8 @@ TargetExplosion = ExtResource("2_avq0w")
 shape = SubResource("CircleShape2D_anr6c")
 
 [node name="RedTarget" type="Sprite2D" parent="CollisionShape2D"]
+light_mask = 2
+visibility_layer = 2
 texture = ExtResource("3_rkddo")
 
 [connection signal="on_shot" from="." to="." method="_on_on_shot"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvjj7n2jciu8h"]
+
+[ext_resource type="Script" path="res://Prefabs/Enemies/spawn_point.gd" id="1_hgwjx"]
+[ext_resource type="SpriteFrames" uid="uid://bdiiw2qxl2ws0" path="res://Sprites/Obstacles/ScifiDoor/ScifiDoorAnim.tres" id="2_1ookm"]
+
+[node name="SpawnPoint_ScifiDoor" type="Node2D" node_paths=PackedStringArray("possible_animation_ref", "spawn_location")]
+script = ExtResource("1_hgwjx")
+use_anim = true
+possible_animation_ref = NodePath("AnimatedSprite2D")
+spawn_location = NodePath("SpawnPoint")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_1ookm")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, 99)
