@@ -21,5 +21,10 @@ func _on_on_shot():
 	var instance = TargetExplosion.instantiate();
 	instance.global_position = global_position;
 	get_tree().root.get_node("Node2D").add_child(instance);
+	Player.Score += PointsOnShoot;
+	var instance2 : AddScore = preload("res://Prefabs/Preload/AddScore.tscn").instantiate();
+	instance2.set_label(PointsOnShoot);
+	instance2.global_position = global_position;
+	get_tree().root.get_node("Node2D").add_child(instance2);
 	queue_free()
 	#TODO: Add particle system and points

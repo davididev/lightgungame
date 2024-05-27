@@ -14,10 +14,11 @@ size = Vector2(4000, 4000)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pxakj"]
 blend_mode = 1
 
-[node name="PlayerCamera" type="Camera2D"]
+[node name="PlayerCamera" type="Camera2D" node_paths=PackedStringArray("uiRef")]
 anchor_mode = 0
 script = ExtResource("1_okwfa")
 BulletPrefab = ExtResource("2_86q4p")
+uiRef = NodePath("CanvasLayer")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 2

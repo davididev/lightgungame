@@ -5,18 +5,50 @@ static var GameStarted : bool = false;
 static var CurrentX : float = 0.0;
 static var CameraX : float = 0.0;
 @export var BulletPrefab : PackedScene;
+@export var uiRef : PlayerUI;
+const FORCEFIELD_TIME : float = 15.0;
+const FORCEFIELD_NEGATE_TIME : float = 5.0;
+var forcefieldChargeTime : float = 0.0;  #Variable to determine the percentage
+var forcefieldNegateTime : float = -1.0;  #If you mis-use it, it gets frozen
+
+static var Health : int = 6;
+static var Score : int = 0;
+var _last_score : int = -1;
+var _last_health : int = -1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameStarted = true;
+	Health = 6;
 	pass # Replace with function body.
 
+func set_ui_elements(delta):
+	#Set Health if changed
+	if _last_health != Health:
+		uiRef.set_health(Health);
+		_last_health = Health;
+	
+	#Set Score if changed
+	if _last_score != Score:
+		uiRef.set_score(Score);
+		_last_score = Score;
+
+	if forcefieldNegateTime >= 0.0:
+		forcefieldChargeTime = 0.0;
+	else:
+		forcefieldChargeTime += delta;
+		if forcefieldChargeTime > FORCEFIELD_TIME:
+			forcefieldChargeTime = FORCEFIELD_TIME;
+		uiRef.set_forcefield_perc(forcefieldChargeTime / FORCEFIELD_TIME);
 
 var  jiggle_shape : bool = true;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if GameStarted == false: 
 		pass;
+	
+	set_ui_elements(delta);
+		
 	var width : float = get_viewport_rect().size.x;
 	CurrentX = global_position.x + width;
 	CameraX = global_position.x;

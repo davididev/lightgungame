@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://da7perm3dpvn5"]
+
+[ext_resource type="Script" path="res://Prefabs/Preload/AddScore.gd" id="1_mmm6y"]
+
+[node name="AddScore" type="Label"]
+top_level = true
+offset_right = 187.0
+offset_bottom = 56.0
+text = "+1"
+script = ExtResource("1_mmm6y")

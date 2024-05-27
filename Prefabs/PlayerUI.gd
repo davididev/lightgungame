@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+class_name PlayerUI;
 
 var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
 
@@ -7,38 +7,38 @@ var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
 func _ready():
 	set_health(6);
 	set_score(0);
-	test_health();
+	#test_health();
 
 #Delete this coroutine later
-func test_health():
-	set_health(6);
-	set_score(0);
-	await get_tree().create_timer(2.0).timeout;
-	set_health(5);
-	set_score(2);
-	await get_tree().create_timer(2.0).timeout;
-	set_health(4);
-	set_score(99);
-	await get_tree().create_timer(2.0).timeout;
-	set_health(3);
-	set_score(120);
-	await get_tree().create_timer(2.0).timeout;
-	set_health(2);
-	set_score(200);
-	await get_tree().create_timer(2.0).timeout;
-	set_health(1);
-	set_score(4333);
-	await get_tree().create_timer(2.0).timeout;
-	set_health(0);
-	set_score(54333);
-	await get_tree().create_timer(2.0).timeout;
+#func test_health():
+	#set_health(6);
+	#set_score(0);
+	#await get_tree().create_timer(2.0).timeout;
+	#set_health(5);
+	#set_score(2);
+	#await get_tree().create_timer(2.0).timeout;
+	#set_health(4);
+	#set_score(99);
+	#await get_tree().create_timer(2.0).timeout;
+	#set_health(3);
+	#set_score(120);
+	#await get_tree().create_timer(2.0).timeout;
+	#set_health(2);
+	#set_score(200);
+	#await get_tree().create_timer(2.0).timeout;
+	#set_health(1);
+	#set_score(4333);
+	#await get_tree().create_timer(2.0).timeout;
+	#set_health(0);
+	#set_score(54333);
+	#await get_tree().create_timer(2.0).timeout;
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#Delete these later, they will need to be replaced by real game vars
-	TEMP_PERCANTAGE = TEMP_PERCANTAGE + (delta / 15.0);  #takes 15 seconds to recharge
-	TEMP_PERCANTAGE = clampf(TEMP_PERCANTAGE, 0.0, 1.0)
-	set_forcefield_perc(TEMP_PERCANTAGE);
+	#TEMP_PERCANTAGE = TEMP_PERCANTAGE + (delta / 15.0);  #takes 15 seconds to recharge
+	#TEMP_PERCANTAGE = clampf(TEMP_PERCANTAGE, 0.0, 1.0)
+	#set_forcefield_perc(TEMP_PERCANTAGE);
 	pass
 
 func set_health(h : int):
