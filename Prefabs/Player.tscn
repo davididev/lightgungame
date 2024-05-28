@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://byosm6kwjujrd"]
+[gd_scene load_steps=15 format=3 uid="uid://byosm6kwjujrd"]
 
 [ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
 [ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2pxykik6pq58" path="res://UI/Game/HealthFG.png" id="4_hpysl"]
 [ext_resource type="Texture2D" uid="uid://kfpmtgqdlmy3" path="res://Sprites/Forcefield/FlashImage.png" id="5_qv4qj"]
 [ext_resource type="Texture2D" uid="uid://ux5f6maiondr" path="res://UI/Game/ForcefieldBarBG.png" id="6_emh5t"]
+[ext_resource type="Texture2D" uid="uid://bklkmuhtsm7ty" path="res://UI/Game/WindowTEMP.png" id="6_ogibx"]
 [ext_resource type="Texture2D" uid="uid://b3rgvescw7lvv" path="res://UI/Game/ForcefieldBarFG.png" id="7_p2ehw"]
 [ext_resource type="Theme" uid="uid://db741c2hbeopy" path="res://UI/Styles/MenuButton1.tres" id="9_3kfrd"]
 [ext_resource type="Texture2D" uid="uid://h5lqae530qsp" path="res://Sprites/Forcefield/ForcefieldTemp.png" id="10_qy6vq"]
@@ -49,6 +50,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_qv4qj")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+offset_right = 499.0
+offset_bottom = 106.0
+texture = ExtResource("6_ogibx")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 79.0
