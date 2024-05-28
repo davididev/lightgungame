@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byosm6kwjujrd"]
+[gd_scene load_steps=19 format=3 uid="uid://byosm6kwjujrd"]
 
 [ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
 [ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://b3rgvescw7lvv" path="res://UI/Game/ForcefieldBarFG.png" id="7_p2ehw"]
 [ext_resource type="Theme" uid="uid://db741c2hbeopy" path="res://UI/Styles/MenuButton1.tres" id="9_3kfrd"]
 [ext_resource type="Texture2D" uid="uid://h5lqae530qsp" path="res://Sprites/Forcefield/ForcefieldTemp.png" id="10_qy6vq"]
+[ext_resource type="Texture2D" uid="uid://bcuglc6dyeve5" path="res://UI/Game/Pause_Normal.png" id="13_8ujp3"]
+[ext_resource type="Texture2D" uid="uid://dbg3v1wcssv6k" path="res://UI/Game/Pause_Pressed.png" id="14_ew764"]
+[ext_resource type="Texture2D" uid="uid://bpmnciq2x8n75" path="res://UI/Game/Pause_Hover.png" id="15_qemx1"]
+[ext_resource type="Theme" uid="uid://cwt8r6m5gmd65" path="res://UI/Styles/HeaderText.tres" id="16_7n3u3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aa34"]
 size = Vector2(4000, 4000)
@@ -51,8 +55,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_qv4qj")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
-offset_right = 499.0
+[node name="MainWindow" type="NinePatchRect" parent="CanvasLayer"]
+offset_right = 613.0
 offset_bottom = 106.0
 texture = ExtResource("6_ogibx")
 patch_margin_left = 8
@@ -157,6 +161,148 @@ text = "
 
 Field"
 
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 540.0
+offset_top = 2.0
+offset_right = 603.0
+offset_bottom = 65.0
+texture_normal = ExtResource("13_8ujp3")
+texture_pressed = ExtResource("14_ew764")
+texture_hover = ExtResource("15_qemx1")
+texture_focused = ExtResource("15_qemx1")
+
+[node name="Pause Window" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -194.0
+offset_right = 307.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ogibx")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Panel0" type="Node2D" parent="CanvasLayer/Pause Window"]
+visible = false
+
+[node name="Header" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel0"]
+offset_right = 592.0
+offset_bottom = 93.0
+theme = ExtResource("16_7n3u3")
+bbcode_enabled = true
+text = "[center]Game Paused"
+
+[node name="Settings Button" type="Button" parent="CanvasLayer/Pause Window/Panel0"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 197.0
+offset_top = 180.0
+offset_right = 401.0
+offset_bottom = 243.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "Settings"
+
+[node name="Quit Button" type="Button" parent="CanvasLayer/Pause Window/Panel0"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 197.0
+offset_top = 268.0
+offset_right = 401.0
+offset_bottom = 331.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "Save & Quit"
+
+[node name="Resume Button" type="Button" parent="CanvasLayer/Pause Window/Panel0"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 197.0
+offset_top = 100.0
+offset_right = 401.0
+offset_bottom = 163.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "Resume play"
+
+[node name="Panel1" type="Node2D" parent="CanvasLayer/Pause Window"]
+
+[node name="Header2" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel1"]
+offset_right = 592.0
+offset_bottom = 93.0
+theme = ExtResource("16_7n3u3")
+bbcode_enabled = true
+text = "[center]Settings"
+
+[node name="Button No2" type="Button" parent="CanvasLayer/Pause Window/Panel1"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 190.0
+offset_top = 116.0
+offset_right = 394.0
+offset_bottom = 179.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "Return to main menu"
+
+[node name="Panel2" type="Node2D" parent="CanvasLayer/Pause Window"]
+visible = false
+
+[node name="Header2" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel2"]
+offset_right = 592.0
+offset_bottom = 93.0
+theme = ExtResource("16_7n3u3")
+bbcode_enabled = true
+text = "[center]Are you sure?"
+
+[node name="Button Yes" type="Button" parent="CanvasLayer/Pause Window/Panel2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 60.0
+offset_top = 116.0
+offset_right = 264.0
+offset_bottom = 179.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "Yes"
+
+[node name="Button No" type="Button" parent="CanvasLayer/Pause Window/Panel2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 318.0
+offset_top = 116.0
+offset_right = 522.0
+offset_bottom = 179.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "No"
+
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
 [connection signal="button_down" from="CanvasLayer/ForcefieldButton" to="." method="_on_forcefield_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/ForcefieldButton" to="." method="_on_forcefield_button_button_up"]
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel0/Settings Button" to="CanvasLayer" method="_go_to_settings_panel"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel0/Quit Button" to="CanvasLayer" method="_save_and_quit_confirm_panel"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel0/Resume Button" to="CanvasLayer" method="unpause_game"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel1/Button No2" to="CanvasLayer" method="_back_to_main_pause_panel"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel2/Button Yes" to="CanvasLayer" method="_quit_game"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel2/Button No" to="CanvasLayer" method="_back_to_main_pause_panel"]

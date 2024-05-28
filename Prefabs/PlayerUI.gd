@@ -1,12 +1,15 @@
 extends CanvasLayer
 class_name PlayerUI;
 
+var paused : bool = false;
 var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_health(6);
 	set_score(0);
+	paused = false;
+	update_pause_menu();
 	#test_health();
 
 #Delete this coroutine later
@@ -33,6 +36,21 @@ func _ready():
 	#set_score(54333);
 	#await get_tree().create_timer(2.0).timeout;
 	
+func update_pause_menu():
+	if paused == false:
+		Engine.time_scale = 1.0;
+	else:
+		Engine.time_scale = 0.0;
+	
+	get_node("Pause Window").visible = paused;
+	if paused:
+		set_pause_panel(0);
+	
+func set_pause_panel(id : int):
+	for n in range(0, 3, 1):
+		print("Setting pause panel ", n)
+		var actual_string = str("Pause Window/Panel", n);
+		get_node(actual_string).visible = n == id;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#Delete these later, they will need to be replaced by real game vars
@@ -59,3 +77,29 @@ func set_forcefield_perc(perc : float):
 	var s = get_node("ForcefieldChargeBG/ForcefieldChargeFG").size;
 	s.x = 180.0 * perc;
 	get_node("ForcefieldChargeBG/ForcefieldChargeFG").size = s;
+
+
+func _on_pause_button_pressed():
+	paused = !paused;
+	update_pause_menu();
+
+
+func _back_to_main_pause_panel():
+	set_pause_panel(0);
+	
+func _quit_game():
+	#TODO: Add save feature
+	get_tree().change_scene_to_file("res://Scenes/TitleScreen.tscn");
+
+
+func unpause_game():
+	paused = false;
+	update_pause_menu();
+
+
+func _go_to_settings_panel():
+	set_pause_panel(1);
+
+
+func _save_and_quit_confirm_panel():
+	set_pause_panel(2);
