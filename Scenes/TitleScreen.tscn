@@ -13,7 +13,7 @@ script = ExtResource("1_tomvo")
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 83.0
+offset_bottom = 97.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_3jyyb")
