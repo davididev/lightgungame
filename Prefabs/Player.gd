@@ -85,6 +85,7 @@ func _process(delta):
 		get_node("RigidBody2D/ForcefieldOverlay").visible = false;
 
 func fire_bullet(screenPos : Vector2):
+	SoundFX.PlaySound("Pistol", get_tree());
 	var canvas_pos = get_viewport().get_canvas_transform().affine_inverse() * screenPos
 	var instance = BulletPrefab.instantiate();
 	instance.position = canvas_pos;

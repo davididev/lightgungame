@@ -16,6 +16,10 @@ run/main_scene="res://Scenes/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://global_audio.tres"
+
 [debug]
 
 gdscript/warnings/unused_signal=0

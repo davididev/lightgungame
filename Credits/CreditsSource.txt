@@ -7,7 +7,8 @@ Fonts:
 	SubZer0 by Avendrakon
 	
 Audio:
-	Blah blah blah
+	Sci-fi sounds by Ovani Sound
+	Music by SideTrax
 	
 Coding
 	Coded in Godot by Davidi and Nuez

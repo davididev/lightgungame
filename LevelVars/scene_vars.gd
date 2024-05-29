@@ -1,12 +1,13 @@
 extends Node2D
 class_name SceneVars
 @export var steps : Array[LevelStep]
+@export var song_name : String = "Bonus"; 
 
 static var MoveSpeed = 32.0;
 var current_step = -1;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	PlayMusic.PlaySong(song_name, get_tree());
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

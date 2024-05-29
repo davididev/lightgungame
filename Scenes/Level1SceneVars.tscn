@@ -11,3 +11,4 @@ ending_x = 8192.0
 [node name="SceneVars" type="Node2D"]
 script = ExtResource("1_gm1fg")
 steps = Array[ExtResource("2_c8hi2")]([SubResource("Resource_s7hve")])
+song_name = "IndoorLevel"
