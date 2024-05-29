@@ -1,10 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://chvk567oyq7wg"]
+[gd_scene load_steps=2 format=3 uid="uid://barw5sooq03gv"]
 
-[ext_resource type="Script" path="res://Prefabs/Preload/play_music.gd" id="1_vu61a"]
+[ext_resource type="Script" path="res://Prefabs/Preload/play_music.gd" id="1_x4dhj"]
 
 [node name="PlayMusic" type="Node2D" node_paths=PackedStringArray("ref")]
-script = ExtResource("1_vu61a")
+script = ExtResource("1_x4dhj")
 ref = NodePath("AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-bus = &"Music"
