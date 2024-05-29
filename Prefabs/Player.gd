@@ -33,6 +33,10 @@ func set_ui_elements(delta):
 		uiRef.set_score(Score);
 		_last_score = Score;
 
+	if Input.is_action_just_pressed("Forcefield"):
+		forcefield_button_on = true;
+	if Input.is_action_just_released("Forcefield"):	
+		forcefield_button_on = false;
 	if forcefield_button_on == true: #Forcefield button on, rechrage
 		forcefieldChargeTime -= delta * 2.0;
 		if forcefieldChargeTime < 0.0:

@@ -57,7 +57,8 @@ func _process(delta):
 	#TEMP_PERCANTAGE = TEMP_PERCANTAGE + (delta / 15.0);  #takes 15 seconds to recharge
 	#TEMP_PERCANTAGE = clampf(TEMP_PERCANTAGE, 0.0, 1.0)
 	#set_forcefield_perc(TEMP_PERCANTAGE);
-	pass
+	if Input.is_action_just_pressed("Pause"):
+		_on_pause_button_pressed();
 
 func set_health(h : int):
 	for n in range(0, 6, 1):
