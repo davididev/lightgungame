@@ -62,6 +62,9 @@ func _process(delta):
 	if GameStarted == false: 
 		pass;
 	
+	if Engine.time_scale < 0.1:  #Game is paused
+		return;
+	
 	if damage_routine == true:
 		run_damage_flash();
 	set_ui_elements(delta);
@@ -85,6 +88,8 @@ func _process(delta):
 		get_node("RigidBody2D/ForcefieldOverlay").visible = false;
 
 func fire_bullet(screenPos : Vector2):
+	if Engine.time_scale < 0.1:  #Game is paused
+		return;
 	SoundFX.PlaySound("Pistol", get_tree());
 	var canvas_pos = get_viewport().get_canvas_transform().affine_inverse() * screenPos
 	var instance = BulletPrefab.instantiate();
