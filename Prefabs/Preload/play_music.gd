@@ -29,3 +29,6 @@ static func PlaySong(song_name : String, t : SceneTree):
 func _process(delta):
 	if ref.playing == false:
 		ref.play();	
+	var pos = global_position;
+	pos.x = Player.CameraX;
+	global_position = pos;
