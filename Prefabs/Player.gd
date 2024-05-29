@@ -90,7 +90,7 @@ func _process(delta):
 func fire_bullet(screenPos : Vector2):
 	if Engine.time_scale < 0.1:  #Game is paused
 		return;
-	SoundFX.PlaySound("Pistol", get_tree());
+	SoundFX.PlaySound("Pistol", get_tree(), global_position);
 	var canvas_pos = get_viewport().get_canvas_transform().affine_inverse() * screenPos
 	var instance = BulletPrefab.instantiate();
 	instance.position = canvas_pos;

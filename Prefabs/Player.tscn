@@ -34,6 +34,10 @@ collision_layer = 2
 collision_mask = 2
 input_pickable = true
 gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+linear_damp = 50000.0
+angular_damp = 9.22337e+18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_3aa34")

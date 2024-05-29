@@ -7,8 +7,9 @@ class_name SoundFX;
 func _ready():
 	pass # Replace with function body.
 
-static func PlaySound(file_name : String, t : SceneTree):
+static func PlaySound(file_name : String, t : SceneTree, pos : Vector2):
 	var instance : SoundFX = preload("res://Prefabs/Preload/play_sound_fx.tscn").instantiate(); 
+	instance.global_position = pos;
 	t.root.add_child(instance);
 	var asset_name : String = str("res://Audio/Sound/", file_name, ".wav");
 	instance.ref.stream = load(asset_name);
