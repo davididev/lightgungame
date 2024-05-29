@@ -172,7 +172,6 @@ texture_hover = ExtResource("15_qemx1")
 texture_focused = ExtResource("15_qemx1")
 
 [node name="Pause Window" type="NinePatchRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -240,7 +239,6 @@ theme = ExtResource("9_3kfrd")
 text = "Resume play"
 
 [node name="Panel1" type="Node2D" parent="CanvasLayer/Pause Window"]
-visible = false
 
 [node name="Header2" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel1"]
 offset_right = 592.0
@@ -254,13 +252,61 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 190.0
-offset_top = 116.0
+offset_top = 60.0
 offset_right = 394.0
-offset_bottom = 179.0
+offset_bottom = 123.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme = ExtResource("9_3kfrd")
 text = "Return to main menu"
+
+[node name="Volume_Global_Slider" type="HSlider" parent="CanvasLayer/Pause Window/Panel1"]
+offset_left = 338.0
+offset_top = 146.0
+offset_right = 561.0
+offset_bottom = 162.0
+value = 100.0
+
+[node name="Volume_Global_Label" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel1"]
+offset_left = 72.0
+offset_top = 144.0
+offset_right = 313.0
+offset_bottom = 184.0
+theme = ExtResource("4_gqqo2")
+bbcode_enabled = true
+text = "[right]Global Volume: [color=yellow]100%"
+
+[node name="Volume_Music_Slider" type="HSlider" parent="CanvasLayer/Pause Window/Panel1"]
+offset_left = 338.0
+offset_top = 192.0
+offset_right = 561.0
+offset_bottom = 208.0
+value = 100.0
+
+[node name="Volume_Music_Label" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel1"]
+offset_left = 72.0
+offset_top = 187.0
+offset_right = 313.0
+offset_bottom = 227.0
+theme = ExtResource("4_gqqo2")
+bbcode_enabled = true
+text = "[right]Music Volume: [color=yellow]100%"
+
+[node name="Volume_FX_Slider" type="HSlider" parent="CanvasLayer/Pause Window/Panel1"]
+offset_left = 338.0
+offset_top = 237.0
+offset_right = 561.0
+offset_bottom = 253.0
+value = 100.0
+
+[node name="Volume_FX_Label" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel1"]
+offset_left = 72.0
+offset_top = 235.0
+offset_right = 313.0
+offset_bottom = 275.0
+theme = ExtResource("4_gqqo2")
+bbcode_enabled = true
+text = "[right]Sound FX Volume: [color=yellow]100%"
 
 [node name="Panel2" type="Node2D" parent="CanvasLayer/Pause Window"]
 visible = false
@@ -306,5 +352,8 @@ text = "No"
 [connection signal="pressed" from="CanvasLayer/Pause Window/Panel0/Quit Button" to="CanvasLayer" method="_save_and_quit_confirm_panel"]
 [connection signal="pressed" from="CanvasLayer/Pause Window/Panel0/Resume Button" to="CanvasLayer" method="unpause_game"]
 [connection signal="pressed" from="CanvasLayer/Pause Window/Panel1/Button No2" to="CanvasLayer" method="_back_to_main_pause_panel"]
+[connection signal="value_changed" from="CanvasLayer/Pause Window/Panel1/Volume_Global_Slider" to="CanvasLayer" method="_on_change_volume_global"]
+[connection signal="value_changed" from="CanvasLayer/Pause Window/Panel1/Volume_Music_Slider" to="CanvasLayer" method="_on_change_volume_music"]
+[connection signal="value_changed" from="CanvasLayer/Pause Window/Panel1/Volume_FX_Slider" to="CanvasLayer" method="_on_change_volume_fx"]
 [connection signal="pressed" from="CanvasLayer/Pause Window/Panel2/Button Yes" to="CanvasLayer" method="_quit_game"]
 [connection signal="pressed" from="CanvasLayer/Pause Window/Panel2/Button No" to="CanvasLayer" method="_back_to_main_pause_panel"]

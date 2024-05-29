@@ -103,3 +103,24 @@ func _go_to_settings_panel():
 
 func _save_and_quit_confirm_panel():
 	set_pause_panel(2);
+
+@onready var _bus1 := AudioServer.get_bus_index(&"Master")
+@onready var _bus2 := AudioServer.get_bus_index(&"Music")
+@onready var _bus3 := AudioServer.get_bus_index(&"SoundFX")
+
+func _on_change_volume_global(value):
+	var actual_str = str("[right]Global Volume: [color=yellow]", value, "%")
+	get_node("Pause Window/Panel1/Volume_Global_Label").text = actual_str;
+	AudioServer.set_bus_volume_db(_bus1, linear_to_db(value / 100.0));
+
+
+func _on_change_volume_music(value):
+	var actual_str = str("[right]Music Volume: [color=yellow]", value, "%")
+	get_node("Pause Window/Panel1/Volume_Music_Label").text = actual_str;
+	AudioServer.set_bus_volume_db(_bus2, linear_to_db(value / 100.0));
+
+
+func _on_change_volume_fx(value):
+	var actual_str = str("[right]Sound FX Volume: [color=yellow]", value, "%")
+	get_node("Pause Window/Panel1/Volume_FX_Label").text = actual_str;
+	AudioServer.set_bus_volume_db(_bus3, linear_to_db(value / 100.0));
