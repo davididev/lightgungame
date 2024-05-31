@@ -7,3 +7,4 @@ script = ExtResource("1_x4dhj")
 ref = NodePath("AudioStreamPlayer2D")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"Music"
