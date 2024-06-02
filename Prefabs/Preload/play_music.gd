@@ -10,6 +10,7 @@ func _ready():
 
 static func PlaySong(song_name : String, t : SceneTree):
 	if Instance == null:
+		await t.create_timer(0.05).timeout;
 		Init_Count += 1;
 		if Init_Count > 3:
 			print("Error creating the PlayMusic node");
