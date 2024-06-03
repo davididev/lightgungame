@@ -3,6 +3,7 @@ class_name SavaData
 
 static var File_ID = 0;
 
+static var FileName : String = "NIL";
 static var CurrentLevel : String = "Bonus1";
 static var Score : int = 0;
 static var Continues : int = 3;
@@ -15,6 +16,7 @@ static var VolumeSound : float = 1.0;
 
 static func NewFile(id : int):
 	CurrentLevel = "Bonus1";
+	FileName = "NIL";
 	File_ID = id;
 	Score = 0;
 	Continues = 3;
@@ -27,6 +29,7 @@ static func NewFile(id : int):
 	
 static func SaveFile():
 	var config = ConfigFile.new();
+	config.set_value("Main", "FileName", FileName);
 	config.set_value("Main", "CurrentLevel", CurrentLevel);
 	config.set_value("Main", "Score", Score);
 	config.set_value("Main", "Continues", Continues);
@@ -44,8 +47,10 @@ static func LoadFile():
 	var config = ConfigFile.new();
 	var err = config.load(fileName);
 	if err != OK:  #No file, return
-		return;  
+		NewFile(File_ID);
+		return false;  
 	for sec in config.get_sections():  #There's really only one section, but no get_section function
+		FileName = config.get_value(sec, "FileName");
 		CurrentLevel = config.get_value(sec, "CurrentLevel");
 		Score = config.get_value(sec, "Score");
 		Continues = config.get_value(sec, "Continues");
@@ -56,3 +61,4 @@ static func LoadFile():
 		VolumeMusic = config.get_value(sec, "VolumeMusic");
 		VolumeSound = config.get_value(sec, "VolumeSound");
 	
+	return true;	

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbxfxtnm67s2"]
+
+[ext_resource type="Script" path="res://Scenes/Loading.gd" id="1_187nb"]
+[ext_resource type="Theme" uid="uid://cwt8r6m5gmd65" path="res://UI/Styles/HeaderText.tres" id="1_veqll"]
+[ext_resource type="Theme" uid="uid://bohv013kb04n8" path="res://UI/Styles/PlainTextLabel.tres" id="2_3tdun"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_187nb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Header" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 780.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme = ExtResource("1_veqll")
+bbcode_enabled = true
+text = "[center]Loading:
+Level1"
+
+[node name="PerctangeText" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 112.0
+offset_right = 780.0
+offset_bottom = 238.0
+grow_horizontal = 2
+theme = ExtResource("2_3tdun")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]0%"

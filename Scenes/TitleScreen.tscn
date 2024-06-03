@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://tlwj5tv7u4fs"]
+[gd_scene load_steps=6 format=3 uid="uid://tlwj5tv7u4fs"]
 
 [ext_resource type="Theme" uid="uid://cwt8r6m5gmd65" path="res://UI/Styles/HeaderText.tres" id="1_3jyyb"]
 [ext_resource type="Script" path="res://Scenes/TitleScreenUI.gd" id="1_tomvo"]
 [ext_resource type="Theme" uid="uid://db741c2hbeopy" path="res://UI/Styles/MenuButton1.tres" id="2_jf18w"]
 [ext_resource type="Texture2D" uid="uid://bklkmuhtsm7ty" path="res://UI/Game/WindowTEMP.png" id="3_dmtab"]
+[ext_resource type="Theme" uid="uid://bohv013kb04n8" path="res://UI/Styles/PlainTextLabel.tres" id="5_1skp5"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("Panels", "FileButtons")]
 script = ExtResource("1_tomvo")
+Panels = [NodePath("Panel_SelectFile"), NodePath("PanelNewFile"), NodePath("PanelLoadedFile")]
+FileButtons = [NodePath("Panel_SelectFile/File1"), NodePath("Panel_SelectFile/File2"), NodePath("Panel_SelectFile/File3"), NodePath("Panel_SelectFile/File4")]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = 10
@@ -20,15 +23,15 @@ theme = ExtResource("1_3jyyb")
 bbcode_enabled = true
 text = "[center]Insert Game Title Here[/center]"
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+[node name="Panel_SelectFile" type="NinePatchRect" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -218.0
-offset_top = -74.0
-offset_right = 222.0
+offset_left = -330.0
+offset_top = -188.0
+offset_right = 298.0
 offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -38,51 +41,204 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="ButtonTestLevel1" type="Button" parent="CanvasLayer"]
+[node name="Button Quit" type="Button" parent="CanvasLayer/Panel_SelectFile"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -189.0
-offset_top = -23.0
-offset_right = 189.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_jf18w")
-text = "Play Test Bonus level"
-
-[node name="ButtonTestLevel2" type="Button" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -189.0
-offset_top = 33.0
-offset_right = 189.0
-offset_bottom = 79.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_jf18w")
-text = "Play Test Main level"
-
-[node name="Button Quit" type="Button" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -189.0
-offset_top = 105.0
-offset_right = 189.0
-offset_bottom = 151.0
+offset_left = -191.0
+offset_top = 117.5
+offset_right = 187.0
+offset_bottom = 163.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_jf18w")
 text = "Quit"
 
-[connection signal="button_down" from="CanvasLayer/ButtonTestLevel1" to="CanvasLayer" method="_on_button_test_level_1_button_down"]
-[connection signal="button_down" from="CanvasLayer/ButtonTestLevel2" to="CanvasLayer" method="_on_button_test_level_2_button_down"]
-[connection signal="button_down" from="CanvasLayer/Button Quit" to="CanvasLayer" method="_on_button_quit_button_down"]
+[node name="File1" type="Button" parent="CanvasLayer/Panel_SelectFile"]
+layout_mode = 1
+offset_left = 26.0
+offset_top = 24.0
+offset_right = 268.0
+offset_bottom = 92.0
+theme = ExtResource("2_jf18w")
+text = "File 1: Empty"
+
+[node name="File2" type="Button" parent="CanvasLayer/Panel_SelectFile"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -258.0
+offset_top = 25.0
+offset_right = -16.0
+offset_bottom = 93.0
+grow_horizontal = 0
+theme = ExtResource("2_jf18w")
+text = "File 2: Empty"
+
+[node name="File3" type="Button" parent="CanvasLayer/Panel_SelectFile"]
+layout_mode = 1
+offset_left = 26.0
+offset_top = 150.0
+offset_right = 268.0
+offset_bottom = 218.0
+theme = ExtResource("2_jf18w")
+text = "File 3: Empty"
+
+[node name="File4" type="Button" parent="CanvasLayer/Panel_SelectFile"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -258.0
+offset_top = 150.0
+offset_right = -16.0
+offset_bottom = 218.0
+grow_horizontal = 0
+theme = ExtResource("2_jf18w")
+text = "File 4: Empty"
+
+[node name="PanelNewFile" type="NinePatchRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -188.0
+offset_right = 298.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dmtab")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Button Cancel" type="Button" parent="CanvasLayer/PanelNewFile"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -61.0
+offset_right = 270.0
+offset_bottom = -11.0
+grow_vertical = 0
+theme = ExtResource("2_jf18w")
+text = "Cancel
+"
+
+[node name="Button Create File" type="Button" parent="CanvasLayer/PanelNewFile"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -61.0
+offset_right = -23.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_jf18w")
+text = "Create"
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/PanelNewFile"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Type in your name"
+
+[node name="PanelLoadedFile" type="NinePatchRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -188.0
+offset_right = 298.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dmtab")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Button Cancel" type="Button" parent="CanvasLayer/PanelLoadedFile"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -61.0
+offset_right = 270.0
+offset_bottom = -11.0
+grow_vertical = 0
+theme = ExtResource("2_jf18w")
+text = "Cancel
+"
+
+[node name="Button Play Game" type="Button" parent="CanvasLayer/PanelLoadedFile"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -61.0
+offset_right = -23.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_jf18w")
+text = "Play"
+
+[node name="Header" type="RichTextLabel" parent="CanvasLayer/PanelLoadedFile"]
+layout_mode = 1
+offset_left = 20.0
+offset_right = 600.0
+offset_bottom = 100.0
+theme = ExtResource("1_3jyyb")
+text = "Player name"
+
+[node name="GameData" type="RichTextLabel" parent="CanvasLayer/PanelLoadedFile"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 600.0
+offset_bottom = 200.0
+theme = ExtResource("5_1skp5")
+bbcode_enabled = true
+text = "[color=yellow]Current Level: [/color]0
+[color=yellow]Score: [/color]0"
+
+[connection signal="button_down" from="CanvasLayer/Panel_SelectFile/Button Quit" to="CanvasLayer" method="_on_button_quit_button_down"]
+[connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File1" to="CanvasLayer" method="_on_file_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File2" to="CanvasLayer" method="_on_file_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File3" to="CanvasLayer" method="_on_file_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File4" to="CanvasLayer" method="_on_file_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelNewFile/Button Cancel" to="CanvasLayer" method="_go_to_main_panel"]
+[connection signal="pressed" from="CanvasLayer/PanelNewFile/Button Create File" to="CanvasLayer" method="_on_button_create_file_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelLoadedFile/Button Cancel" to="CanvasLayer" method="_go_to_main_panel"]
+[connection signal="pressed" from="CanvasLayer/PanelLoadedFile/Button Play Game" to="CanvasLayer" method="_on_button_play_game_pressed"]
