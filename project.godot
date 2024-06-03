@@ -23,6 +23,7 @@ buses/default_bus_layout="res://global_audio.tres"
 [autoload]
 
 SaveData="*res://Prefabs/Preload/SaveData.gd"
+PlayMusic2="*res://Prefabs/Preload/play_music.tscn"
 
 [debug]
 

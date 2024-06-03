@@ -10,16 +10,8 @@ func _ready():
 
 static func PlaySong(song_name : String, t : SceneTree):
 	if Instance == null:
-		await t.create_timer(0.05).timeout;
-		Init_Count += 1;
-		if Init_Count > 3:
-			print("Error creating the PlayMusic node");
-			return;
-		var instance2 = preload("res://Prefabs/Preload/play_music.tscn").instantiate();
-		t.get_root().add_child(instance2);  #Make it global
-		await t.create_timer(0.05).timeout;
-		PlayMusic.PlaySong(song_name, t);
 		return;
+	
 	if Instance.last_song == song_name:  #Tried to play the same one, don't process
 		return;
 	var asset_name : String = str("res://Audio/Music/", song_name, ".wav");
