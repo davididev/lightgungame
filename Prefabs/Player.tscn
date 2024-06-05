@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://byosm6kwjujrd"]
+[gd_scene load_steps=27 format=3 uid="uid://byosm6kwjujrd"]
 
 [ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
 [ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxepkpc338ryp" path="res://UI/Game/HealthBG.png" id="3_xvyfe"]
 [ext_resource type="Theme" uid="uid://bohv013kb04n8" path="res://UI/Styles/PlainTextLabel.tres" id="4_gqqo2"]
 [ext_resource type="Texture2D" uid="uid://b2pxykik6pq58" path="res://UI/Game/HealthFG.png" id="4_hpysl"]
+[ext_resource type="PackedScene" uid="uid://bdt0xnj17ggxt" path="res://Prefabs/Player/PlayerExplosion.tscn" id="4_qhuyk"]
 [ext_resource type="Texture2D" uid="uid://kfpmtgqdlmy3" path="res://Sprites/Forcefield/FlashImage.png" id="5_qv4qj"]
 [ext_resource type="Texture2D" uid="uid://ux5f6maiondr" path="res://UI/Game/ForcefieldBarBG.png" id="6_emh5t"]
 [ext_resource type="Texture2D" uid="uid://bklkmuhtsm7ty" path="res://UI/Game/WindowTEMP.png" id="6_ogibx"]
@@ -35,6 +36,7 @@ anchor_mode = 0
 script = ExtResource("1_okwfa")
 BulletPrefab = ExtResource("2_86q4p")
 LaserCrossPrefab = ExtResource("3_ik1tu")
+ExplosionPrefab = ExtResource("4_qhuyk")
 uiRef = NodePath("CanvasLayer")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]

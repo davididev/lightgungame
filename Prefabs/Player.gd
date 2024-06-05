@@ -6,6 +6,7 @@ static var CurrentX : float = 0.0;
 static var CameraX : float = 0.0;
 @export var BulletPrefab : PackedScene;
 @export var LaserCrossPrefab : PackedScene;
+@export var ExplosionPrefab : PackedScene;
 @export var uiRef : PlayerUI;
 const FORCEFIELD_TIME : float = 15.0;
 const FORCEFIELD_NEGATE_TIME : float = 5.0;
@@ -123,6 +124,12 @@ func fire_bullet(screenPos : Vector2):
 			uiRef.update_ammo_text();
 			SoundFX.PlaySound("Pistol", get_tree(), global_position);
 			create_bullet_instance(LaserCrossPrefab, screenPos);
+	if Player.SelectedBullet == 3:
+		if SaveData.Ammo3 > 0:
+			SaveData.Ammo3 -= 1;
+			uiRef.update_ammo_text();
+			SoundFX.PlaySound("Pistol", get_tree(), global_position);
+			create_bullet_instance(ExplosionPrefab, screenPos);
 	
 var currentInput : InputEvent;
 var touchHeldDown = false;
