@@ -94,7 +94,7 @@ linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_b5iup")
 ExplosionParticle = ExtResource("2_xfjsi")
-ammoAmount = 300
+ammoAmount = 150
 gravity_scale_on_seen = 0.5
 ref_to_label = NodePath("Label")
 ref_to_sprite = NodePath("AnimatedSprite2D")
@@ -115,6 +115,9 @@ theme = ExtResource("21_w5wkq")
 horizontal_alignment = 1
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(22, 0.999999)
+scale = Vector2(2.1, 2.3)
+rect = Rect2(-20, -10, 20, 20)
 
 [connection signal="on_shot" from="." to="." method="_on_on_shot"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

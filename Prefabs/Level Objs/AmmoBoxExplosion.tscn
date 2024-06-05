@@ -117,6 +117,7 @@ theme = ExtResource("21_7p5n6")
 horizontal_alignment = 1
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+rect = Rect2(-20, -10, 40, 40)
 
 [connection signal="on_shot" from="." to="." method="_on_on_shot"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
