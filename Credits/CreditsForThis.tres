@@ -16,7 +16,7 @@ Entries = Array[String](["Coded in Godot by Davidi and Nuez"])
 [sub_resource type="Resource" id="Resource_br0tq"]
 script = ExtResource("1_eb4wq")
 Category = "Fonts"
-Entries = Array[String](["Lazenby Computer à € by Disaster Fonts ", "SubZer0 by Avendrakon"])
+Entries = Array[String](["Lazenby Computer à € by Disaster Fonts ", "SubZer0 by Avendrakon", "Pixel Operator à € by Jayvee Enaguas "])
 
 [sub_resource type="Resource" id="Resource_sjs2t"]
 script = ExtResource("1_eb4wq")

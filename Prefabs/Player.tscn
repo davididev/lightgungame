@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byosm6kwjujrd"]
+[gd_scene load_steps=25 format=3 uid="uid://byosm6kwjujrd"]
 
 [ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
 [ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
@@ -9,9 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://kfpmtgqdlmy3" path="res://Sprites/Forcefield/FlashImage.png" id="5_qv4qj"]
 [ext_resource type="Texture2D" uid="uid://ux5f6maiondr" path="res://UI/Game/ForcefieldBarBG.png" id="6_emh5t"]
 [ext_resource type="Texture2D" uid="uid://bklkmuhtsm7ty" path="res://UI/Game/WindowTEMP.png" id="6_ogibx"]
+[ext_resource type="Texture2D" uid="uid://2qayo48if6x6" path="res://UI/Game/FireIcons/SingleBullet.png" id="7_3sr13"]
 [ext_resource type="Texture2D" uid="uid://b3rgvescw7lvv" path="res://UI/Game/ForcefieldBarFG.png" id="7_p2ehw"]
+[ext_resource type="Texture2D" uid="uid://wqe4gwmeearj" path="res://UI/Game/FireIcons/MachineGun.png" id="8_yf1r3"]
 [ext_resource type="Theme" uid="uid://db741c2hbeopy" path="res://UI/Styles/MenuButton1.tres" id="9_3kfrd"]
+[ext_resource type="Texture2D" uid="uid://b2rit85wfenjg" path="res://UI/Game/FireIcons/LaserCross.png" id="9_jgx7v"]
 [ext_resource type="Texture2D" uid="uid://h5lqae530qsp" path="res://Sprites/Forcefield/ForcefieldTemp.png" id="10_qy6vq"]
+[ext_resource type="Texture2D" uid="uid://dsmpd0q2x77rn" path="res://UI/Game/FireIcons/Explosion.png" id="10_y437x"]
+[ext_resource type="Texture2D" uid="uid://bk8vpo40xfuc6" path="res://UI/Game/FireIcons/InfinitySymbol.png" id="11_n0c0r"]
+[ext_resource type="Theme" uid="uid://baufqfbd3bl7a" path="res://UI/Styles/AmmoHolder.tres" id="12_7c54a"]
 [ext_resource type="Texture2D" uid="uid://bcuglc6dyeve5" path="res://UI/Game/Pause_Normal.png" id="13_8ujp3"]
 [ext_resource type="Texture2D" uid="uid://dbg3v1wcssv6k" path="res://UI/Game/Pause_Pressed.png" id="14_ew764"]
 [ext_resource type="Texture2D" uid="uid://bpmnciq2x8n75" path="res://UI/Game/Pause_Hover.png" id="15_qemx1"]
@@ -61,12 +67,83 @@ texture = ExtResource("5_qv4qj")
 
 [node name="MainWindow" type="NinePatchRect" parent="CanvasLayer"]
 offset_right = 613.0
-offset_bottom = 106.0
+offset_bottom = 162.0
 texture = ExtResource("6_ogibx")
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
+
+[node name="CheckBoxSingle" type="CheckBox" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 104.0
+offset_right = 32.0
+offset_bottom = 128.0
+action_mode = 0
+icon = ExtResource("7_3sr13")
+
+[node name="CheckBoxMachineGun" type="CheckBox" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 104.0
+offset_right = 104.0
+offset_bottom = 136.0
+action_mode = 0
+icon = ExtResource("8_yf1r3")
+
+[node name="CheckBoxLaserCross" type="CheckBox" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 104.0
+offset_right = 168.0
+offset_bottom = 136.0
+action_mode = 0
+icon = ExtResource("9_jgx7v")
+
+[node name="CheckBoxExplosion" type="CheckBox" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 104.0
+offset_right = 232.0
+offset_bottom = 136.0
+action_mode = 0
+icon = ExtResource("10_y437x")
+
+[node name="AmmoSingle" type="TextureRect" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 120.0
+offset_right = 46.0
+offset_bottom = 160.0
+texture = ExtResource("11_n0c0r")
+
+[node name="AmmoMachine" type="Label" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 129.0
+offset_right = 116.0
+offset_bottom = 152.0
+theme = ExtResource("12_7c54a")
+text = "0000"
+
+[node name="AmmoCross" type="Label" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 129.0
+offset_right = 178.0
+offset_bottom = 152.0
+theme = ExtResource("12_7c54a")
+text = "000"
+
+[node name="AmmoExplosion" type="Label" parent="CanvasLayer/MainWindow"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 129.0
+offset_right = 244.0
+offset_bottom = 152.0
+theme = ExtResource("12_7c54a")
+text = "00"
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 79.0
@@ -162,7 +239,7 @@ offset_bottom = 98.0
 theme = ExtResource("9_3kfrd")
 keep_pressed_outside = true
 text = "
-
+Force
 Field"
 
 [node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
@@ -182,9 +259,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -306.0
-offset_top = -194.0
+offset_top = -153.0
 offset_right = 307.0
-offset_bottom = 194.0
+offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_ogibx")
@@ -349,6 +426,10 @@ theme = ExtResource("9_3kfrd")
 text = "No"
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
+[connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxSingle" to="CanvasLayer" method="_on_check_box_single_button_up"]
+[connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxMachineGun" to="CanvasLayer" method="_on_check_box_machine_gun_button_up"]
+[connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxLaserCross" to="CanvasLayer" method="_on_check_box_laser_cross_button_up"]
+[connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxExplosion" to="CanvasLayer" method="_on_check_box_explosion_button_up"]
 [connection signal="button_down" from="CanvasLayer/ForcefieldButton" to="." method="_on_forcefield_button_button_down"]
 [connection signal="button_up" from="CanvasLayer/ForcefieldButton" to="." method="_on_forcefield_button_button_up"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer" method="_on_pause_button_pressed"]

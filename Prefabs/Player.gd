@@ -13,6 +13,7 @@ var forcefieldNegateTime : float = -1.0;  #If you mis-use it, it gets frozen
 
 static var Health : int = 6;
 static var Score : int = 0;
+static var SelectedBullet : int = 0;
 var _last_score : int = -1;
 var _last_health : int = -1;
 

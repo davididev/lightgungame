@@ -8,6 +8,8 @@ var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
 func _ready():
 	set_health(6);
 	set_score(0);
+	update_ammo_text();
+	set_ammo_id(0);
 	paused = false;
 	update_pause_menu();
 	#test_health();
@@ -35,6 +37,18 @@ func _ready():
 	#set_health(0);
 	#set_score(54333);
 	#await get_tree().create_timer(2.0).timeout;
+
+func update_ammo_text():
+	get_node("MainWindow/AmmoMachine").text = "%04d" % SavaData.Ammo1;
+	get_node("MainWindow/AmmoCross").text = "%03d" % SavaData.Ammo2;
+	get_node("MainWindow/AmmoExplosion").text = "%02d" % SavaData.Ammo3;
+	
+func set_ammo_id(id : int):
+	get_node("MainWindow/CheckBoxSingle").button_pressed = (id == 0);
+	get_node("MainWindow/CheckBoxMachineGun").button_pressed = (id == 1);
+	get_node("MainWindow/CheckBoxLaserCross").button_pressed = (id == 2);
+	get_node("MainWindow/CheckBoxExplosion").button_pressed = (id == 3);
+	Player.SelectedBullet = id;
 	
 func update_pause_menu():
 	if paused == false:
@@ -125,3 +139,18 @@ func _on_change_volume_fx(value):
 	var actual_str = str("[right]Sound FX Volume: [color=yellow]", value, "%")
 	get_node("Pause Window/Panel1/Volume_FX_Label").text = actual_str;
 	AudioServer.set_bus_volume_db(_bus3, linear_to_db(value / 100.0));
+
+
+
+
+func _on_check_box_single_button_up():
+	set_ammo_id(0);
+
+func _on_check_box_machine_gun_button_up():
+	set_ammo_id(1);
+
+func _on_check_box_laser_cross_button_up():
+	set_ammo_id(2);
+
+func _on_check_box_explosion_button_up():
+	set_ammo_id(3);
