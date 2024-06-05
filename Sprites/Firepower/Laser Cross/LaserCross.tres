@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://7vwbrtwegayh"]
+
+[ext_resource type="Texture2D" uid="uid://br86lfqacqgr4" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f01.png" id="1_2oxa2"]
+[ext_resource type="Texture2D" uid="uid://ssuwnby5f1d4" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f02.png" id="2_3wq7x"]
+[ext_resource type="Texture2D" uid="uid://dmh2sykskaj6s" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f03.png" id="3_81h83"]
+[ext_resource type="Texture2D" uid="uid://dp5ke65t7dwyv" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f04.png" id="4_0wuuk"]
+[ext_resource type="Texture2D" uid="uid://hlhfnps7kai6" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f05.png" id="5_q1cw1"]
+[ext_resource type="Texture2D" uid="uid://b8kifm6kl6f3p" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f06.png" id="6_yd1ut"]
+[ext_resource type="Texture2D" uid="uid://dwtkn2sxyirhg" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f07.png" id="7_7ka87"]
+[ext_resource type="Texture2D" uid="uid://clvsaayy77df1" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f08.png" id="8_q2lud"]
+[ext_resource type="Texture2D" uid="uid://b05gxq4m6xrg6" path="res://Sprites/Firepower/Laser Cross/LaserCrossSeq_f09.png" id="9_ds72d"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2oxa2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2oxa2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3wq7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_81h83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0wuuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q1cw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yd1ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ka87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q2lud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ds72d")
+}],
+"loop": false,
+"name": &"main",
+"speed": 15.0
+}]

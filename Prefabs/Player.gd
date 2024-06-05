@@ -5,6 +5,7 @@ static var GameStarted : bool = false;
 static var CurrentX : float = 0.0;
 static var CameraX : float = 0.0;
 @export var BulletPrefab : PackedScene;
+@export var LaserCrossPrefab : PackedScene;
 @export var uiRef : PlayerUI;
 const FORCEFIELD_TIME : float = 15.0;
 const FORCEFIELD_NEGATE_TIME : float = 5.0;
@@ -16,6 +17,8 @@ static var Score : int = 0;
 static var SelectedBullet : int = 0;
 var _last_score : int = -1;
 var _last_health : int = -1;
+var last_delta_time = 0.0;
+var bullet_stream_timer = 0.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,7 +72,7 @@ func _process(delta):
 	
 	if Engine.time_scale < 0.1:  #Game is paused
 		return;
-	
+	last_delta_time = delta;
 	if damage_routine == true:
 		run_damage_flash();
 	set_ui_elements(delta);
@@ -91,22 +94,52 @@ func _process(delta):
 		get_node("RigidBody2D/ForcefieldOverlay").visible = true;
 	else:
 		get_node("RigidBody2D/ForcefieldOverlay").visible = false;
+		
+	if Player.SelectedBullet == 1 and touchHeldDown:
+		if SaveData.Ammo1 > 0:
+			uiRef.update_ammo_text();
+			bullet_stream_timer += delta;
+			if bullet_stream_timer > 0.1:
+				SaveData.Ammo1 -= 1;
+				SoundFX.PlaySound("Pistol", get_tree(), global_position);
+				create_bullet_instance(BulletPrefab, currentInput.position);
+				bullet_stream_timer = 0.0;
+
+func create_bullet_instance(prefab : PackedScene, screenPos : Vector2):
+	var canvas_pos = get_viewport().get_canvas_transform().affine_inverse() * screenPos
+	var instance = prefab.instantiate();
+	instance.position = canvas_pos;
+	add_child(instance)
 
 func fire_bullet(screenPos : Vector2):
 	if Engine.time_scale < 0.1:  #Game is paused
 		return;
-	SoundFX.PlaySound("Pistol", get_tree(), global_position);
-	var canvas_pos = get_viewport().get_canvas_transform().affine_inverse() * screenPos
-	var instance = BulletPrefab.instantiate();
-	instance.position = canvas_pos;
-	add_child(instance)
+	if Player.SelectedBullet == 0:
+		SoundFX.PlaySound("Pistol", get_tree(), global_position);
+		create_bullet_instance(BulletPrefab, screenPos);
+	if Player.SelectedBullet == 2:
+		if SaveData.Ammo2 > 0:
+			SaveData.Ammo2 -= 1;
+			uiRef.update_ammo_text();
+			SoundFX.PlaySound("Pistol", get_tree(), global_position);
+			create_bullet_instance(LaserCrossPrefab, screenPos);
 	
+var currentInput : InputEvent;
+var touchHeldDown = false;
 
 func _on_rigid_body_2d_input_event(viewport, event, shape_idx):
+	currentInput = event;
 	if event is InputEventMouseButton and event.pressed:
 		fire_bullet(event.position);
+		touchHeldDown = true;
 	if event is InputEventScreenTouch and event.pressed:
 		fire_bullet(event.position);
+		touchHeldDown = true;
+	if event is InputEventMouseButton and event.pressed == false:
+		touchHeldDown = false;
+	if event is InputEventScreenTouch and event.pressed == false:
+		touchHeldDown = false;
+
 
 static var forcefield_button_on : bool = false;  #So we can handle damage as a static function
 static var damage_routine : bool = false;  #So we can handle damage as a static function

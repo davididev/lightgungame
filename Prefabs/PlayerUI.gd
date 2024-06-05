@@ -8,6 +8,10 @@ var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
 func _ready():
 	set_health(6);
 	set_score(0);
+	#Temp test
+	SavaData.Ammo1 = 150;
+	SavaData.Ammo2 = 20;
+	SavaData.Ammo3 = 5;
 	update_ammo_text();
 	set_ammo_id(0);
 	paused = false;
@@ -73,7 +77,14 @@ func _process(delta):
 	#set_forcefield_perc(TEMP_PERCANTAGE);
 	if Input.is_action_just_pressed("Pause"):
 		_on_pause_button_pressed();
-
+	if Input.is_action_just_pressed("SelectAmmo1"):
+		set_ammo_id(0);
+	if Input.is_action_just_pressed("SelectAmmo2"):
+		set_ammo_id(1);
+	if Input.is_action_just_pressed("SelectAmmo3"):
+		set_ammo_id(2);
+	if Input.is_action_just_pressed("SelectAmmo4"):
+		set_ammo_id(3);
 func set_health(h : int):
 	for n in range(0, 6, 1):
 		#var format_string = "HealthBG/Unit%n";
