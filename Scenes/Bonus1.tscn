@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5rcm0wo6vrd3"]
+[gd_scene load_steps=15 format=3 uid="uid://b5rcm0wo6vrd3"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="2_7jlvk"]
 [ext_resource type="PackedScene" uid="uid://8n7438h7kc8v" path="res://Prefabs/Enemies/spawn_point.tscn" id="3_imsgo"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://1lglgpown0ky" path="res://Prefabs/Level Objs/AmmoBoxMachineGun.tscn" id="9_cni0d"]
 [ext_resource type="PackedScene" uid="uid://c7khplc2wwufq" path="res://Prefabs/Level Objs/AmmoBoxLaserCross.tscn" id="10_hw601"]
 [ext_resource type="PackedScene" uid="uid://gylgr114r31m" path="res://Prefabs/Level Objs/AmmoBoxExplosion.tscn" id="11_a7e6j"]
+[ext_resource type="PackedScene" uid="uid://d0smf6e8vewnu" path="res://Prefabs/Enemies/Target/target_wave_red.tscn" id="12_75abu"]
+[ext_resource type="PackedScene" uid="uid://2dlw8flqe4la" path="res://Prefabs/Enemies/Target/target_wave_green.tscn" id="13_4w003"]
+[ext_resource type="PackedScene" uid="uid://5sy7n4v53ppy" path="res://Prefabs/Enemies/Target/target_wave_blue.tscn" id="14_3tfn4"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -97,3 +100,33 @@ position = Vector2(2143, 484)
 
 [node name="AmmoBoxLaserGun3" parent="." instance=ExtResource("11_a7e6j")]
 position = Vector2(2339, 336)
+
+[node name="TargetWaveRed" parent="." instance=ExtResource("12_75abu")]
+position = Vector2(1846, 337)
+
+[node name="TargetWaveRed2" parent="." instance=ExtResource("12_75abu")]
+position = Vector2(1940, 326)
+
+[node name="TargetWaveGreen" parent="." instance=ExtResource("13_4w003")]
+position = Vector2(2152, 343)
+
+[node name="TargetWaveBlue" parent="." instance=ExtResource("14_3tfn4")]
+position = Vector2(2538, 281)
+
+[node name="TargetWaveGreen2" parent="." instance=ExtResource("13_4w003")]
+position = Vector2(2715, 411)
+
+[node name="TargetWaveRed3" parent="." instance=ExtResource("12_75abu")]
+position = Vector2(2858, 483)
+
+[node name="TargetWaveRed4" parent="." instance=ExtResource("12_75abu")]
+position = Vector2(2858, 369)
+
+[node name="TargetWaveRed5" parent="." instance=ExtResource("12_75abu")]
+position = Vector2(2853, 248)
+
+[node name="TargetWaveBlue2" parent="." instance=ExtResource("14_3tfn4")]
+position = Vector2(3111, 379)
+
+[node name="TargetWaveGreen3" parent="." instance=ExtResource("13_4w003")]
+position = Vector2(3415, 377)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://5sy7n4v53ppy"]
+
+[ext_resource type="Script" path="res://Prefabs/Enemies/Target/target_wave.gd" id="1_1ufvg"]
+[ext_resource type="PackedScene" uid="uid://b0vpwn4yic0o0" path="res://Prefabs/Particles/Target/red_target_particle_system.tscn" id="2_pxliy"]
+[ext_resource type="Texture2D" uid="uid://b4aoqbx2vjurb" path="res://Sprites/Enemies/Targets/BlueTarget.png" id="3_7jars"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ap5wg"]
+radius = 32.0
+
+[node name="TargetWaveBlue" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 5
+gravity_scale = 0.0
+script = ExtResource("1_1ufvg")
+PointsOnShoot = 8
+TargetExplosion = ExtResource("2_pxliy")
+MoveXPerSecond = 192.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ap5wg")
+one_way_collision_margin = 16.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_7jars")
+
+[connection signal="on_shot" from="." to="." method="_on_on_shot"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
