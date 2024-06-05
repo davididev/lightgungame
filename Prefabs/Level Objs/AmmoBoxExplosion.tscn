@@ -120,3 +120,4 @@ horizontal_alignment = 1
 
 [connection signal="on_shot" from="." to="." method="_on_on_shot"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

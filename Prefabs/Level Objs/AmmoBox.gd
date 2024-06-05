@@ -22,12 +22,15 @@ func _process(delta):
 	pass
 
 
+var first_visible = false;
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
+	first_visible = true;
 	ref_to_sprite.play(&"default");
 	var v = Vector2(-forceLeft, -forceUp);
 	gravity_scale = gravity_scale_on_seen;
 	apply_impulse(v);
+
 
 
 func _on_on_shot():
@@ -50,4 +53,9 @@ func _on_on_shot():
 		gravity_scale = 0.0;
 		linear_velocity = Vector2.ZERO;
 		await get_tree().create_timer(1.5).timeout;
+		queue_free();
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	if first_visible:  #it appeared and flew, delete it now that it's off screen
 		queue_free();
