@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5rcm0wo6vrd3"]
+[gd_scene load_steps=12 format=3 uid="uid://b5rcm0wo6vrd3"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="2_7jlvk"]
 [ext_resource type="PackedScene" uid="uid://8n7438h7kc8v" path="res://Prefabs/Enemies/spawn_point.tscn" id="3_imsgo"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://kl8ybcl4afwa" path="res://Prefabs/Enemies/Target/TargetBlueJump.tscn" id="6_khdwr"]
 [ext_resource type="Texture2D" uid="uid://c12mdi8fltfyt" path="res://Backgrounds/BonusBackground2.png" id="7_jqjwa"]
 [ext_resource type="PackedScene" uid="uid://biutsnx7r65lo" path="res://Scenes/Bonus1SceneVars.tscn" id="7_rofu0"]
+[ext_resource type="PackedScene" uid="uid://1lglgpown0ky" path="res://Prefabs/Level Objs/AmmoBoxMachineGun.tscn" id="9_cni0d"]
+[ext_resource type="PackedScene" uid="uid://c7khplc2wwufq" path="res://Prefabs/Level Objs/AmmoBoxLaserCross.tscn" id="10_hw601"]
+[ext_resource type="PackedScene" uid="uid://gylgr114r31m" path="res://Prefabs/Level Objs/AmmoBoxExplosion.tscn" id="11_a7e6j"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -76,3 +79,21 @@ texture = ExtResource("7_jqjwa")
 
 [node name="SceneVars" parent="." instance=ExtResource("7_rofu0")]
 position = Vector2(-127, 391)
+
+[node name="AmmoBoxMachienGun" parent="." instance=ExtResource("9_cni0d")]
+position = Vector2(1420, 409)
+
+[node name="AmmoBoxMachienGun2" parent="." instance=ExtResource("9_cni0d")]
+position = Vector2(1470, 487)
+
+[node name="AmmoBoxLaserGun" parent="." instance=ExtResource("10_hw601")]
+position = Vector2(1664, 346)
+
+[node name="AmmoBoxLaserGun2" parent="." instance=ExtResource("10_hw601")]
+position = Vector2(1955, 409)
+
+[node name="AmmoBoxMachienGun3" parent="." instance=ExtResource("9_cni0d")]
+position = Vector2(2143, 484)
+
+[node name="AmmoBoxLaserGun3" parent="." instance=ExtResource("11_a7e6j")]
+position = Vector2(2339, 336)

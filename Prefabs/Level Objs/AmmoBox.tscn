@@ -1,0 +1,116 @@
+[gd_scene load_steps=24 format=3 uid="uid://c20wssmf60aig"]
+
+[ext_resource type="Script" path="res://Prefabs/Level Objs/AmmoBox.gd" id="1_bceyk"]
+[ext_resource type="Texture2D" uid="uid://bve0g6xfqqo87" path="res://Sprites/Pickups/ItemBox/cube0001.png" id="1_pwjpc"]
+[ext_resource type="PackedScene" uid="uid://bxcsslvco25vw" path="res://Prefabs/Particles/Target/mystery_box_particle_system.tscn" id="2_7v708"]
+[ext_resource type="Texture2D" uid="uid://2fumois661rv" path="res://Sprites/Pickups/ItemBox/cube0002.png" id="2_h56cg"]
+[ext_resource type="Texture2D" uid="uid://bxlyp5sggx02q" path="res://Sprites/Pickups/ItemBox/cube0003.png" id="3_wjjb7"]
+[ext_resource type="Texture2D" uid="uid://bnlc6x3so8dhj" path="res://Sprites/Pickups/ItemBox/cube0004.png" id="4_ud103"]
+[ext_resource type="Texture2D" uid="uid://dcvtkcc8pepjd" path="res://Sprites/Pickups/ItemBox/cube0005.png" id="5_nyua2"]
+[ext_resource type="Texture2D" uid="uid://d0teryleainxl" path="res://Sprites/Pickups/ItemBox/cube0006.png" id="6_eaa81"]
+[ext_resource type="Texture2D" uid="uid://csgtpijiale5k" path="res://Sprites/Pickups/ItemBox/cube0007.png" id="7_wxb5l"]
+[ext_resource type="Texture2D" uid="uid://cdvp0jxvayt0i" path="res://Sprites/Pickups/ItemBox/cube0008.png" id="8_wetk4"]
+[ext_resource type="Texture2D" uid="uid://cd821rtdbhbcs" path="res://Sprites/Pickups/ItemBox/cube0009.png" id="9_27n3k"]
+[ext_resource type="Texture2D" uid="uid://d0qoqivraohp5" path="res://Sprites/Pickups/ItemBox/cube0010.png" id="10_fqa03"]
+[ext_resource type="Texture2D" uid="uid://b1y6nc60tw0ny" path="res://Sprites/Pickups/ItemBox/cube0011.png" id="11_rqckh"]
+[ext_resource type="Texture2D" uid="uid://c8s0dq3hn7kq0" path="res://Sprites/Pickups/ItemBox/cube0012.png" id="12_0w5f8"]
+[ext_resource type="Texture2D" uid="uid://rq8o174n1quj" path="res://Sprites/Pickups/ItemBox/cube0013.png" id="13_wv2xn"]
+[ext_resource type="Texture2D" uid="uid://o1b1ya3t2aen" path="res://Sprites/Pickups/ItemBox/cube0014.png" id="14_knqih"]
+[ext_resource type="Texture2D" uid="uid://jfuapava7q8v" path="res://Sprites/Pickups/ItemBox/cube0015.png" id="15_xgw85"]
+[ext_resource type="Texture2D" uid="uid://j416ow0ywtj7" path="res://Sprites/Pickups/ItemBox/cube0016.png" id="16_hop54"]
+[ext_resource type="Texture2D" uid="uid://b2ytxgxsiqkp4" path="res://Sprites/Pickups/ItemBox/cube0017.png" id="17_h4pfy"]
+[ext_resource type="Texture2D" uid="uid://b6d0736gfa46j" path="res://Sprites/Pickups/ItemBox/cube0018.png" id="18_yqoa3"]
+[ext_resource type="Theme" uid="uid://baufqfbd3bl7a" path="res://UI/Styles/AmmoHolder.tres" id="19_d4k7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbg37"]
+size = Vector2(54, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5klp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pwjpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_h56cg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wjjb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ud103")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nyua2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eaa81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wxb5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wetk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_27n3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fqa03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rqckh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0w5f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wv2xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_knqih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xgw85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hop54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h4pfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_yqoa3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AmmoBox" type="RigidBody2D" node_paths=PackedStringArray("ref_to_label", "ref_to_sprite")]
+collision_layer = 8
+gravity_scale = 0.0
+script = ExtResource("1_bceyk")
+ExplosionParticle = ExtResource("2_7v708")
+ref_to_label = NodePath("Label")
+ref_to_sprite = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_cbg37")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i5klp")
+frame_progress = 0.389792
+
+[node name="Label" type="Label" parent="."]
+offset_left = -200.0
+offset_right = 204.0
+offset_bottom = 23.0
+theme = ExtResource("19_d4k7i")
+horizontal_alignment = 1
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="on_shot" from="." to="." method="_on_on_shot"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

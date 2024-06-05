@@ -3,15 +3,13 @@ class_name PlayerUI;
 
 var paused : bool = false;
 var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
+static var Update_Ammo_UI : bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_health(6);
 	set_score(0);
-	#Temp test
-	SavaData.Ammo1 = 150;
-	SavaData.Ammo2 = 20;
-	SavaData.Ammo3 = 5;
+	
 	update_ammo_text();
 	set_ammo_id(0);
 	paused = false;
@@ -75,6 +73,10 @@ func _process(delta):
 	#TEMP_PERCANTAGE = TEMP_PERCANTAGE + (delta / 15.0);  #takes 15 seconds to recharge
 	#TEMP_PERCANTAGE = clampf(TEMP_PERCANTAGE, 0.0, 1.0)
 	#set_forcefield_perc(TEMP_PERCANTAGE);
+	
+	if Update_Ammo_UI:
+		Update_Ammo_UI = false;
+		update_ammo_text();
 	if Input.is_action_just_pressed("Pause"):
 		_on_pause_button_pressed();
 	if Input.is_action_just_pressed("SelectAmmo1"):
