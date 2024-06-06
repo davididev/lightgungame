@@ -87,7 +87,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="AmmoBoxLaserGun" type="RigidBody2D" node_paths=PackedStringArray("ref_to_label", "ref_to_sprite")]
+[node name="AmmoBoxExplosion" type="RigidBody2D" node_paths=PackedStringArray("ref_to_label", "ref_to_sprite")]
 collision_layer = 8
 gravity_scale = 0.0
 linear_damp = 0.5
@@ -97,7 +97,7 @@ ExplosionParticle = ExtResource("2_iloe0")
 ammoID = 3
 ammoAmount = 3
 forceLeft = 600.0
-gravity_scale_on_seen = 2.0
+gravity_scale_on_seen = 1.5
 ref_to_label = NodePath("Label")
 ref_to_sprite = NodePath("AnimatedSprite2D")
 

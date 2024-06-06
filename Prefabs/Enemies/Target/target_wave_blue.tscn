@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://5sy7n4v53ppy"]
 
 [ext_resource type="Script" path="res://Prefabs/Enemies/Target/target_wave.gd" id="1_1ufvg"]
-[ext_resource type="PackedScene" uid="uid://b0vpwn4yic0o0" path="res://Prefabs/Particles/Target/red_target_particle_system.tscn" id="2_pxliy"]
+[ext_resource type="PackedScene" uid="uid://bawvwql0v711e" path="res://Prefabs/Particles/Target/blue_target_particle_system.tscn" id="2_n3gvt"]
 [ext_resource type="Texture2D" uid="uid://b4aoqbx2vjurb" path="res://Sprites/Enemies/Targets/BlueTarget.png" id="3_7jars"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap5wg"]
@@ -13,7 +13,7 @@ collision_mask = 5
 gravity_scale = 0.0
 script = ExtResource("1_1ufvg")
 PointsOnShoot = 8
-TargetExplosion = ExtResource("2_pxliy")
+TargetExplosion = ExtResource("2_n3gvt")
 MoveXPerSecond = 192.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

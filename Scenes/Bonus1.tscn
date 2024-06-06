@@ -80,6 +80,14 @@ texture = ExtResource("7_jqjwa")
 position = Vector2(3816, 320)
 texture = ExtResource("7_jqjwa")
 
+[node name="BonusBackground9" type="Sprite2D" parent="."]
+position = Vector2(4463, 320)
+texture = ExtResource("7_jqjwa")
+
+[node name="BonusBackground10" type="Sprite2D" parent="."]
+position = Vector2(5110, 320)
+texture = ExtResource("7_jqjwa")
+
 [node name="SceneVars" parent="." instance=ExtResource("7_rofu0")]
 position = Vector2(-127, 391)
 
@@ -94,6 +102,11 @@ position = Vector2(1664, 346)
 
 [node name="AmmoBoxLaserGun2" parent="." instance=ExtResource("10_hw601")]
 position = Vector2(1955, 409)
+
+[node name="AmmoBoxLaserGun4" parent="." node_paths=PackedStringArray("ref_to_label", "ref_to_sprite") instance=ExtResource("10_hw601")]
+position = Vector2(2505, 409)
+ref_to_label = NodePath("../AmmoBoxLaserGun2/Label")
+ref_to_sprite = NodePath("../AmmoBoxLaserGun2/AnimatedSprite2D")
 
 [node name="AmmoBoxMachienGun3" parent="." instance=ExtResource("9_cni0d")]
 position = Vector2(2143, 484)
@@ -130,3 +143,18 @@ position = Vector2(3111, 379)
 
 [node name="TargetWaveGreen3" parent="." instance=ExtResource("13_4w003")]
 position = Vector2(3415, 377)
+
+[node name="AmmoBoxExplosion" parent="." instance=ExtResource("11_a7e6j")]
+position = Vector2(2926, 364)
+
+[node name="AmmoBoxLaserGun5" parent="." instance=ExtResource("10_hw601")]
+position = Vector2(2731, 306)
+
+[node name="AmmoBoxMachienGun4" parent="." instance=ExtResource("9_cni0d")]
+position = Vector2(3299, 249)
+
+[node name="AmmoBoxMachienGun5" parent="." instance=ExtResource("9_cni0d")]
+position = Vector2(3558, 281)
+
+[node name="AmmoBoxExplosion2" parent="." instance=ExtResource("11_a7e6j")]
+position = Vector2(3924, 455)
