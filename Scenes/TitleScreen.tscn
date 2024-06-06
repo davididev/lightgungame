@@ -10,7 +10,7 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("Panels", "FileButtons")]
 script = ExtResource("1_tomvo")
-Panels = [NodePath("Panel_SelectFile"), NodePath("PanelNewFile"), NodePath("PanelLoadedFile")]
+Panels = [NodePath("Panel_SelectFile"), NodePath("PanelNewFile"), NodePath("PanelLoadedFile"), NodePath("PanelConfirmDelete")]
 FileButtons = [NodePath("Panel_SelectFile/File1"), NodePath("Panel_SelectFile/File2"), NodePath("Panel_SelectFile/File3"), NodePath("Panel_SelectFile/File4")]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
@@ -24,6 +24,7 @@ bbcode_enabled = true
 text = "[center]Insert Game Title Here[/center]"
 
 [node name="Panel_SelectFile" type="NinePatchRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -233,6 +234,75 @@ bbcode_enabled = true
 text = "[color=yellow]Current Level: [/color]0
 [color=yellow]Score: [/color]0"
 
+[node name="Button Delete" type="Button" parent="CanvasLayer/PanelLoadedFile"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -238.0
+offset_top = 5.0
+offset_right = -38.0
+offset_bottom = 55.0
+grow_horizontal = 0
+theme = ExtResource("2_jf18w")
+text = "Delete"
+
+[node name="PanelConfirmDelete" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -188.0
+offset_right = 298.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dmtab")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Button Cancel" type="Button" parent="CanvasLayer/PanelConfirmDelete"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -61.0
+offset_right = 270.0
+offset_bottom = -11.0
+grow_vertical = 0
+theme = ExtResource("2_jf18w")
+text = "Cancel
+"
+
+[node name="Button Delete File" type="Button" parent="CanvasLayer/PanelConfirmDelete"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -61.0
+offset_right = -23.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_jf18w")
+text = "Delete"
+
+[node name="Header" type="RichTextLabel" parent="CanvasLayer/PanelConfirmDelete"]
+layout_mode = 1
+offset_left = 20.0
+offset_right = 600.0
+offset_bottom = 100.0
+theme = ExtResource("1_3jyyb")
+text = "Delete file?"
+
 [connection signal="button_down" from="CanvasLayer/Panel_SelectFile/Button Quit" to="CanvasLayer" method="_on_button_quit_button_down"]
 [connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File1" to="CanvasLayer" method="_on_file_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File2" to="CanvasLayer" method="_on_file_2_pressed"]
@@ -242,3 +312,6 @@ text = "[color=yellow]Current Level: [/color]0
 [connection signal="pressed" from="CanvasLayer/PanelNewFile/Button Create File" to="CanvasLayer" method="_on_button_create_file_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelLoadedFile/Button Cancel" to="CanvasLayer" method="_go_to_main_panel"]
 [connection signal="pressed" from="CanvasLayer/PanelLoadedFile/Button Play Game" to="CanvasLayer" method="_on_button_play_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelLoadedFile/Button Delete" to="CanvasLayer" method="_on_button_delete_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelConfirmDelete/Button Cancel" to="CanvasLayer" method="_go_to_main_panel"]
+[connection signal="pressed" from="CanvasLayer/PanelConfirmDelete/Button Delete File" to="CanvasLayer" method="_on_button_delete_file_pressed"]

@@ -95,3 +95,12 @@ func _on_button_create_file_pressed():
 func _on_button_play_game_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
 	
+
+
+func _on_button_delete_pressed():
+	SetPanelVisible(3);
+
+
+func _on_button_delete_file_pressed():
+	SaveData.DeleteFile();
+	SetPanelVisible(0);

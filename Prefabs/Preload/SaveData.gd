@@ -62,3 +62,6 @@ static func LoadFile():
 		VolumeSound = config.get_value(sec, "VolumeSound");
 	
 	return true;	
+
+static func DeleteFile():
+	DirAccess.remove_absolute(str("user://file", File_ID, ".cfg"));
