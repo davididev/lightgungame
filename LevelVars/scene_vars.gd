@@ -26,5 +26,6 @@ func _process(delta):
 	
 	if current_x > ending_x:
 		SaveData.CurrentLevel = next_scene;
+		SavaData.SaveFile();
 		EndedLevel = true;
 		get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
