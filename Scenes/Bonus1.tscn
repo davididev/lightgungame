@@ -20,7 +20,7 @@
 [node name="PlayerCamera" parent="." instance=ExtResource("2_7jlvk")]
 
 [node name="SpawnPoint" parent="." instance=ExtResource("3_imsgo")]
-position = Vector2(749, 517)
+position = Vector2(748, 517)
 enemy_to_spawn = ExtResource("3_vy4v4")
 
 [node name="SpawnPoint2" parent="." instance=ExtResource("3_imsgo")]
@@ -158,3 +158,15 @@ position = Vector2(3558, 281)
 
 [node name="AmmoBoxExplosion2" parent="." instance=ExtResource("11_a7e6j")]
 position = Vector2(3924, 455)
+
+[node name="TargetWaveBlue3" parent="." instance=ExtResource("14_3tfn4")]
+position = Vector2(3802, 351)
+
+[node name="TargetWaveGreen4" parent="." instance=ExtResource("13_4w003")]
+position = Vector2(4211, 316)
+
+[node name="TargetWaveRed7" parent="." instance=ExtResource("12_75abu")]
+position = Vector2(4363, 409)
+
+[node name="TargetWaveRed8" parent="." instance=ExtResource("12_75abu")]
+position = Vector2(4463, 184)
