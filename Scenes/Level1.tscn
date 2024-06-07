@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djj13elhecmlv"]
+[gd_scene load_steps=11 format=3 uid="uid://djj13elhecmlv"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_vbeu3"]
 [ext_resource type="PackedScene" uid="uid://csd3kiddw4se6" path="res://Scenes/Level1SceneVars.tscn" id="2_d4a2y"]
@@ -6,6 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://gv86358gcty7" path="res://Backgrounds/Indoors2.png" id="4_uredo"]
 [ext_resource type="PackedScene" uid="uid://cvjj7n2jciu8h" path="res://Prefabs/Enemies/spawn_point_scifidoor.tscn" id="5_orh7k"]
 [ext_resource type="PackedScene" uid="uid://ba0qwtrj8uf84" path="res://Prefabs/Enemies/Target/TargetRedJump.tscn" id="6_8chkj"]
+[ext_resource type="Script" path="res://Prefabs/Enemies/spawn_list_entry.gd" id="7_g8c63"]
+[ext_resource type="PackedScene" uid="uid://kl8ybcl4afwa" path="res://Prefabs/Enemies/Target/TargetBlueJump.tscn" id="8_3ksb3"]
+
+[sub_resource type="Resource" id="Resource_mqni3"]
+script = ExtResource("7_g8c63")
+prefab = ExtResource("6_8chkj")
+spawn_delay = 0.0
+offset = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_sn4dt"]
+script = ExtResource("7_g8c63")
+prefab = ExtResource("8_3ksb3")
+spawn_delay = 0.25
+offset = Vector2(0, 0)
 
 [node name="Node2D" type="Node2D"]
 
@@ -52,5 +66,4 @@ texture = ExtResource("4_uredo")
 
 [node name="SpawnPoint_ScifiDoor" parent="." instance=ExtResource("5_orh7k")]
 position = Vector2(1913, 589)
-enemy_to_spawn = ExtResource("6_8chkj")
-animation_name = &"open"
+enemy_to_spawn = Array[ExtResource("7_g8c63")]([SubResource("Resource_mqni3"), SubResource("Resource_sn4dt")])

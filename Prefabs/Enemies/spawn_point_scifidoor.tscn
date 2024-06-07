@@ -6,7 +6,10 @@
 [node name="SpawnPoint_ScifiDoor" type="Node2D" node_paths=PackedStringArray("possible_animation_ref", "spawn_location")]
 script = ExtResource("1_hgwjx")
 use_anim = true
+use_sound = true
 possible_animation_ref = NodePath("AnimatedSprite2D")
+animation_name = &"open"
+sound_name = "open_door"
 spawn_location = NodePath("SpawnPoint")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

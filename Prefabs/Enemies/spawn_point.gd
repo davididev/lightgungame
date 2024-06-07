@@ -1,10 +1,12 @@
 extends Node2D
 
-@export var enemy_to_spawn : PackedScene;
+@export var enemy_to_spawn : Array[SpawnListEntry];
 @export var delay : float = 0.0;
 @export var use_anim : bool = false;
+@export var use_sound : bool = false;
 @export var possible_animation_ref : AnimatedSprite2D;
 @export var animation_name : StringName;
+@export var sound_name : String;
 @export var spawn_location : Node2D;
 var spawned = false;
 
@@ -24,7 +26,15 @@ func _process(delta):
 			else:
 				if use_anim:
 					possible_animation_ref.play(animation_name);
-				var instance = enemy_to_spawn.instantiate();
-				instance.global_position = spawn_location.global_position;
-				get_tree().root.get_node("Node2D").add_child(instance);
+					
+				if use_sound:
+					SoundFX.PlaySound(sound_name, get_tree(), global_position);
+				SpawnRoutine();
 				spawned = true;
+
+func SpawnRoutine():
+	for entry in enemy_to_spawn:
+		await get_tree().create_timer(entry.spawn_delay).timeout
+		var instance = entry.prefab.instantiate();
+		instance.global_position = spawn_location.global_position + entry.offset;
+		get_tree().root.get_node("Node2D").add_child(instance);
