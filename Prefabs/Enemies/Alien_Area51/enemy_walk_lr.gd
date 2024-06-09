@@ -49,7 +49,7 @@ func when_shot():
 		anim_ref.flip_h = false;
 		anim_ref.run_transition(&"Die", 2.0);
 		anim_ref.offset = death_animation_offset;
-		Player.Score += PointsOnShoot;
+		SaveData.Score += PointsOnShoot;
 		var instance2 : AddScore = preload("res://Prefabs/Preload/AddScore.tscn").instantiate();
 		instance2.set_label(PointsOnShoot);
 		instance2.global_position = global_position;

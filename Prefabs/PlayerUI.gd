@@ -8,7 +8,7 @@ static var Update_Ammo_UI : bool = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_health(6);
-	set_score(0);
+	set_score(SaveData.Score);
 	
 	update_ammo_text();
 	set_ammo_id(0);
@@ -95,6 +95,7 @@ func set_health(h : int):
 
 func set_score(s : int):
 	get_node("ScoreLabel").text = "Score: %010d" % [s]
+	SaveData.Score = s;
 
 
 func set_forcefield_perc(perc : float):

@@ -34,9 +34,9 @@ func set_ui_elements(delta):
 		_last_health = Health;
 	
 	#Set Score if changed
-	if _last_score != Score:
-		uiRef.set_score(Score);
-		_last_score = Score;
+	if _last_score != SaveData.Score:
+		uiRef.set_score(SaveData.Score);
+		_last_score = SaveData.Score;
 
 	if Input.is_action_just_pressed("Forcefield"):
 		forcefield_button_on = true;
