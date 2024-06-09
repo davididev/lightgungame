@@ -14,7 +14,7 @@ extends RigidBody2D
 signal on_shot
 
 var damage_delay : bool = false;  #Don't let enemy deplete health after being shot
-const BLINK_COUNT = 8;
+const BLINK_COUNT = 20;
 const BLINK_TIMER = 0.1;  #How long to wait in between blinks before alternating to off and on
 
 # Called when the node enters the scene tree for the first time.
