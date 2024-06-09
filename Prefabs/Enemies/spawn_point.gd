@@ -9,18 +9,21 @@ extends Node2D
 @export var sound_name : String;
 @export var spawn_location : Node2D;
 var spawned = false;
+var visible_triggered = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _on_made_visible():
+	visible_triggered = true;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if spawned == false:
 		var check_x = global_position.x + 256.0;
 		#print("Check ", check_x, "vs ", Player.CurrentX)
-		if Player.CurrentX > check_x:
+		if visible_triggered:
 			if delay > 0.0:
 				delay -= delta;
 			else:

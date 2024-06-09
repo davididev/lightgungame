@@ -65,26 +65,32 @@ offset = Vector2(0, 0)
 [node name="SpawnPoint" parent="." instance=ExtResource("3_imsgo")]
 position = Vector2(748, 517)
 enemy_to_spawn = Array[ExtResource("4_m7ap8")]([SubResource("Resource_yidg2")])
+delay = 1.0
 
 [node name="SpawnPoint2" parent="." instance=ExtResource("3_imsgo")]
 position = Vector2(838, 559)
 enemy_to_spawn = Array[ExtResource("4_m7ap8")]([SubResource("Resource_f7ocv")])
+delay = 1.0
 
 [node name="SpawnPoint3" parent="." instance=ExtResource("3_imsgo")]
 position = Vector2(950, 559)
 enemy_to_spawn = Array[ExtResource("4_m7ap8")]([SubResource("Resource_vk254")])
+delay = 1.0
 
 [node name="SpawnPoint4" parent="." instance=ExtResource("3_imsgo")]
 position = Vector2(1074, 559)
 enemy_to_spawn = Array[ExtResource("4_m7ap8")]([SubResource("Resource_wkwcf")])
+delay = 1.0
 
 [node name="SpawnPoint5" parent="." instance=ExtResource("3_imsgo")]
 position = Vector2(1215, 543)
 enemy_to_spawn = Array[ExtResource("4_m7ap8")]([SubResource("Resource_h1h66")])
+delay = 1.0
 
 [node name="SpawnPoint6" parent="." instance=ExtResource("3_imsgo")]
 position = Vector2(1341, 543)
 enemy_to_spawn = Array[ExtResource("4_m7ap8")]([SubResource("Resource_3i57e")])
+delay = 1.0
 
 [node name="SpawnPoint7" parent="." instance=ExtResource("3_imsgo")]
 position = Vector2(1341, 543)

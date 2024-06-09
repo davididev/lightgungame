@@ -1,24 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://djj13elhecmlv"]
+[gd_scene load_steps=10 format=3 uid="uid://djj13elhecmlv"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_vbeu3"]
 [ext_resource type="PackedScene" uid="uid://csd3kiddw4se6" path="res://Scenes/Level1SceneVars.tscn" id="2_d4a2y"]
 [ext_resource type="Texture2D" uid="uid://cl6383v4b5bqp" path="res://Backgrounds/Indoors1.png" id="3_b1ynu"]
 [ext_resource type="Texture2D" uid="uid://gv86358gcty7" path="res://Backgrounds/Indoors2.png" id="4_uredo"]
 [ext_resource type="PackedScene" uid="uid://cvjj7n2jciu8h" path="res://Prefabs/Enemies/spawn_point_scifidoor.tscn" id="5_orh7k"]
-[ext_resource type="PackedScene" uid="uid://ba0qwtrj8uf84" path="res://Prefabs/Enemies/Target/TargetRedJump.tscn" id="6_8chkj"]
+[ext_resource type="PackedScene" uid="uid://bp8i60xt0ph4r" path="res://Prefabs/Enemies/Alien_Area51/area_51_alien_walk_lr.tscn" id="6_for42"]
 [ext_resource type="Script" path="res://Prefabs/Enemies/spawn_list_entry.gd" id="7_g8c63"]
-[ext_resource type="PackedScene" uid="uid://kl8ybcl4afwa" path="res://Prefabs/Enemies/Target/TargetBlueJump.tscn" id="8_3ksb3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmvtd"]
+size = Vector2(648, 20)
 
 [sub_resource type="Resource" id="Resource_mqni3"]
 script = ExtResource("7_g8c63")
-prefab = ExtResource("6_8chkj")
+prefab = ExtResource("6_for42")
 spawn_delay = 0.0
-offset = Vector2(0, 0)
-
-[sub_resource type="Resource" id="Resource_sn4dt"]
-script = ExtResource("7_g8c63")
-prefab = ExtResource("8_3ksb3")
-spawn_delay = 0.25
 offset = Vector2(0, 0)
 
 [node name="Node2D" type="Node2D"]
@@ -32,38 +28,93 @@ position = Vector2(276, 148)
 position = Vector2(324, 472)
 texture = ExtResource("3_b1ynu")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Indoors1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors1/StaticBody2D"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
+
 [node name="Indoors5" type="Sprite2D" parent="."]
 position = Vector2(-324, 472)
 texture = ExtResource("3_b1ynu")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Indoors5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors5/StaticBody2D2"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
 
 [node name="Indoors2" type="Sprite2D" parent="."]
 position = Vector2(972, 472)
 texture = ExtResource("3_b1ynu")
 
+[node name="StaticBody2D3" type="StaticBody2D" parent="Indoors2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors2/StaticBody2D3"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
+
 [node name="Indoors4" type="Sprite2D" parent="."]
 position = Vector2(2268, 472)
 texture = ExtResource("3_b1ynu")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Indoors4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors4/StaticBody2D4"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
 
 [node name="Indoors8" type="Sprite2D" parent="."]
 position = Vector2(4212, 472)
 texture = ExtResource("3_b1ynu")
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="Indoors8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors8/StaticBody2D5"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
+
 [node name="Indoors9" type="Sprite2D" parent="."]
 position = Vector2(4860, 472)
 texture = ExtResource("3_b1ynu")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Indoors9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors9/StaticBody2D6"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
 
 [node name="Indoors3" type="Sprite2D" parent="."]
 position = Vector2(1620, 472)
 texture = ExtResource("4_uredo")
 
+[node name="StaticBody2D7" type="StaticBody2D" parent="Indoors3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors3/StaticBody2D7"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
+
 [node name="Indoors6" type="Sprite2D" parent="."]
 position = Vector2(2916, 472)
 texture = ExtResource("4_uredo")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Indoors6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors6/StaticBody2D8"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
 
 [node name="Indoors7" type="Sprite2D" parent="."]
 position = Vector2(3564, 472)
 texture = ExtResource("4_uredo")
 
+[node name="StaticBody2D9" type="StaticBody2D" parent="Indoors7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Indoors7/StaticBody2D9"]
+position = Vector2(0, 316)
+shape = SubResource("RectangleShape2D_rmvtd")
+
 [node name="SpawnPoint_ScifiDoor" parent="." instance=ExtResource("5_orh7k")]
-position = Vector2(1913, 589)
-enemy_to_spawn = Array[ExtResource("7_g8c63")]([SubResource("Resource_mqni3"), SubResource("Resource_sn4dt")])
+position = Vector2(1173, 589)
+enemy_to_spawn = Array[ExtResource("7_g8c63")]([SubResource("Resource_mqni3")])
+delay = 1.5
