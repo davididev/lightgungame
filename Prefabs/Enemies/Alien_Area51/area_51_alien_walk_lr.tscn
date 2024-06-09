@@ -14,7 +14,7 @@ lock_rotation = true
 script = ExtResource("1_as222")
 anim_ref = NodePath("CollisionShape2D/AnimatedSprite2D")
 attack_animation_time = 1.0
-turn_animation_time = 0.25
+turn_animation_time = 0.5
 death_animation_offset = Vector2(-380, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

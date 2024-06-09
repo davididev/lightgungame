@@ -24,5 +24,7 @@ func run_transition(s : StringName, duration : float):
 	running_transition_time = duration;
 	play(s);	
 	
-	
+func run_transition_backwards(s : StringName, duration : float):
+	running_transition_time = duration;
+	play_backwards(s);	
 	

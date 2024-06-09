@@ -77,28 +77,29 @@ func main_routine():
 		if health <= 0:
 			return;
 		
-		#Turn to left
-		anim_ref.run_transition(&"Turn", turn_animation_time);
-		await get_tree().create_timer(turn_animation_time).timeout;
-		anim_ref.flip_h = false;
+		
 		
 		#Attack #1
+			#Turn to left
+		anim_ref.run_transition(&"Turn", turn_animation_time);
+		anim_ref.flip_h = false;
+		await get_tree().create_timer(turn_animation_time).timeout;
+		
+			#Run attack animation
 		if health <= 0:
 			return;
 		anim_ref.run_transition(&"Attack", attack_animation_time);	
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		if health <= 0:
 			return;
-		#Create muzzle flare here
+			#Create muzzle flare here
 		Player.Damage(1);
-	
-		#Turn to right
-		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
-		if health <= 0:
-			return;
+			#Turn to right
+		anim_ref.run_transition_backwards(&"Turn", turn_animation_time);
 		anim_ref.flip_h = true;
-		anim_ref.run_transition(&"Turn", turn_animation_time);
 		await get_tree().create_timer(turn_animation_time).timeout;
+	
+		
 		
 		if health <= 0:
 			return;
@@ -110,6 +111,12 @@ func main_routine():
 		if health <= 0:
 			return;
 		SetMoveDir(0.0);
+	
+			#Turn to right
+		anim_ref.flip_h = true;
+		anim_ref.run_transition(&"Turn", turn_animation_time);
+		await get_tree().create_timer(turn_animation_time).timeout;
+			#Run attack
 		anim_ref.run_transition(&"Attack", attack_animation_time);	
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		if health <= 0:
@@ -117,7 +124,10 @@ func main_routine():
 		#Create muzzle flare here
 		Player.Damage(1);
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
-		
+			#Turn to left
+		anim_ref.flip_h = false;	
+		anim_ref.run_transition_backwards(&"Turn", turn_animation_time);
+		await get_tree().create_timer(turn_animation_time).timeout;
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
