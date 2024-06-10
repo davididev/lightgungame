@@ -7,6 +7,7 @@ class_name SceneVars
 
 static var MoveSpeed = 32.0;
 static var EndedLevel : bool = false;
+static var FreezeMovement : bool = false;  #Should be called for the tutorial and end of level
 var current_step = -1;
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,4 +29,5 @@ func _process(delta):
 		SaveData.CurrentLevel = next_scene;
 		SavaData.SaveFile();
 		EndedLevel = true;
-		get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
+		FreezeMovement = true; 
+		

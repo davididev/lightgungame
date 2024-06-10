@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://byosm6kwjujrd"]
+[gd_scene load_steps=31 format=3 uid="uid://byosm6kwjujrd"]
 
 [ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
 [ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
@@ -30,6 +30,108 @@ size = Vector2(4000, 4000)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pxakj"]
 blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_53sph"]
+resource_name = "PlayEndLevel"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/EndLevelText:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/AnimationPlayer/EndLevelText:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0.776471, 1), Color(0, 0.54902, 0.776471, 1), Color(0, 0.721569, 0.541176, 1), Color(0, 1, 0.819608, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/AnimationPlayer/EndLevelText:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2enwg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/EndLevelText:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/AnimationPlayer/EndLevelText:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0.776471, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/AnimationPlayer/EndLevelText:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ol3fl"]
+resource_name = "NotActivatedYet"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/AnimationPlayer/EndLevelText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kcgt"]
+_data = {
+"NotActivatedYet": SubResource("Animation_ol3fl"),
+"PlayEndLevel": SubResource("Animation_53sph"),
+"RESET": SubResource("Animation_2enwg")
+}
 
 [node name="PlayerCamera" type="Camera2D" node_paths=PackedStringArray("uiRef")]
 anchor_mode = 0
@@ -258,6 +360,7 @@ texture_hover = ExtResource("15_qemx1")
 texture_focused = ExtResource("15_qemx1")
 
 [node name="Pause Window" type="NinePatchRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -429,6 +532,30 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme = ExtResource("9_3kfrd")
 text = "No"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_1kcgt")
+}
+
+[node name="EndLevelText" type="RichTextLabel" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -52.0
+offset_right = 241.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 1)
+theme = ExtResource("16_7n3u3")
+theme_override_colors/default_color = Color(0, 0, 0.776471, 1)
+text = "Level Complete"
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
 [connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxSingle" to="CanvasLayer" method="_on_check_box_single_button_up"]

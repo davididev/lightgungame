@@ -81,9 +81,10 @@ func _process(delta):
 	var width : float = get_viewport_rect().size.x;
 	CurrentX = global_position.x + width;
 	CameraX = global_position.x;
-	var my_pos = position;
-	my_pos.x += SceneVars.MoveSpeed * delta;
-	position = my_pos;
+	if SceneVars.FreezeMovement == false:
+		var my_pos = position;
+		my_pos.x += SceneVars.MoveSpeed * delta;
+		position = my_pos;
 	
 	if jiggle_shape == true:
 		get_node("RigidBody2D").position = Vector2(0.0, 1.0)

@@ -4,6 +4,8 @@ class_name PlayerUI;
 var paused : bool = false;
 var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
 static var Update_Ammo_UI : bool = false;
+var end_level_routine : bool = false;
+const END_LEVEL_ANIMATION_TIME = 2.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,12 +69,20 @@ func set_pause_panel(id : int):
 		print("Setting pause panel ", n)
 		var actual_string = str("Pause Window/Panel", n);
 		get_node(actual_string).visible = n == id;
+
+func EndLevelRoutine():
+	end_level_routine = true;
+	get_node("AnimationPlayer").play(&"PlayEndLevel");
+	await get_tree().create_timer(END_LEVEL_ANIMATION_TIME).timeout
+	SceneVars.FreezeMovement = false;
+	get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#Delete these later, they will need to be replaced by real game vars
-	#TEMP_PERCANTAGE = TEMP_PERCANTAGE + (delta / 15.0);  #takes 15 seconds to recharge
-	#TEMP_PERCANTAGE = clampf(TEMP_PERCANTAGE, 0.0, 1.0)
-	#set_forcefield_perc(TEMP_PERCANTAGE);
+	if SceneVars.EndedLevel == true and end_level_routine == false:
+		EndLevelRoutine();
+		
 	
 	if Update_Ammo_UI:
 		Update_Ammo_UI = false;
