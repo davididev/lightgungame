@@ -1,10 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=71 format=3 uid="uid://d4avugof6crb4"]
+[gd_resource type="SpriteFrames" load_steps=84 format=3 uid="uid://d4avugof6crb4"]
 
 [ext_resource type="Texture2D" uid="uid://ww1oois06xqr" path="res://Sprites/Enemies/Area 51 Alien/shoot.png" id="1_5dwge"]
 [ext_resource type="Texture2D" uid="uid://68auw8lu2g5y" path="res://Sprites/Enemies/Area 51 Alien/turn.png" id="1_bljgw"]
 [ext_resource type="Texture2D" uid="uid://dssmc8y1uybt6" path="res://Sprites/Enemies/Area 51 Alien/walk.png" id="1_rfjfv"]
 [ext_resource type="Texture2D" uid="uid://lg4kkf44bngv" path="res://Sprites/Enemies/Area 51 Alien/idle.png" id="2_6cdu6"]
 [ext_resource type="Texture2D" uid="uid://cdgv8661l0bbf" path="res://Sprites/Enemies/Area 51 Alien/die.png" id="2_hgibg"]
+[ext_resource type="Texture2D" uid="uid://0egt7j5if0r2" path="res://Sprites/Enemies/Area 51 Alien/crouch.png" id="2_pur1s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wtud"]
 atlas = ExtResource("1_5dwge")
@@ -45,6 +46,54 @@ region = Rect2(0, 1922, 367, 961)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhcwj"]
 atlas = ExtResource("1_5dwge")
 region = Rect2(367, 1922, 367, 961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohbmh"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(0, 0, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0r48"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(417, 0, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixlrr"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(834, 0, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v1yg"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(1251, 0, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1upfd"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(1668, 0, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf588"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(0, 1012, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsduv"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(417, 1012, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c87nb"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(834, 1012, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj06o"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(1251, 1012, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leqh3"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(1668, 1012, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm1h3"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(0, 2024, 417, 1012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7s6c"]
+atlas = ExtResource("2_pur1s")
+region = Rect2(417, 2024, 417, 1012)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsla1"]
 atlas = ExtResource("2_hgibg")
@@ -302,6 +351,58 @@ animations = [{
 "loop": false,
 "name": &"Attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohbmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0r48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixlrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v1yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1upfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf588")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsduv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c87nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj06o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leqh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm1h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7s6c")
+}],
+"loop": false,
+"name": &"CrouchDown",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7s6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7s6c")
+}],
+"loop": true,
+"name": &"CrouchIdle",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,

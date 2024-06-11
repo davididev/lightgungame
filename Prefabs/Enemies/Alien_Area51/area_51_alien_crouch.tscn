@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://vudh8nd3mdku"]
+
+[ext_resource type="SpriteFrames" uid="uid://d4avugof6crb4" path="res://Sprites/Enemies/Area 51 Alien/Area51Frames.tres" id="1_d7ki4"]
+[ext_resource type="Script" path="res://Prefabs/Enemies/Alien_Area51/enemy_crouch.gd" id="1_fwxo5"]
+[ext_resource type="Script" path="res://Prefabs/Enemies/AnimatedSpriteUtility.gd" id="2_f5era"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ult5k"]
+radius = 44.0
+height = 220.0
+
+[node name="Area51AlienCrouch" type="RigidBody2D" node_paths=PackedStringArray("anim_ref")]
+collision_layer = 8
+lock_rotation = true
+script = ExtResource("1_fwxo5")
+anim_ref = NodePath("CollisionShape2D/AnimatedSpriteUtility")
+crouch_animation_time = 1.0
+attack_animation_time = 1.0
+death_animation_offset = Vector2(-380, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ult5k")
+
+[node name="AnimatedSpriteUtility" type="AnimatedSprite2D" parent="CollisionShape2D"]
+visibility_layer = 2
+scale = Vector2(0.24, 0.24)
+sprite_frames = ExtResource("1_d7ki4")
+animation = &"CrouchDown"
+script = ExtResource("2_f5era")
+current_loop = &"CrouchIdle"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(152, 0)
+
+[connection signal="on_shot" from="." to="." method="when_shot"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_become_visible"]

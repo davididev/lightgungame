@@ -23,7 +23,7 @@ shape = SubResource("CapsuleShape2D_75ui5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 scale = Vector2(0.24, 0.24)
 sprite_frames = ExtResource("1_63bes")
-animation = &"Walk"
+animation = &"CrouchIdle"
 script = ExtResource("2_74bck")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
