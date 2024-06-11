@@ -5,6 +5,7 @@
 [node name="BoxDecorationGrey" type="Sprite2D"]
 visibility_layer = 4
 z_index = 2
+texture_filter = 1
 position = Vector2(1412, 729)
 scale = Vector2(6, 6)
 texture = ExtResource("1_e8aoi")

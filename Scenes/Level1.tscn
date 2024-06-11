@@ -123,6 +123,7 @@ enemy_to_spawn = Array[ExtResource("7_g8c63")]([SubResource("Resource_mqni3")])
 delay = 1.5
 
 [node name="BoxDecorationGrey" parent="." instance=ExtResource("8_uuppe")]
+texture_filter = 1
 position = Vector2(1748, 705)
 
 [node name="Area51AlienCrouch" parent="." instance=ExtResource("9_fytr3")]
