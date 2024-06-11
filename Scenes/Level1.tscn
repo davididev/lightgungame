@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djj13elhecmlv"]
+[gd_scene load_steps=13 format=3 uid="uid://djj13elhecmlv"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_vbeu3"]
 [ext_resource type="PackedScene" uid="uid://csd3kiddw4se6" path="res://Scenes/Level1SceneVars.tscn" id="2_d4a2y"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Prefabs/Enemies/spawn_list_entry.gd" id="7_g8c63"]
 [ext_resource type="PackedScene" uid="uid://blgsxjt7sftf6" path="res://Prefabs/Barriers/box_decoration_grey.tscn" id="8_uuppe"]
 [ext_resource type="PackedScene" uid="uid://vudh8nd3mdku" path="res://Prefabs/Enemies/Alien_Area51/area_51_alien_crouch.tscn" id="9_fytr3"]
+[ext_resource type="PackedScene" uid="uid://cwqae0t1qkmb1" path="res://Prefabs/Enemies/AlienBat/green_bat_wave.tscn" id="10_mvmsj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmvtd"]
 size = Vector2(648, 20)
@@ -122,7 +123,16 @@ enemy_to_spawn = Array[ExtResource("7_g8c63")]([SubResource("Resource_mqni3")])
 delay = 1.5
 
 [node name="BoxDecorationGrey" parent="." instance=ExtResource("8_uuppe")]
-position = Vector2(1492, 705)
+position = Vector2(1748, 705)
 
 [node name="Area51AlienCrouch" parent="." instance=ExtResource("9_fytr3")]
-position = Vector2(1494, 681)
+position = Vector2(1750, 681)
+
+[node name="GreenBatWave" parent="." instance=ExtResource("10_mvmsj")]
+position = Vector2(2460, 422)
+
+[node name="GreenBatWave2" parent="." instance=ExtResource("10_mvmsj")]
+position = Vector2(2658, 597)
+
+[node name="GreenBatWave3" parent="." instance=ExtResource("10_mvmsj")]
+position = Vector2(3016, 295)

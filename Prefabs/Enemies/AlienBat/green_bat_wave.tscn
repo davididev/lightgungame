@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwqae0t1qkmb1"]
+
+[ext_resource type="Script" path="res://Prefabs/Enemies/AlienBat/enemy_wave.gd" id="1_1cqux"]
+[ext_resource type="SpriteFrames" uid="uid://r6ijrudn1ayo" path="res://Sprites/Enemies/Bat/BatSpriteFrames.tres" id="1_fobus"]
+[ext_resource type="Script" path="res://Prefabs/Enemies/AnimatedSpriteUtility.gd" id="2_ge2xm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clnwn"]
+radius = 47.0
+height = 238.0
+
+[node name="GreenBatWave" type="RigidBody2D" node_paths=PackedStringArray("anim_ref")]
+collision_layer = 8
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_1cqux")
+anim_ref = NodePath("CollisionShape2D/AnimatedSpriteUtility")
+PointsOnShoot = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_clnwn")
+
+[node name="AnimatedSpriteUtility" type="AnimatedSprite2D" parent="CollisionShape2D"]
+rotation = -1.5708
+scale = Vector2(0.24, 0.24)
+sprite_frames = ExtResource("1_fobus")
+animation = &"Idle"
+script = ExtResource("2_ge2xm")
+
+[node name="Notif_Visible" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
+scale = Vector2(1, 11.4)
+
+[node name="Notif_EndOfScreen" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
+position = Vector2(0.0027771, 336)
+
+[connection signal="on_shot" from="." to="." method="when_shot"]
+[connection signal="screen_entered" from="CollisionShape2D/Notif_Visible" to="." method="when_visible"]
+[connection signal="screen_exited" from="CollisionShape2D/Notif_EndOfScreen" to="." method="when_far_left"]

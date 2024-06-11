@@ -5,6 +5,7 @@
 
 [node name="AddScore" type="Label"]
 top_level = true
+z_index = 4096
 offset_right = 187.0
 offset_bottom = 56.0
 theme = ExtResource("1_0pm5p")
