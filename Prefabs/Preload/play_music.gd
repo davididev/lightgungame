@@ -14,7 +14,7 @@ static func PlaySong(song_name : String, t : SceneTree):
 	
 	if Instance.last_song == song_name:  #Tried to play the same one, don't process
 		return;
-	var asset_name : String = str("res://Audio/Music/", song_name, ".wav");
+	var asset_name : String = str("res://Audio/Music/", song_name, ".mp3");
 	Instance.ref.stream = load(asset_name);
 	Instance.ref.play();
 	
