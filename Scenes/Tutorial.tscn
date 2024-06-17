@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlj67lv7k6to5"]
+[gd_scene load_steps=6 format=3 uid="uid://dlj67lv7k6to5"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_hvfmr"]
 [ext_resource type="PackedScene" uid="uid://vm500b412vhn" path="res://Scenes/TutorialSceneVars.tscn" id="2_i0dyy"]
+[ext_resource type="Script" path="res://Scenes/TutorialHolder.gd" id="3_hfswm"]
+[ext_resource type="PackedScene" uid="uid://1lglgpown0ky" path="res://Prefabs/Level Objs/AmmoBoxMachineGun.tscn" id="3_wq7u2"]
+[ext_resource type="PackedScene" uid="uid://d0smf6e8vewnu" path="res://Prefabs/Enemies/Target/target_wave_red.tscn" id="4_p0v6w"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,3 +12,34 @@
 position = Vector2(148, 143)
 
 [node name="SceneVars" parent="." instance=ExtResource("2_i0dyy")]
+
+[node name="TutorialHolder" type="Node2D" parent="."]
+script = ExtResource("3_hfswm")
+
+[node name="AmmoBox0" parent="TutorialHolder" instance=ExtResource("3_wq7u2")]
+visible = false
+position = Vector2(600, 352)
+forceLeft = 0.0
+forceUp = 0.0
+gravity_scale_on_seen = 0.0
+
+[node name="Target0" parent="TutorialHolder" instance=ExtResource("4_p0v6w")]
+visible = false
+position = Vector2(495, 341)
+DegreesPerSecond = 0.0
+WaveHeight = 0.0
+MoveXPerSecond = 0.0
+
+[node name="Target1" parent="TutorialHolder" instance=ExtResource("4_p0v6w")]
+visible = false
+position = Vector2(727, 341)
+DegreesPerSecond = 0.0
+WaveHeight = 0.0
+MoveXPerSecond = 0.0
+
+[node name="Target2" parent="TutorialHolder" instance=ExtResource("4_p0v6w")]
+visible = false
+position = Vector2(607, 341)
+DegreesPerSecond = 0.0
+WaveHeight = 0.0
+MoveXPerSecond = 0.0

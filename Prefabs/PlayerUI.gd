@@ -10,6 +10,7 @@ static var ToggleTutorialConfirm : bool = false;  #When set to true by external 
 static var TutorialOverlayText : String = "";  #When set to true by external script, it displays a text overlay
 static var TutorialOverlayTimer : float = 10.0;
 static var TutorialOverlayArrow : int = -1;  #This should be set BEFORE overlay text
+static var BeginTutorial : bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -114,6 +115,8 @@ func _process(delta):
 func tutorial_updates():
 	if ToggleTutorialConfirm:
 		ToggleTutorialConfirm = false;
+		paused = true;
+		update_pause_menu();
 		set_pause_panel(3);
 	if TutorialOverlayText != "":
 		var thisStepsArrows = TutorialOverlayArrow;
@@ -214,3 +217,6 @@ func _on_check_box_explosion_button_up():
 
 func _on_continue_tutorial():
 	set_pause_panel(-1);
+	BeginTutorial = true;
+	paused = false;
+	update_pause_menu();

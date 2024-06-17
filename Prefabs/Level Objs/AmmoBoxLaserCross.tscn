@@ -111,8 +111,9 @@ frame_progress = 0.26782
 [node name="Label" type="Label" parent="."]
 offset_left = -200.0
 offset_right = 204.0
-offset_bottom = 23.0
+offset_bottom = 140.0
 theme = ExtResource("21_ldb5k")
+theme_override_font_sizes/font_size = 45
 horizontal_alignment = 1
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
