@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlj67lv7k6to5"]
+
+[ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_hvfmr"]
+[ext_resource type="PackedScene" uid="uid://vm500b412vhn" path="res://Scenes/TutorialSceneVars.tscn" id="2_i0dyy"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerCamera" parent="." instance=ExtResource("1_hvfmr")]
+position = Vector2(148, 143)
+
+[node name="SceneVars" parent="." instance=ExtResource("2_i0dyy")]

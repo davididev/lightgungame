@@ -15,7 +15,7 @@ static var VolumeMusic : float = 1.0;
 static var VolumeSound : float = 1.0;
 
 static func NewFile(id : int):
-	CurrentLevel = "Bonus1";
+	CurrentLevel = "Tutorial";
 	FileName = "NIL";
 	File_ID = id;
 	Score = 0;

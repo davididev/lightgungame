@@ -3,9 +3,13 @@ class_name PlayerUI;
 
 var paused : bool = false;
 var TEMP_PERCANTAGE : float = 0.0;  #for testing the forcefield UI
-static var Update_Ammo_UI : bool = false;
+static var Update_Ammo_UI : bool = false;  #When set to true by external script, it updates all the ammo text
 var end_level_routine : bool = false;
 const END_LEVEL_ANIMATION_TIME = 2.0;
+static var ToggleTutorialConfirm : bool = false;  #When set to true by external script, asks you to skip tutorial
+static var TutorialOverlayText : String = "";  #When set to true by external script, it displays a text overlay
+static var TutorialOverlayTimer : float = 10.0;
+static var TutorialOverlayArrow : int = -1;  #This should be set BEFORE overlay text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +46,12 @@ func _ready():
 	#set_score(54333);
 	#await get_tree().create_timer(2.0).timeout;
 
+func on_confirm_skip_tutorial():
+	SaveData.CurrentLevel = "Bonus1";
+	SavaData.SaveFile();
+	get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
+	
+	
 func update_ammo_text():
 	get_node("MainWindow/AmmoMachine").text = "%04d" % SavaData.Ammo1;
 	get_node("MainWindow/AmmoCross").text = "%03d" % SavaData.Ammo2;
@@ -65,7 +75,7 @@ func update_pause_menu():
 		set_pause_panel(0);
 	
 func set_pause_panel(id : int):
-	for n in range(0, 3, 1):
+	for n in range(0, 4, 1):
 		print("Setting pause panel ", n)
 		var actual_string = str("Pause Window/Panel", n);
 		get_node(actual_string).visible = n == id;
@@ -97,6 +107,28 @@ func _process(delta):
 		set_ammo_id(2);
 	if Input.is_action_just_pressed("SelectAmmo4"):
 		set_ammo_id(3);
+	
+	tutorial_updates();
+	
+	
+func tutorial_updates():
+	if ToggleTutorialConfirm:
+		ToggleTutorialConfirm = false;
+		set_pause_panel(3);
+	if TutorialOverlayText != "":
+		var thisStepsArrows = TutorialOverlayArrow;
+		TutorialOverlayArrow = -1;
+		get_node("TutorialText").text = str("[center]", TutorialOverlayText);
+		TutorialOverlayText = "";
+		if thisStepsArrows > -1:
+			var node_name = str("TutorialArrow", thisStepsArrows);
+			get_node(node_name).visible = true;
+		await get_tree().create_timer(TutorialOverlayTimer).timeout;
+		get_node("TutorialText").text = "";
+		if thisStepsArrows > -1:
+			var node_name = str("TutorialArrow", thisStepsArrows);
+			get_node(node_name).visible = false;
+	
 func set_health(h : int):
 	for n in range(0, 6, 1):
 		#var format_string = "HealthBG/Unit%n";
@@ -178,3 +210,7 @@ func _on_check_box_laser_cross_button_up():
 
 func _on_check_box_explosion_button_up():
 	set_ammo_id(3);
+
+
+func _on_continue_tutorial():
+	set_pause_panel(-1);

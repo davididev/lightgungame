@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://byosm6kwjujrd"]
+[gd_scene load_steps=32 format=3 uid="uid://byosm6kwjujrd"]
 
 [ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
 [ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dbg3v1wcssv6k" path="res://UI/Game/Pause_Pressed.png" id="14_ew764"]
 [ext_resource type="Texture2D" uid="uid://bpmnciq2x8n75" path="res://UI/Game/Pause_Hover.png" id="15_qemx1"]
 [ext_resource type="Theme" uid="uid://cwt8r6m5gmd65" path="res://UI/Styles/HeaderText.tres" id="16_7n3u3"]
+[ext_resource type="Texture2D" uid="uid://sr7m3wrcxwfn" path="res://UI/Game/TutorialArrow.png" id="25_jfohp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aa34"]
 size = Vector2(4000, 4000)
@@ -428,6 +429,7 @@ theme = ExtResource("9_3kfrd")
 text = "Resume play"
 
 [node name="Panel1" type="Node2D" parent="CanvasLayer/Pause Window"]
+visible = false
 
 [node name="Header2" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel1"]
 offset_right = 592.0
@@ -533,6 +535,51 @@ size_flags_horizontal = 4
 theme = ExtResource("9_3kfrd")
 text = "No"
 
+[node name="Panel3" type="Node2D" parent="CanvasLayer/Pause Window"]
+visible = false
+
+[node name="Header2" type="RichTextLabel" parent="CanvasLayer/Pause Window/Panel3"]
+offset_right = 592.0
+offset_bottom = 93.0
+theme = ExtResource("16_7n3u3")
+bbcode_enabled = true
+text = "[center]Skip Tutorial?"
+
+[node name="Button Yes" type="Button" parent="CanvasLayer/Pause Window/Panel3"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 60.0
+offset_top = 268.0
+offset_right = 264.0
+offset_bottom = 331.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "Yes"
+
+[node name="Button No" type="Button" parent="CanvasLayer/Pause Window/Panel3"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 318.0
+offset_top = 268.0
+offset_right = 522.0
+offset_bottom = 331.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("9_3kfrd")
+text = "No"
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause Window/Panel3"]
+offset_left = 72.0
+offset_top = 88.0
+offset_right = 517.0
+offset_bottom = 212.0
+theme = ExtResource("12_7c54a")
+text = "If you already know how to play the game, feel free to skip this tutorial."
+autowrap_mode = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")
 libraries = {
@@ -557,6 +604,42 @@ theme = ExtResource("16_7n3u3")
 theme_override_colors/default_color = Color(0, 0, 0.776471, 1)
 text = "Level Complete"
 
+[node name="TutorialArrow0" type="TextureRect" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+offset_left = 29.0
+offset_top = 108.0
+offset_right = 149.0
+offset_bottom = 228.0
+texture = ExtResource("25_jfohp")
+
+[node name="TutorialArrow1" type="TextureRect" parent="CanvasLayer"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+offset_left = -11.0
+offset_top = 132.0
+offset_right = 109.0
+offset_bottom = 252.0
+rotation = -1.5708
+texture = ExtResource("25_jfohp")
+
+[node name="TutorialText" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -459.0
+offset_top = -96.0
+offset_right = 536.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("12_7c54a")
+bbcode_enabled = true
+
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
 [connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxSingle" to="CanvasLayer" method="_on_check_box_single_button_up"]
 [connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxMachineGun" to="CanvasLayer" method="_on_check_box_machine_gun_button_up"]
@@ -574,3 +657,5 @@ text = "Level Complete"
 [connection signal="value_changed" from="CanvasLayer/Pause Window/Panel1/Volume_FX_Slider" to="CanvasLayer" method="_on_change_volume_fx"]
 [connection signal="pressed" from="CanvasLayer/Pause Window/Panel2/Button Yes" to="CanvasLayer" method="_quit_game"]
 [connection signal="pressed" from="CanvasLayer/Pause Window/Panel2/Button No" to="CanvasLayer" method="_back_to_main_pause_panel"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel3/Button Yes" to="CanvasLayer" method="on_confirm_skip_tutorial"]
+[connection signal="pressed" from="CanvasLayer/Pause Window/Panel3/Button No" to="CanvasLayer" method="_on_continue_tutorial"]
