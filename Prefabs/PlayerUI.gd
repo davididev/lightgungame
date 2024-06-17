@@ -110,7 +110,9 @@ func _process(delta):
 		set_ammo_id(3);
 	
 	tutorial_updates();
+	TurnOffTutorialText(delta);
 	
+var turnOffTextTimer = 0.0;
 	
 func tutorial_updates():
 	if ToggleTutorialConfirm:
@@ -119,19 +121,25 @@ func tutorial_updates():
 		update_pause_menu();
 		set_pause_panel(3);
 	if TutorialOverlayText != "":
-		var thisStepsArrows = TutorialOverlayArrow;
-		TutorialOverlayArrow = -1;
 		get_node("TutorialText").text = str("[center]", TutorialOverlayText);
 		TutorialOverlayText = "";
-		if thisStepsArrows > -1:
-			var node_name = str("TutorialArrow", thisStepsArrows);
+		if TutorialOverlayArrow > -1:
+			var node_name = str("TutorialArrow", TutorialOverlayArrow);
 			get_node(node_name).visible = true;
-		await get_tree().create_timer(TutorialOverlayTimer).timeout;
-		get_node("TutorialText").text = "";
-		if thisStepsArrows > -1:
-			var node_name = str("TutorialArrow", thisStepsArrows);
-			get_node(node_name).visible = false;
+		
+		turnOffTextTimer = TutorialOverlayTimer;	
+		
+func TurnOffTutorialText(delta):
+	if turnOffTextTimer > 0.0:
+		turnOffTextTimer -= delta;
+		if turnOffTextTimer < 0.0:
+			get_node("TutorialText").text = "";
+			if TutorialOverlayArrow > -1:
+				var node_name = str("TutorialArrow", TutorialOverlayArrow);
+				get_node(node_name).visible = false;
+			TutorialOverlayArrow = -1;
 	
+
 func set_health(h : int):
 	for n in range(0, 6, 1):
 		#var format_string = "HealthBG/Unit%n";
