@@ -175,6 +175,8 @@ texture = ExtResource("5_qv4qj")
 [node name="MainWindow" type="NinePatchRect" parent="CanvasLayer"]
 offset_right = 613.0
 offset_bottom = 162.0
+scale = Vector2(1.26141, 1.26141)
+mouse_filter = 0
 texture = ExtResource("6_ogibx")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -185,37 +187,41 @@ patch_margin_bottom = 8
 layout_mode = 0
 offset_left = 8.0
 offset_top = 104.0
-offset_right = 32.0
-offset_bottom = 128.0
+offset_right = 56.0
+offset_bottom = 155.0
 action_mode = 0
 icon = ExtResource("7_3sr13")
+vertical_icon_alignment = 0
 
 [node name="CheckBoxMachineGun" type="CheckBox" parent="CanvasLayer/MainWindow"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 104.0
-offset_right = 104.0
-offset_bottom = 136.0
+offset_right = 125.0
+offset_bottom = 156.0
 action_mode = 0
 icon = ExtResource("8_yf1r3")
+vertical_icon_alignment = 0
 
 [node name="CheckBoxLaserCross" type="CheckBox" parent="CanvasLayer/MainWindow"]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 104.0
-offset_right = 168.0
-offset_bottom = 136.0
+offset_right = 183.0
+offset_bottom = 156.0
 action_mode = 0
 icon = ExtResource("9_jgx7v")
+vertical_icon_alignment = 0
 
 [node name="CheckBoxExplosion" type="CheckBox" parent="CanvasLayer/MainWindow"]
 layout_mode = 0
 offset_left = 184.0
 offset_top = 104.0
-offset_right = 232.0
-offset_bottom = 136.0
+offset_right = 245.0
+offset_bottom = 158.0
 action_mode = 0
 icon = ExtResource("10_y437x")
+vertical_icon_alignment = 0
 
 [node name="AmmoSingle" type="TextureRect" parent="CanvasLayer/MainWindow"]
 layout_mode = 0
@@ -223,6 +229,7 @@ offset_left = 6.0
 offset_top = 120.0
 offset_right = 46.0
 offset_bottom = 160.0
+mouse_filter = 2
 texture = ExtResource("11_n0c0r")
 
 [node name="AmmoMachine" type="Label" parent="CanvasLayer/MainWindow"]
@@ -351,14 +358,16 @@ Force
 Field"
 
 [node name="PauseButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 540.0
+texture_filter = 1
+offset_left = 636.0
 offset_top = 2.0
-offset_right = 603.0
-offset_bottom = 65.0
+offset_right = 743.0
+offset_bottom = 109.0
 texture_normal = ExtResource("13_8ujp3")
 texture_pressed = ExtResource("14_ew764")
 texture_hover = ExtResource("15_qemx1")
 texture_focused = ExtResource("15_qemx1")
+stretch_mode = 0
 
 [node name="Pause Window" type="NinePatchRect" parent="CanvasLayer"]
 visible = false
