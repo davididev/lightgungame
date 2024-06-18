@@ -47,6 +47,7 @@ func set_ui_elements(delta):
 		if forcefieldChargeTime < 0.0:
 			forcefieldNegateTime = FORCEFIELD_NEGATE_TIME;
 			get_node("RigidBody2D/ForcefieldOverlay").play(&"shatter")
+			get_node("RigidBody2D/ForcefieldOverlay").scale = Vector2(1.0, 1.0);
 			forcefieldChargeTime = -0.01;
 			forcefield_button_on = false;  #Forcefield broke, turn it off
 	else: #Forcefield button off, rechrage
@@ -96,6 +97,7 @@ func _process(delta):
 	if forcefield_button_on == true: #Forcefield button on, do overlay
 		get_node("RigidBody2D/ForcefieldOverlay").visible = true;
 		get_node("RigidBody2D/ForcefieldOverlay").play(&"default")
+		get_node("RigidBody2D/ForcefieldOverlay").scale = Vector2(2.0, 2.0);
 	else:
 		if forcefieldNegateTime <= 0.0:
 			get_node("RigidBody2D/ForcefieldOverlay").visible = false;
