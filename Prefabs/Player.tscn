@@ -1156,6 +1156,7 @@ offset_left = 29.0
 offset_top = 108.0
 offset_right = 149.0
 offset_bottom = 228.0
+mouse_filter = 2
 texture = ExtResource("25_jfohp")
 
 [node name="TutorialArrow1" type="TextureRect" parent="CanvasLayer"]
@@ -1167,6 +1168,7 @@ offset_top = 132.0
 offset_right = 109.0
 offset_bottom = 252.0
 rotation = -1.5708
+mouse_filter = 2
 texture = ExtResource("25_jfohp")
 
 [node name="TutorialText" type="RichTextLabel" parent="CanvasLayer"]
