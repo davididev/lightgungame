@@ -39,6 +39,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_on_shot():
+	if visible == false:
+		return;
 	var instance = TargetExplosion.instantiate();
 	instance.global_position = global_position;
 	get_tree().root.get_node("Node2D").add_child(instance);

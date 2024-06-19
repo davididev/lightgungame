@@ -97,7 +97,7 @@ ExplosionParticle = ExtResource("2_iloe0")
 ammoID = 3
 ammoAmount = 3
 forceLeft = 600.0
-gravity_scale_on_seen = 1.5
+gravity_scale_on_seen = 0.75
 ref_to_label = NodePath("Label")
 ref_to_sprite = NodePath("AnimatedSprite2D")
 

@@ -21,4 +21,4 @@ ending_x = 3400.0
 [node name="SceneVars" type="Node2D"]
 script = ExtResource("1_kgx7n")
 steps = Array[ExtResource("2_5sbne")]([SubResource("Resource_br0p6"), SubResource("Resource_nlo6i"), SubResource("Resource_ukjuf")])
-ending_x = 3912.0
+ending_x = 3612.0

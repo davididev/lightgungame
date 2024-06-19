@@ -95,7 +95,7 @@ angular_damp = 2.0
 script = ExtResource("1_b5iup")
 ExplosionParticle = ExtResource("2_xfjsi")
 ammoAmount = 150
-gravity_scale_on_seen = 0.5
+gravity_scale_on_seen = 0.2
 ref_to_label = NodePath("Label")
 ref_to_sprite = NodePath("AnimatedSprite2D")
 

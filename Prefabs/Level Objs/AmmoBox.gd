@@ -36,6 +36,8 @@ func _on_visible_on_screen_enabler_2d_screen_entered():
 
 
 func _on_on_shot():
+	if visible == false:
+		return;
 	if is_instance_valid(ref_to_sprite):
 		if ref_to_sprite.visible == true:  #Haven't shot it yet
 			ref_to_sprite.visible = false;
