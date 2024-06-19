@@ -1101,7 +1101,7 @@ offset_bottom = 331.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme = ExtResource("9_3kfrd")
-text = "Yes"
+text = "Skip "
 
 [node name="Button No" type="Button" parent="CanvasLayer/Pause Window/Panel3"]
 anchors_preset = 5
@@ -1114,7 +1114,7 @@ offset_bottom = 331.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme = ExtResource("9_3kfrd")
-text = "No"
+text = "Do tutorial"
 
 [node name="Label" type="Label" parent="CanvasLayer/Pause Window/Panel3"]
 offset_left = 72.0
