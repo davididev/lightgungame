@@ -49,13 +49,16 @@ WaveHeight = 0.0
 MoveXPerSecond = 0.0
 
 [node name="TutorialBg1" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(324, 326)
 texture = ExtResource("6_b4bop")
 
 [node name="TutorialBg3" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(972, 326)
 texture = ExtResource("6_b4bop")
 
 [node name="TutorialBg2" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-324, 326)
 texture = ExtResource("6_b4bop")
