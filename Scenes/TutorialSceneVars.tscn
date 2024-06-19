@@ -11,4 +11,5 @@ ending_x = 2024.0
 [node name="SceneVars" type="Node2D"]
 script = ExtResource("1_uujek")
 steps = Array[ExtResource("2_ejfr1")]([SubResource("Resource_yryod")])
+song_name = "Tutorial"
 next_scene = "Bonus1"
