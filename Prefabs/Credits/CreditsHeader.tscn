@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://gtqxfyc0l3oa"]
 
-[ext_resource type="Texture2D" uid="uid://kw8x488t8wqv" path="res://Sprites/Enemies/Targets/GreenTarget.png" id="1_38nfn"]
 [ext_resource type="Script" path="res://Prefabs/Credits/CreditsEntryPiece.gd" id="1_opo4a"]
 [ext_resource type="Theme" uid="uid://baufqfbd3bl7a" path="res://UI/Styles/AmmoHolder.tres" id="2_80tgj"]
-[ext_resource type="PackedScene" uid="uid://c0jkncyr4aa84" path="res://Prefabs/Particles/Target/green_target_particle_system.tscn" id="2_plj63"]
+[ext_resource type="PackedScene" uid="uid://bawvwql0v711e" path="res://Prefabs/Particles/Target/blue_target_particle_system.tscn" id="2_bh81o"]
+[ext_resource type="Texture2D" uid="uid://b4aoqbx2vjurb" path="res://Sprites/Enemies/Targets/BlueTarget.png" id="3_lpsiq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5s65"]
 radius = 32.0
@@ -16,14 +16,15 @@ top_level = true
 collision_layer = 8
 gravity_scale = 0.0
 script = ExtResource("1_opo4a")
-points = 2
-ShatterPrefab = ExtResource("2_plj63")
+ColorStr = "[color=cyan]"
+points = 4
+ShatterPrefab = ExtResource("2_bh81o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_e5s65")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-texture = ExtResource("1_38nfn")
+texture = ExtResource("3_lpsiq")
 
 [node name="RigidText" type="RigidBody2D" parent="."]
 top_level = true
