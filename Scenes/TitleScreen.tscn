@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://tlwj5tv7u4fs"]
+[gd_scene load_steps=7 format=3 uid="uid://tlwj5tv7u4fs"]
 
 [ext_resource type="Theme" uid="uid://cwt8r6m5gmd65" path="res://UI/Styles/HeaderText.tres" id="1_3jyyb"]
 [ext_resource type="Script" path="res://Scenes/TitleScreenUI.gd" id="1_tomvo"]
 [ext_resource type="Theme" uid="uid://db741c2hbeopy" path="res://UI/Styles/MenuButton1.tres" id="2_jf18w"]
 [ext_resource type="Texture2D" uid="uid://bklkmuhtsm7ty" path="res://UI/Game/WindowTEMP.png" id="3_dmtab"]
 [ext_resource type="Theme" uid="uid://bohv013kb04n8" path="res://UI/Styles/PlainTextLabel.tres" id="5_1skp5"]
+[ext_resource type="Texture2D" uid="uid://bieoct2a0n4r4" path="res://Backgrounds/TitleBG.png" id="6_yn36u"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -318,6 +319,11 @@ offset_right = 600.0
 offset_bottom = 100.0
 theme = ExtResource("1_3jyyb")
 text = "Delete file?"
+
+[node name="TitleBg" type="Sprite2D" parent="."]
+position = Vector2(576, 415)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_yn36u")
 
 [connection signal="button_down" from="CanvasLayer/Panel_SelectFile/Button Quit" to="CanvasLayer" method="_on_button_quit_button_down"]
 [connection signal="pressed" from="CanvasLayer/Panel_SelectFile/Button Credits" to="CanvasLayer" method="_on_button_credits_pressed"]
