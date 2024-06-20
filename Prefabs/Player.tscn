@@ -690,6 +690,7 @@ angular_damp = 9.22337e+18
 shape = SubResource("RectangleShape2D_3aa34")
 
 [node name="ForcefieldOverlay" type="AnimatedSprite2D" parent="RigidBody2D"]
+visible = false
 z_index = 5
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_1ex1b")

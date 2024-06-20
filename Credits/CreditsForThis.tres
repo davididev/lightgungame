@@ -6,12 +6,12 @@
 [sub_resource type="Resource" id="Resource_fmqo4"]
 script = ExtResource("1_eb4wq")
 Category = "Graphics"
-Entries = Array[String](["Character design by Mike D", "Backgrounds by Davidi and Nuez"])
+Entries = Array[String](["Character design by Mike D", "Backgrounds by Davidi"])
 
 [sub_resource type="Resource" id="Resource_2f0l2"]
 script = ExtResource("1_eb4wq")
 Category = "Coding"
-Entries = Array[String](["Coded in Godot by Davidi and Nuez"])
+Entries = Array[String](["Coded in Godot by Davidi"])
 
 [sub_resource type="Resource" id="Resource_br0tq"]
 script = ExtResource("1_eb4wq")
@@ -21,7 +21,7 @@ Entries = Array[String](["Lazenby Computer à € by Disaster Fonts ", "SubZer0 
 [sub_resource type="Resource" id="Resource_sjs2t"]
 script = ExtResource("1_eb4wq")
 Category = "Audio"
-Entries = Array[String](["Sci-fi sounds by Ovani Sound", "Music by SideTrax", "Composer for additional music- Xander W"])
+Entries = Array[String](["Sci-fi sounds by Ovani Sound", "Composer- Xander W"])
 
 [resource]
 script = ExtResource("1_6duyl")

@@ -1,6 +1,6 @@
 Graphics:
 	Character design by Mike D
-	Backgrounds by Davidi and Nuez
+	Backgrounds by Davidi
 
 Fonts:
 	Lazenby Computer à € by Disaster Fonts 
@@ -9,8 +9,7 @@ Fonts:
 
 Audio:
 	Sci-fi sounds by Ovani Sound
-	Music by SideTrax
-	Composer for additional music- Xander W
+	Composer- Xander W
 	
 Coding
-	Coded in Godot by Davidi and Nuez
+	Coded in Godot by Davidi
