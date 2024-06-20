@@ -128,13 +128,13 @@ func fire_bullet(screenPos : Vector2):
 		if SaveData.Ammo2 > 0:
 			SaveData.Ammo2 -= 1;
 			uiRef.update_ammo_text();
-			SoundFX.PlaySound("Pistol", get_tree(), global_position);
+			SoundFX.PlaySound("LaserCross", get_tree(), global_position);
 			create_bullet_instance(LaserCrossPrefab, screenPos);
 	if Player.SelectedBullet == 3:
 		if SaveData.Ammo3 > 0:
 			SaveData.Ammo3 -= 1;
 			uiRef.update_ammo_text();
-			SoundFX.PlaySound("Pistol", get_tree(), global_position);
+			SoundFX.PlaySound("Shotgun", get_tree(), global_position);
 			create_bullet_instance(ExplosionPrefab, screenPos);
 	
 var currentInput : InputEvent;
