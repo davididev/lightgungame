@@ -24,7 +24,6 @@ bbcode_enabled = true
 text = "[center]Insert Game Title Here[/center]"
 
 [node name="Panel_SelectFile" type="NinePatchRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -49,14 +48,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -191.0
+offset_left = 56.0
 offset_top = 117.5
-offset_right = 187.0
+offset_right = 299.0
 offset_bottom = 163.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_jf18w")
 text = "Quit"
+
+[node name="Button Credits" type="Button" parent="CanvasLayer/Panel_SelectFile"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = 117.5
+offset_right = -45.0
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_jf18w")
+text = "Credits"
 
 [node name="File1" type="Button" parent="CanvasLayer/Panel_SelectFile"]
 layout_mode = 1
@@ -248,6 +263,7 @@ theme = ExtResource("2_jf18w")
 text = "Delete"
 
 [node name="PanelConfirmDelete" type="NinePatchRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -304,6 +320,7 @@ theme = ExtResource("1_3jyyb")
 text = "Delete file?"
 
 [connection signal="button_down" from="CanvasLayer/Panel_SelectFile/Button Quit" to="CanvasLayer" method="_on_button_quit_button_down"]
+[connection signal="pressed" from="CanvasLayer/Panel_SelectFile/Button Credits" to="CanvasLayer" method="_on_button_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File1" to="CanvasLayer" method="_on_file_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File2" to="CanvasLayer" method="_on_file_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel_SelectFile/File3" to="CanvasLayer" method="_on_file_3_pressed"]

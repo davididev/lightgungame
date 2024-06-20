@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmdt3dp3l83b"]
+
+[ext_resource type="Script" path="res://LevelVars/scene_vars.gd" id="1_jk5mq"]
+[ext_resource type="Script" path="res://LevelVars/level_step.gd" id="2_pqmfy"]
+
+[sub_resource type="Resource" id="Resource_yryod"]
+script = ExtResource("2_pqmfy")
+horizontal_speed = 0.0
+ending_x = 2024.0
+
+[node name="SceneVars" type="Node2D"]
+script = ExtResource("1_jk5mq")
+steps = Array[ExtResource("2_pqmfy")]([SubResource("Resource_yryod")])
+song_name = "Tutorial"
+next_scene = "Title"

@@ -104,3 +104,9 @@ func _on_button_delete_pressed():
 func _on_button_delete_file_pressed():
 	SaveData.DeleteFile();
 	SetPanelVisible(0);
+
+
+func _on_button_credits_pressed():
+	SaveData.NewFile(-1);  #Don't save or load, this is for credits
+	SaveData.CurrentLevel = "Credits";
+	get_tree().change_scene_to_file("res://Scenes/Loading.tscn");

@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfkdq1ioj63nt"]
+
+[ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_mharb"]
+[ext_resource type="PackedScene" uid="uid://dmdt3dp3l83b" path="res://Scenes/CreditsSCeneVars.tscn" id="3_cvaqx"]
+[ext_resource type="PackedScene" uid="uid://gtqxfyc0l3oa" path="res://Prefabs/Credits/CreditsHeader.tscn" id="4_bnnly"]
+[ext_resource type="Script" path="res://Prefabs/Credits/CreditsSpawnHolder.gd" id="4_kug0r"]
+[ext_resource type="PackedScene" uid="uid://5va5il5367ow" path="res://Prefabs/Credits/CreditsSubSection.tscn" id="6_7v6is"]
+[ext_resource type="Texture2D" uid="uid://rovcqaumcc00" path="res://Backgrounds/TutorialBG1.png" id="6_kl6bm"]
+[ext_resource type="Resource" uid="uid://jka5alohlscq" path="res://Credits/CreditsForThis.tres" id="7_8qxkk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerCamera" parent="." instance=ExtResource("1_mharb")]
+
+[node name="TutorialBg1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(324, 325)
+texture = ExtResource("6_kl6bm")
+
+[node name="TutorialBg3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(972, 325)
+texture = ExtResource("6_kl6bm")
+
+[node name="TutorialBg2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-324, 325)
+texture = ExtResource("6_kl6bm")
+
+[node name="SceneVars" parent="." instance=ExtResource("3_cvaqx")]
+position = Vector2(303, 289)
+
+[node name="CreditsSpawnHolder" type="Node2D" parent="."]
+position = Vector2(1200, 240)
+script = ExtResource("4_kug0r")
+header_credits = ExtResource("4_bnnly")
+entry_credits = ExtResource("6_7v6is")
+source = ExtResource("7_8qxkk")
+
+[node name="SpawnHeader" type="Node2D" parent="CreditsSpawnHolder"]
+
+[node name="Spawn0" type="Node2D" parent="CreditsSpawnHolder"]
+position = Vector2(0, 90)
+
+[node name="Spawn1" type="Node2D" parent="CreditsSpawnHolder"]
+position = Vector2(0, 180)
+
+[node name="Spawn2" type="Node2D" parent="CreditsSpawnHolder"]
+position = Vector2(0, 270)

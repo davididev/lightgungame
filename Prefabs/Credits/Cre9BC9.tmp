@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://gtqxfyc0l3oa"]
+
+[ext_resource type="Texture2D" uid="uid://kw8x488t8wqv" path="res://Sprites/Enemies/Targets/GreenTarget.png" id="1_38nfn"]
+[ext_resource type="Script" path="res://Prefabs/Credits/CreditsEntryPiece.gd" id="1_opo4a"]
+[ext_resource type="Theme" uid="uid://baufqfbd3bl7a" path="res://UI/Styles/AmmoHolder.tres" id="2_80tgj"]
+[ext_resource type="PackedScene" uid="uid://c0jkncyr4aa84" path="res://Prefabs/Particles/Target/green_target_particle_system.tscn" id="2_plj63"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5s65"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4tbe"]
+size = Vector2(400, 64)
+
+[node name="CreditsHeader" type="RigidBody2D"]
+collision_layer = 8
+gravity_scale = 0.0
+script = ExtResource("1_opo4a")
+ColorStr = null
+points = null
+MoveLeftVelocity = null
+ShatterPrefab = ExtResource("2_plj63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e5s65")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("1_38nfn")
+
+[node name="RigidText" type="RigidBody2D" parent="."]
+top_level = true
+position = Vector2(232, 0)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidText"]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_u4tbe")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RigidText/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -32.0
+offset_right = 200.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_80tgj")
+bbcode_enabled = true
+text = "[color=green]Graphics
+lol wut"
+
+[connection signal="on_shot" from="." to="." method="_on_on_shot"]

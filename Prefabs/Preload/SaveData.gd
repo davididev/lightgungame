@@ -28,6 +28,8 @@ static func NewFile(id : int):
 	VolumeSound = 1.0;
 	
 static func SaveFile():
+	if File_ID < 0:  #We're going credits; don't save or load
+		return;
 	var config = ConfigFile.new();
 	config.set_value("Main", "FileName", FileName);
 	config.set_value("Main", "CurrentLevel", CurrentLevel);
@@ -43,6 +45,8 @@ static func SaveFile():
 	config.save(fileName);
 
 static func LoadFile():
+	if File_ID < 0:  #We're going credits; don't save or load
+		return;
 	var fileName = str("user://file", File_ID, ".cfg");
 	var config = ConfigFile.new();
 	var err = config.load(fileName);

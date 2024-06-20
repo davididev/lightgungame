@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://5va5il5367ow"]
+
+[ext_resource type="Script" path="res://Prefabs/Credits/CreditsEntryPiece.gd" id="1_ol3x0"]
+[ext_resource type="PackedScene" uid="uid://b0vpwn4yic0o0" path="res://Prefabs/Particles/Target/red_target_particle_system.tscn" id="2_rcj48"]
+[ext_resource type="Texture2D" uid="uid://bf1p6coqf2rgk" path="res://Sprites/Enemies/Targets/RedTarget.png" id="3_rnbmj"]
+[ext_resource type="Theme" uid="uid://baufqfbd3bl7a" path="res://UI/Styles/AmmoHolder.tres" id="4_v0d2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5s65"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4tbe"]
+size = Vector2(400, 64)
+
+[node name="CreditsSubEntry" type="RigidBody2D"]
+top_level = true
+collision_layer = 8
+mass = 5.0
+gravity_scale = 0.0
+script = ExtResource("1_ol3x0")
+ColorStr = ""
+MoveLeftVelocity = 100.0
+ShatterPrefab = ExtResource("2_rcj48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e5s65")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("3_rnbmj")
+
+[node name="RigidText" type="RigidBody2D" parent="."]
+top_level = true
+position = Vector2(232, 0)
+mass = 5.0
+sleeping = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidText"]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_u4tbe")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RigidText/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -32.0
+offset_right = 200.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_v0d2y")
+bbcode_enabled = true
+text = "Hi this is sub entry"
+
+[connection signal="on_shot" from="." to="." method="_on_on_shot"]
