@@ -6,6 +6,8 @@ extends RigidBody2D
 @export var move_left_timer : float = 1.5;  #how many seconds to move left
 @export var move_right_timer : float = 1.0;  #how many seconds to move right
 @export var velocity_x : float = 64.0;
+@export var muzzleFlarePath : NodePath = "CollisionShape2D/MuzzleFlare";
+@export var fireSoundFX : String = "Area51Fire";
 
 @export var attack_animation_time : float;
 @export var turn_animation_time : float;
@@ -93,12 +95,15 @@ func main_routine():
 		if health <= 0:
 			return;
 			#Create muzzle flare here
+		get_node(muzzleFlarePath).visible = true;
+		get_node(muzzleFlarePath).play("Fire");
+		SoundFX.PlaySound(fireSoundFX, get_tree(), global_position);
 		Player.Damage(1);
 			#Turn to right
 		anim_ref.run_transition_backwards(&"Turn", turn_animation_time);
 		anim_ref.flip_h = true;
 		await get_tree().create_timer(turn_animation_time).timeout;
-	
+		get_node(muzzleFlarePath).visible = false;
 		
 		
 		if health <= 0:
@@ -122,9 +127,13 @@ func main_routine():
 		if health <= 0:
 			return;
 		#Create muzzle flare here
+		get_node(muzzleFlarePath).visible = true;
+		get_node(muzzleFlarePath).play("Fire");
+		SoundFX.PlaySound(fireSoundFX, get_tree(), global_position);
 		Player.Damage(1);
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 			#Turn to left
+		get_node(muzzleFlarePath).visible = false;
 		anim_ref.flip_h = false;	
 		anim_ref.run_transition_backwards(&"Turn", turn_animation_time);
 		await get_tree().create_timer(turn_animation_time).timeout;

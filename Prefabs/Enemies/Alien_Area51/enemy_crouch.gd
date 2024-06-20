@@ -5,6 +5,8 @@ extends RigidBody2D
 @export var crouch_animation_time : float;
 @export var attack_animation_time : float;
 @export var death_animation_offset : Vector2;
+@export var muzzleFlarePath : NodePath = "CollisionShape2D/MuzzleFlare";
+@export var fireSoundFX : String = "Area51Fire";
 
 var covered = true;
 signal on_shot
@@ -44,11 +46,14 @@ func main_routine():
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		
 			#Run attack (add muzzle flare later)
+		get_node(muzzleFlarePath).visible = true;
+		get_node(muzzleFlarePath).play("Fire");
+		SoundFX.PlaySound(fireSoundFX, get_tree(), global_position);
 		if health <= 0:
 			return;
 		Player.Damage(1);
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
-		
+		get_node(muzzleFlarePath).visible = false;
 		#Crouch back down
 		if health <= 0:
 			return;
