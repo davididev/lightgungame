@@ -1,6 +1,21 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://db741c2hbeopy"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://db741c2hbeopy"]
 
 [ext_resource type="FontFile" uid="uid://b4bpptuuu7q4d" path="res://fonts/LazenbyCompSmooth.ttf" id="1_7f3lg"]
+[ext_resource type="Texture2D" uid="uid://d1pld8hfe2fv8" path="res://UI/Game/ButtonHover.png" id="2_0mmn8"]
+[ext_resource type="Texture2D" uid="uid://wls8kic2qg53" path="res://UI/Game/ButtonNormal.png" id="3_gh03r"]
+[ext_resource type="Texture2D" uid="uid://d1q4d34r2pbva" path="res://UI/Game/ButtonPressed.png" id="4_2xli4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_olwnj"]
+texture = ExtResource("2_0mmn8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cd6yo"]
+texture = ExtResource("3_gh03r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ksw1e"]
+texture = ExtResource("4_2xli4")
 
 [resource]
 Button/fonts/font = ExtResource("1_7f3lg")
+Button/styles/hover = SubResource("StyleBoxTexture_olwnj")
+Button/styles/normal = SubResource("StyleBoxTexture_cd6yo")
+Button/styles/pressed = SubResource("StyleBoxTexture_ksw1e")

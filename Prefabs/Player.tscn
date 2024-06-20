@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://kfpmtgqdlmy3" path="res://Sprites/Forcefield/FlashImage.png" id="5_qv4qj"]
 [ext_resource type="Texture2D" uid="uid://dt1vcvu4odp1v" path="res://Sprites/Forcefield/ForcefieldShatter.png" id="6_7gvfi"]
 [ext_resource type="Texture2D" uid="uid://ux5f6maiondr" path="res://UI/Game/ForcefieldBarBG.png" id="6_emh5t"]
-[ext_resource type="Texture2D" uid="uid://bklkmuhtsm7ty" path="res://UI/Game/WindowTEMP.png" id="6_ogibx"]
 [ext_resource type="Texture2D" uid="uid://2qayo48if6x6" path="res://UI/Game/FireIcons/SingleBullet.png" id="7_3sr13"]
 [ext_resource type="Texture2D" uid="uid://b3rgvescw7lvv" path="res://UI/Game/ForcefieldBarFG.png" id="7_p2ehw"]
 [ext_resource type="Texture2D" uid="uid://wqe4gwmeearj" path="res://UI/Game/FireIcons/MachineGun.png" id="8_yf1r3"]
 [ext_resource type="Theme" uid="uid://db741c2hbeopy" path="res://UI/Styles/MenuButton1.tres" id="9_3kfrd"]
+[ext_resource type="Texture2D" uid="uid://c86it11832gqr" path="res://UI/Game/BlackWindow.png" id="9_cm3ls"]
 [ext_resource type="Texture2D" uid="uid://b2rit85wfenjg" path="res://UI/Game/FireIcons/LaserCross.png" id="9_jgx7v"]
 [ext_resource type="Texture2D" uid="uid://dsmpd0q2x77rn" path="res://UI/Game/FireIcons/Explosion.png" id="10_y437x"]
 [ext_resource type="Texture2D" uid="uid://bk8vpo40xfuc6" path="res://UI/Game/FireIcons/InfinitySymbol.png" id="11_n0c0r"]
@@ -710,11 +710,12 @@ grow_vertical = 2
 texture = ExtResource("5_qv4qj")
 
 [node name="MainWindow" type="NinePatchRect" parent="CanvasLayer"]
+texture_filter = 1
 offset_right = 613.0
 offset_bottom = 162.0
 scale = Vector2(1.26141, 1.26141)
 mouse_filter = 0
-texture = ExtResource("6_ogibx")
+texture = ExtResource("9_cm3ls")
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -908,6 +909,7 @@ stretch_mode = 0
 
 [node name="Pause Window" type="NinePatchRect" parent="CanvasLayer"]
 visible = false
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -919,7 +921,7 @@ offset_right = 307.0
 offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_ogibx")
+texture = ExtResource("9_cm3ls")
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
