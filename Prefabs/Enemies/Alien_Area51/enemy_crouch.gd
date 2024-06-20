@@ -24,7 +24,7 @@ func main_routine():
 	while health > 0:
 		#stand up
 		covered = true;
-		anim_ref.run_transition_backwards(&"CrouchDown", crouch_animation_time);
+		anim_ref.run_transition(&"CrouchUp", crouch_animation_time);
 		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
 		covered = false;
 		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;

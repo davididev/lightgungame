@@ -24,7 +24,9 @@ shape = SubResource("CapsuleShape2D_ult5k")
 visibility_layer = 2
 scale = Vector2(0.24, 0.24)
 sprite_frames = ExtResource("1_d7ki4")
-animation = &"CrouchDown"
+animation = &"CrouchUp"
+frame = 11
+frame_progress = 1.0
 script = ExtResource("2_f5era")
 current_loop = &"CrouchIdle"
 
