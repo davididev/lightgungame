@@ -18,3 +18,4 @@ script = ExtResource("1_gm1fg")
 steps = Array[ExtResource("2_c8hi2")]([SubResource("Resource_s7hve"), SubResource("Resource_g5hae")])
 song_name = "IndoorLevel"
 ending_x = 5800.0
+next_scene = "Level2"

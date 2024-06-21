@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://crerm4yp3u738"]
+
+[ext_resource type="PackedScene" uid="uid://gh5d0pynjqck" path="res://Scenes/Level2SceneVars.tscn" id="1_7b1wr"]
+[ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_r6832"]
+[ext_resource type="Texture2D" uid="uid://b2c6gc5hw2sfc" path="res://Backgrounds/OutdoorBackground1.png" id="2_3wx0r"]
+[ext_resource type="Texture2D" uid="uid://ci7w4jtkr5q87" path="res://Backgrounds/OutdoorBackground2.png" id="3_tihrs"]
+[ext_resource type="Texture2D" uid="uid://c68fr0aaysfal" path="res://Backgrounds/OutdoorBackground3.png" id="4_mceqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yyh"]
+size = Vector2(648, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SceneVars" parent="." instance=ExtResource("1_7b1wr")]
+position = Vector2(370, 425)
+
+[node name="PlayerCamera" parent="." instance=ExtResource("1_r6832")]
+
+[node name="OutdoorBackground1" type="Sprite2D" parent="."]
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground1/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground2" type="Sprite2D" parent="."]
+position = Vector2(648, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground2/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground3" type="Sprite2D" parent="."]
+position = Vector2(1296, 0)
+texture = ExtResource("3_tihrs")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground3/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground4" type="Sprite2D" parent="."]
+position = Vector2(1944, 0)
+texture = ExtResource("4_mceqd")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground4/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")

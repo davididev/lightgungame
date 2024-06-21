@@ -23,6 +23,7 @@ var bullet_stream_timer = 0.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	CameraX = 0.0;
 	GameStarted = true;
 	Health = 6;
 	pass # Replace with function body.

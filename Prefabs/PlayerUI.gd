@@ -86,6 +86,7 @@ func EndLevelRoutine():
 	get_node("AnimationPlayer").play(&"PlayEndLevel");
 	await get_tree().create_timer(END_LEVEL_ANIMATION_TIME).timeout
 	SceneVars.FreezeMovement = false;
+	SceneVars.EndedLevel = false;  #Don't end next level prematuraley
 	get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
 	
 
