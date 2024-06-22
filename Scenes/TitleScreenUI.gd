@@ -88,6 +88,7 @@ func _on_file_4_pressed():
 
 func _on_button_create_file_pressed():
 	SavaData.FileName = get_node("PanelNewFile/TextEdit").text;
+	await get_tree().create_timer(0.2).timeout;  #Added this so it saves the save name every time
 	SaveData.SaveFile();
 	SetPanelVisible(2);
 
