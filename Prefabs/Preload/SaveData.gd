@@ -5,6 +5,7 @@ static var File_ID = 0;
 
 static var FileName : String = "NIL";
 static var CurrentLevel : String = "Bonus1";
+static var CheckpointLevel : String = "Bonus1";
 static var Score : int = 0;
 static var Continues : int = 3;
 static var Ammo1 : int = 0;
@@ -16,6 +17,7 @@ static var VolumeSound : float = 1.0;
 
 static func NewFile(id : int):
 	CurrentLevel = "Tutorial";
+	CheckpointLevel = "Bonus1";
 	FileName = "NIL";
 	File_ID = id;
 	Score = 0;
@@ -33,6 +35,7 @@ static func SaveFile():
 	var config = ConfigFile.new();
 	config.set_value("Main", "FileName", FileName);
 	config.set_value("Main", "CurrentLevel", CurrentLevel);
+	config.set_value("Main", "CheckpointLevel", CheckpointLevel);
 	config.set_value("Main", "Score", Score);
 	config.set_value("Main", "Continues", Continues);
 	config.set_value("Main", "Ammo1", Ammo1);
@@ -56,6 +59,9 @@ static func LoadFile():
 	for sec in config.get_sections():  #There's really only one section, but no get_section function
 		FileName = config.get_value(sec, "FileName");
 		CurrentLevel = config.get_value(sec, "CurrentLevel");
+		var s1 = config.get_value(sec, "CheckpointLevel");
+		if s1 != null:
+			CheckpointLevel = s1;
 		Score = config.get_value(sec, "Score");
 		Continues = config.get_value(sec, "Continues");
 		Ammo1 = config.get_value(sec, "Ammo1");

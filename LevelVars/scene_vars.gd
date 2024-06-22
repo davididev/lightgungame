@@ -4,6 +4,7 @@ class_name SceneVars
 @export var song_name : String = "Bonus"; 
 @export var ending_x = 6400.0;
 @export var next_scene = "Level1";
+@export var checkpoint = false;
 
 static var MoveSpeed = 32.0;
 static var EndedLevel : bool = false;
@@ -13,6 +14,8 @@ var current_step = -1;
 func _ready():
 	EndedLevel = false;
 	PlayMusic.PlaySong(song_name, get_tree());
+	if checkpoint:
+		SaveData.CheckpointLevel = SaveData.CurrentLevel;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

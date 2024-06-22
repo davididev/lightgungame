@@ -68,6 +68,18 @@ func run_damage_flash():
 	await get_tree().create_timer(0.05).timeout;
 	get_node("CanvasLayer/FlashImage").visible = false;
 
+func kill_player():
+	dead_routine = true;
+	get_node("CanvasLayer/FailOverlay").visible = true;
+	await get_tree().create_timer(1.5).timeout;
+	SaveData.CurrentLevel = SaveData.CheckpointLevel;
+	SaveData.Ammo1 = 0;
+	SaveData.Ammo2 = 0;
+	SaveData.Ammo3 = 0;
+	SavaData.SaveFile();
+	get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
+
+var dead_routine = false;
 var  jiggle_shape : bool = true;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -80,7 +92,10 @@ func _process(delta):
 	if damage_routine == true:
 		run_damage_flash();
 	set_ui_elements(delta);
-		
+	
+	if dead_routine == false and Health <= 0:
+		kill_player();
+	
 	var width : float = get_viewport_rect().size.x;
 	CurrentX = global_position.x + width;
 	CameraX = global_position.x;

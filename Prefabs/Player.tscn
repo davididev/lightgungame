@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://byosm6kwjujrd"]
+[gd_scene load_steps=110 format=3 uid="uid://byosm6kwjujrd"]
 
 [ext_resource type="Script" path="res://Prefabs/Player.gd" id="1_okwfa"]
 [ext_resource type="PackedScene" uid="uid://c6qs6h5ebcg4q" path="res://Prefabs/PlayerBullet.tscn" id="2_86q4p"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bpmnciq2x8n75" path="res://UI/Game/Pause_Hover.png" id="15_qemx1"]
 [ext_resource type="Theme" uid="uid://cwt8r6m5gmd65" path="res://UI/Styles/HeaderText.tres" id="16_7n3u3"]
 [ext_resource type="Texture2D" uid="uid://sr7m3wrcxwfn" path="res://UI/Game/TutorialArrow.png" id="25_jfohp"]
+[ext_resource type="Texture2D" uid="uid://3jljciiom25m" path="res://UI/Game/GameOverFail.png" id="27_akh8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aa34"]
 size = Vector2(4000, 4000)
@@ -1188,6 +1189,21 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("12_7c54a")
 bbcode_enabled = true
+
+[node name="FailOverlay" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_akh8m")
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
 [connection signal="button_up" from="CanvasLayer/MainWindow/CheckBoxSingle" to="CanvasLayer" method="_on_check_box_single_button_up"]
