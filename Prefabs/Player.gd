@@ -76,6 +76,7 @@ func kill_player():
 	SaveData.Ammo1 = 0;
 	SaveData.Ammo2 = 0;
 	SaveData.Ammo3 = 0;
+	SaveData.Score = 0;
 	SavaData.SaveFile();
 	get_tree().change_scene_to_file("res://Scenes/Loading.tscn");
 
