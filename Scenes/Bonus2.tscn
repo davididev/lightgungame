@@ -1,0 +1,191 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqrcqyrhmrysj"]
+
+[ext_resource type="PackedScene" uid="uid://bk7tgb4r0vd08" path="res://Scenes/Bonus2SceneVars.tscn" id="1_ijxbc"]
+[ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="2_6lr5j"]
+[ext_resource type="Texture2D" uid="uid://ce5xl8dpxhg1" path="res://Backgrounds/BonusBackground1.png" id="3_2v2yb"]
+[ext_resource type="Texture2D" uid="uid://c12mdi8fltfyt" path="res://Backgrounds/BonusBackground2.png" id="4_rsnfm"]
+[ext_resource type="PackedScene" uid="uid://1lglgpown0ky" path="res://Prefabs/Level Objs/AmmoBoxMachineGun.tscn" id="5_8ppk3"]
+[ext_resource type="PackedScene" uid="uid://c7khplc2wwufq" path="res://Prefabs/Level Objs/AmmoBoxLaserCross.tscn" id="6_ii7hw"]
+[ext_resource type="PackedScene" uid="uid://d0smf6e8vewnu" path="res://Prefabs/Enemies/Target/target_wave_red.tscn" id="7_txn7s"]
+[ext_resource type="PackedScene" uid="uid://2dlw8flqe4la" path="res://Prefabs/Enemies/Target/target_wave_green.tscn" id="8_jaje7"]
+[ext_resource type="PackedScene" uid="uid://5sy7n4v53ppy" path="res://Prefabs/Enemies/Target/target_wave_blue.tscn" id="9_iywn6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SceneVars" parent="." instance=ExtResource("1_ijxbc")]
+position = Vector2(223, 282)
+
+[node name="PlayerCamera" parent="." instance=ExtResource("2_6lr5j")]
+
+[node name="BonusBackground1" type="Sprite2D" parent="."]
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground2" type="Sprite2D" parent="."]
+position = Vector2(648, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground3" type="Sprite2D" parent="."]
+position = Vector2(1296, 0)
+texture = ExtResource("4_rsnfm")
+centered = false
+
+[node name="BonusBackground4" type="Sprite2D" parent="."]
+position = Vector2(1944, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground5" type="Sprite2D" parent="."]
+position = Vector2(2592, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground6" type="Sprite2D" parent="."]
+position = Vector2(3240, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground7" type="Sprite2D" parent="."]
+position = Vector2(3888, 0)
+texture = ExtResource("4_rsnfm")
+centered = false
+
+[node name="BonusBackground8" type="Sprite2D" parent="."]
+position = Vector2(4536, 0)
+texture = ExtResource("4_rsnfm")
+centered = false
+
+[node name="BonusBackground9" type="Sprite2D" parent="."]
+position = Vector2(5184, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground10" type="Sprite2D" parent="."]
+position = Vector2(5832, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground11" type="Sprite2D" parent="."]
+position = Vector2(6480, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="BonusBackground12" type="Sprite2D" parent="."]
+position = Vector2(7128, 0)
+texture = ExtResource("4_rsnfm")
+centered = false
+
+[node name="BonusBackground13" type="Sprite2D" parent="."]
+position = Vector2(7776, 0)
+texture = ExtResource("4_rsnfm")
+centered = false
+
+[node name="BonusBackground14" type="Sprite2D" parent="."]
+position = Vector2(8424, 0)
+texture = ExtResource("4_rsnfm")
+centered = false
+
+[node name="BonusBackground15" type="Sprite2D" parent="."]
+position = Vector2(9072, 0)
+texture = ExtResource("3_2v2yb")
+centered = false
+
+[node name="AmmoBoxMachienGun" parent="." instance=ExtResource("5_8ppk3")]
+position = Vector2(1222, 364)
+
+[node name="AmmoBoxMachienGun2" parent="." instance=ExtResource("5_8ppk3")]
+position = Vector2(1844, 461)
+
+[node name="AmmoBoxLaserGun" parent="." instance=ExtResource("6_ii7hw")]
+position = Vector2(1509, 500)
+
+[node name="AmmoBoxLaserGun2" parent="." instance=ExtResource("6_ii7hw")]
+position = Vector2(2788, 455)
+
+[node name="AmmoBoxMachienGun3" parent="." instance=ExtResource("5_8ppk3")]
+position = Vector2(3612, 353)
+
+[node name="TargetWaveRed" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(1360, 415)
+
+[node name="TargetWaveRed2" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(1633, 214)
+
+[node name="TargetWaveRed3" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(1619, 519)
+
+[node name="TargetWaveGreen" parent="." instance=ExtResource("8_jaje7")]
+position = Vector2(1771, 353)
+
+[node name="TargetWaveBlue" parent="." instance=ExtResource("9_iywn6")]
+position = Vector2(2064, 318)
+
+[node name="TargetWaveBlue2" parent="." instance=ExtResource("9_iywn6")]
+position = Vector2(1178, 246)
+
+[node name="TargetWaveRed4" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(812, 490)
+
+[node name="TargetWaveRed5" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(967, 332)
+
+[node name="TargetWaveRed6" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(916, 195)
+
+[node name="TargetWaveRed7" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2090, 467)
+
+[node name="TargetWaveGreen2" parent="." instance=ExtResource("8_jaje7")]
+position = Vector2(2300, 322)
+
+[node name="TargetWaveRed8" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(1882, 288)
+
+[node name="TargetWaveRed9" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2272, 574)
+
+[node name="TargetWaveRed10" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2700, 350)
+
+[node name="TargetWaveRed11" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2854, 352)
+
+[node name="TargetWaveRed12" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2443, 530)
+
+[node name="TargetWaveRed13" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2413, 323)
+
+[node name="TargetWaveRed14" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2565, 191)
+
+[node name="TargetWaveGreen3" parent="." instance=ExtResource("8_jaje7")]
+position = Vector2(3098, 380)
+
+[node name="TargetWaveBlue3" parent="." instance=ExtResource("9_iywn6")]
+position = Vector2(2922, 317)
+
+[node name="TargetWaveGreen4" parent="." instance=ExtResource("8_jaje7")]
+position = Vector2(3127, 252)
+
+[node name="TargetWaveGreen5" parent="." instance=ExtResource("8_jaje7")]
+position = Vector2(2972, 161)
+
+[node name="TargetWaveRed15" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(3296, 489)
+
+[node name="TargetWaveRed16" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(3268, 389)
+
+[node name="TargetWaveGreen6" parent="." instance=ExtResource("8_jaje7")]
+position = Vector2(3297, 275)
+
+[node name="TargetWaveBlue4" parent="." instance=ExtResource("9_iywn6")]
+position = Vector2(3376, 138)
+
+[node name="TargetWaveRed17" parent="." instance=ExtResource("7_txn7s")]
+position = Vector2(2975, 510)
+
+[node name="TargetWaveGreen7" parent="." instance=ExtResource("8_jaje7")]
+position = Vector2(3213, 137)

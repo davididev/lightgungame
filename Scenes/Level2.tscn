@@ -205,6 +205,17 @@ centered = false
 position = Vector2(324, 638)
 shape = SubResource("RectangleShape2D_q5yyh")
 
+[node name="OutdoorBackground19" type="Sprite2D" parent="."]
+position = Vector2(11664, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground19"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground19/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
 [node name="OutdoorBackground4" type="Sprite2D" parent="."]
 position = Vector2(1944, 0)
 texture = ExtResource("4_mceqd")
