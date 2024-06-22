@@ -87,7 +87,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="AmmoBoxMachienGun" type="RigidBody2D" node_paths=PackedStringArray("ref_to_label", "ref_to_sprite")]
+[node name="AmmoBoxMachienGun" type="RigidBody2D"]
 collision_layer = 8
 gravity_scale = 0.0
 linear_damp = 2.0

@@ -150,7 +150,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Area51AlienCrouch" type="RigidBody2D" node_paths=PackedStringArray("anim_ref")]
+[node name="Area51AlienCrouch" type="RigidBody2D"]
 collision_layer = 8
 lock_rotation = true
 script = ExtResource("1_fwxo5")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://crerm4yp3u738"]
+[gd_scene load_steps=10 format=3 uid="uid://crerm4yp3u738"]
 
 [ext_resource type="PackedScene" uid="uid://gh5d0pynjqck" path="res://Scenes/Level2SceneVars.tscn" id="1_7b1wr"]
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_r6832"]
 [ext_resource type="Texture2D" uid="uid://b2c6gc5hw2sfc" path="res://Backgrounds/OutdoorBackground1.png" id="2_3wx0r"]
 [ext_resource type="Texture2D" uid="uid://ci7w4jtkr5q87" path="res://Backgrounds/OutdoorBackground2.png" id="3_tihrs"]
 [ext_resource type="Texture2D" uid="uid://c68fr0aaysfal" path="res://Backgrounds/OutdoorBackground3.png" id="4_mceqd"]
+[ext_resource type="PackedScene" uid="uid://cwqae0t1qkmb1" path="res://Prefabs/Enemies/AlienBat/green_bat_wave.tscn" id="6_ayofk"]
+[ext_resource type="PackedScene" uid="uid://bud4w5nfkop2p" path="res://Prefabs/Enemies/AlienBat/green_bat_wave2.tscn" id="7_3dau3"]
+[ext_resource type="PackedScene" uid="uid://bp8i60xt0ph4r" path="res://Prefabs/Enemies/Alien_Area51/area_51_alien_walk_lr.tscn" id="8_ethgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yyh"]
 size = Vector2(648, 20)
@@ -48,6 +51,160 @@ centered = false
 position = Vector2(324, 638)
 shape = SubResource("RectangleShape2D_q5yyh")
 
+[node name="OutdoorBackground5" type="Sprite2D" parent="."]
+position = Vector2(2592, 0)
+texture = ExtResource("3_tihrs")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground5/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground6" type="Sprite2D" parent="."]
+position = Vector2(3240, 0)
+texture = ExtResource("3_tihrs")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground6/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground7" type="Sprite2D" parent="."]
+position = Vector2(3888, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground7/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground8" type="Sprite2D" parent="."]
+position = Vector2(4536, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground8/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground9" type="Sprite2D" parent="."]
+position = Vector2(5184, 0)
+texture = ExtResource("4_mceqd")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground9/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground10" type="Sprite2D" parent="."]
+position = Vector2(5832, 0)
+texture = ExtResource("3_tihrs")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground10/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground11" type="Sprite2D" parent="."]
+position = Vector2(6480, 0)
+texture = ExtResource("4_mceqd")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground11/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground12" type="Sprite2D" parent="."]
+position = Vector2(7128, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground12/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground13" type="Sprite2D" parent="."]
+position = Vector2(7776, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground13/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground14" type="Sprite2D" parent="."]
+position = Vector2(8424, 0)
+texture = ExtResource("3_tihrs")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground14/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground15" type="Sprite2D" parent="."]
+position = Vector2(9072, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground15/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground16" type="Sprite2D" parent="."]
+position = Vector2(9720, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground16/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground17" type="Sprite2D" parent="."]
+position = Vector2(10368, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground17"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground17/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="OutdoorBackground18" type="Sprite2D" parent="."]
+position = Vector2(11016, 0)
+texture = ExtResource("2_3wx0r")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OutdoorBackground18"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground18/StaticBody2D"]
+position = Vector2(324, 638)
+shape = SubResource("RectangleShape2D_q5yyh")
+
 [node name="OutdoorBackground4" type="Sprite2D" parent="."]
 position = Vector2(1944, 0)
 texture = ExtResource("4_mceqd")
@@ -58,3 +215,93 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutdoorBackground4/StaticBody2D"]
 position = Vector2(324, 638)
 shape = SubResource("RectangleShape2D_q5yyh")
+
+[node name="GreenBatWave" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(1491, 352)
+
+[node name="GreenBatWave2" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(1976, 221)
+
+[node name="GreenBatWave4" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(2368, 119)
+
+[node name="GreenBatWave5" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(2704, 186)
+
+[node name="GreenBatWave6" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(3288, 151)
+
+[node name="GreenBatWave7" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(3312, 337)
+
+[node name="GreenBatWave8" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(3842, 282)
+
+[node name="GreenBatWave9" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(4153, 275)
+
+[node name="GreenBatWave10" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(4755, 274)
+
+[node name="GreenBatWaveStronger" parent="." instance=ExtResource("7_3dau3")]
+position = Vector2(1855, 418)
+
+[node name="GreenBatWaveStronger2" parent="." instance=ExtResource("7_3dau3")]
+position = Vector2(2481, 306)
+
+[node name="GreenBatWaveStronger3" parent="." instance=ExtResource("7_3dau3")]
+position = Vector2(3053, 245)
+
+[node name="GreenBatWave3" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(1567, 225)
+
+[node name="Area51AlienWalkLR" parent="." instance=ExtResource("8_ethgj")]
+position = Vector2(2132, 489)
+
+[node name="Area51AlienWalkLR2" parent="." instance=ExtResource("8_ethgj")]
+position = Vector2(2374, 489)
+
+[node name="Area51AlienWalkLR3" parent="." instance=ExtResource("8_ethgj")]
+position = Vector2(3107, 479)
+
+[node name="Area51AlienWalkLR4" parent="." instance=ExtResource("8_ethgj")]
+position = Vector2(3882, 479)
+
+[node name="Area51AlienWalkLR5" parent="." instance=ExtResource("8_ethgj")]
+position = Vector2(4422, 475)
+
+[node name="GreenBatWaveStronger4" parent="." instance=ExtResource("7_3dau3")]
+position = Vector2(5122, 278)
+
+[node name="Area51AlienWalkLR6" parent="." instance=ExtResource("8_ethgj")]
+position = Vector2(5144, 480)
+
+[node name="GreenBatWave11" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(5464, 314)
+
+[node name="GreenBatWave12" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(5622, 141)
+
+[node name="GreenBatWave13" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(5804, 345)
+
+[node name="Area51AlienWalkLR7" parent="." instance=ExtResource("8_ethgj")]
+position = Vector2(5965, 490)
+
+[node name="GreenBatWaveStronger5" parent="." instance=ExtResource("7_3dau3")]
+position = Vector2(6060, 290)
+
+[node name="GreenBatWave14" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(6260, 456)
+
+[node name="GreenBatWave15" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(6469, 212)
+
+[node name="GreenBatWave16" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(6611, 372)
+
+[node name="GreenBatWave17" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(6887, 263)
+
+[node name="GreenBatWave18" parent="." instance=ExtResource("6_ayofk")]
+position = Vector2(7021, 462)

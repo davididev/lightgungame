@@ -152,10 +152,8 @@ position = Vector2(1664, 346)
 [node name="AmmoBoxLaserGun2" parent="." instance=ExtResource("10_hw601")]
 position = Vector2(1955, 409)
 
-[node name="AmmoBoxLaserGun4" parent="." node_paths=PackedStringArray("ref_to_label", "ref_to_sprite") instance=ExtResource("10_hw601")]
+[node name="AmmoBoxLaserGun4" parent="." instance=ExtResource("10_hw601")]
 position = Vector2(2505, 409)
-ref_to_label = NodePath("../AmmoBoxLaserGun2/Label")
-ref_to_sprite = NodePath("../AmmoBoxLaserGun2/AnimatedSprite2D")
 
 [node name="AmmoBoxMachienGun3" parent="." instance=ExtResource("9_cni0d")]
 position = Vector2(2143, 484)

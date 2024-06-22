@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var anim_ref : AnimatedSpriteUtility;
+@export var anim_ref : NodePath;
 @export var health = 1;
 @export var PointsOnShoot = 5;
 @export var speed_left = 80.0;
@@ -18,7 +18,7 @@ signal on_shot;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim_ref.set_main_loop(&"Idle");
+	get_node(anim_ref).set_main_loop(&"Idle");
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,11 +36,11 @@ func RunBlink():
 	damage_delay = true;
 	var blinkVisibility : bool = false;
 	for i in range(0, BLINK_COUNT, 1):
-		anim_ref.visible = blinkVisibility;
+		get_node(anim_ref).visible = blinkVisibility;
 		blinkVisibility = !blinkVisibility;
 		await get_tree().create_timer(BLINK_TIMER).timeout;
 	
-	anim_ref.visible = true;
+	get_node(anim_ref).visible = true;
 	damage_delay = false;
 
 	if health == 0:
@@ -53,9 +53,9 @@ func when_shot():
 	health -= 1;
 	if health == 0:
 		gravity_scale = 0.5;
-		anim_ref.flip_h = false;
-		anim_ref.run_transition(&"Die", 2.0);
-		anim_ref.offset = death_animation_offset;
+		get_node(anim_ref).flip_h = false;
+		get_node(anim_ref).run_transition(&"Die", 2.0);
+		get_node(anim_ref).offset = death_animation_offset;
 		SaveData.Score += PointsOnShoot;
 		var instance2 : AddScore = preload("res://Prefabs/Preload/AddScore.tscn").instantiate();
 		instance2.set_label(PointsOnShoot);
@@ -70,7 +70,9 @@ func when_far_left():
 	AttackRoutine();
 	
 func AttackRoutine():
-	anim_ref.run_transition(&"Attack", attack_duration);
+	
+	get_node(anim_ref).run_transition(&"Attack", attack_duration);
 	await get_tree().create_timer(attack_duration / 2.0);
-	Player.Damage(1);
+	if health > 0:
+		Player.Damage(1);
 	await get_tree().create_timer(attack_duration / 2.0);

@@ -1,20 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwqae0t1qkmb1"]
+[gd_scene load_steps=5 format=3 uid="uid://bud4w5nfkop2p"]
 
-[ext_resource type="Script" path="res://Prefabs/Enemies/AlienBat/enemy_wave.gd" id="1_1cqux"]
-[ext_resource type="SpriteFrames" uid="uid://r6ijrudn1ayo" path="res://Sprites/Enemies/Bat/BatSpriteFrames.tres" id="1_fobus"]
-[ext_resource type="Script" path="res://Prefabs/Enemies/AnimatedSpriteUtility.gd" id="2_ge2xm"]
+[ext_resource type="Script" path="res://Prefabs/Enemies/AlienBat/enemy_wave.gd" id="1_5emv7"]
+[ext_resource type="SpriteFrames" uid="uid://h23wgnmfsnau" path="res://Sprites/Enemies/Bat/BatSpriteFrames2.tres" id="2_oei7k"]
+[ext_resource type="Script" path="res://Prefabs/Enemies/AnimatedSpriteUtility.gd" id="3_0vju1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clnwn"]
 radius = 47.0
 height = 238.0
 
-[node name="GreenBatWave" type="RigidBody2D"]
+[node name="GreenBatWaveStronger" type="RigidBody2D"]
 collision_layer = 8
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("1_1cqux")
+script = ExtResource("1_5emv7")
 anim_ref = NodePath("CollisionShape2D/AnimatedSpriteUtility")
-PointsOnShoot = 2
+health = 2
+PointsOnShoot = 12
+speed_left = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -23,10 +25,10 @@ shape = SubResource("CapsuleShape2D_clnwn")
 [node name="AnimatedSpriteUtility" type="AnimatedSprite2D" parent="CollisionShape2D"]
 rotation = -1.5708
 scale = Vector2(0.24, 0.24)
-sprite_frames = ExtResource("1_fobus")
+sprite_frames = ExtResource("2_oei7k")
 animation = &"Idle"
-frame_progress = 0.907267
-script = ExtResource("2_ge2xm")
+frame_progress = 0.731746
+script = ExtResource("3_0vju1")
 
 [node name="Notif_Visible" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
 scale = Vector2(1, 11.4)

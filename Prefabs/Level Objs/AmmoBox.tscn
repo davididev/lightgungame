@@ -87,13 +87,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="AmmoBox" type="RigidBody2D" node_paths=PackedStringArray("ref_to_label", "ref_to_sprite")]
+[node name="AmmoBox" type="RigidBody2D"]
 collision_layer = 8
 gravity_scale = 0.0
 script = ExtResource("1_bceyk")
 ExplosionParticle = ExtResource("2_7v708")
-ref_to_label = NodePath("Label")
-ref_to_sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)

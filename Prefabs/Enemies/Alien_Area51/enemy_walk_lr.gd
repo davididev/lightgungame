@@ -2,7 +2,7 @@ extends RigidBody2D
 
 @export var PointsOnShoot = 5;
 @export var health = 1;
-@export var anim_ref : AnimatedSpriteUtility;
+@export var anim_ref : NodePath;
 @export var move_left_timer : float = 1.5;  #how many seconds to move left
 @export var move_right_timer : float = 1.0;  #how many seconds to move right
 @export var velocity_x : float = 64.0;
@@ -21,7 +21,7 @@ const BLINK_TIMER = 0.1;  #How long to wait in between blinks before alternating
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim_ref.set_main_loop(&"Idle");
+	get_node(anim_ref).set_main_loop(&"Idle");
 	pass # Replace with function body.
 
 func when_visible():
@@ -31,11 +31,11 @@ func RunBlink():
 	damage_delay = true;
 	var blinkVisibility : bool = false;
 	for i in range(0, BLINK_COUNT, 1):
-		anim_ref.visible = blinkVisibility;
+		get_node(anim_ref).visible = blinkVisibility;
 		blinkVisibility = !blinkVisibility;
 		await get_tree().create_timer(BLINK_TIMER).timeout;
 	
-	anim_ref.visible = true;
+	get_node(anim_ref).visible = true;
 	damage_delay = false;
 
 	if health == 0:
@@ -48,9 +48,9 @@ func when_shot():
 	health -= 1;
 	if health == 0:
 		SetMoveDir(0.0);
-		anim_ref.flip_h = false;
-		anim_ref.run_transition(&"Die", 2.0);
-		anim_ref.offset = death_animation_offset;
+		get_node(anim_ref).flip_h = false;
+		get_node(anim_ref).run_transition(&"Die", 2.0);
+		get_node(anim_ref).offset = death_animation_offset;
 		SaveData.Score += PointsOnShoot;
 		var instance2 : AddScore = preload("res://Prefabs/Preload/AddScore.tscn").instantiate();
 		instance2.set_label(PointsOnShoot);
@@ -68,12 +68,12 @@ func SetMoveDir(dir : float):
 
 func main_routine():
 	while health > 0:
-		anim_ref.flip_h = false;
+		get_node(anim_ref).flip_h = false;
 		SetMoveDir(-1.0);
 		if health <= 0:
 			return;
-		anim_ref.flip_h = false;
-		anim_ref.set_main_loop(&"Walk");
+		get_node(anim_ref).flip_h = false;
+		get_node(anim_ref).set_main_loop(&"Walk");
 		await get_tree().create_timer(move_left_timer).timeout;
 		SetMoveDir(0.0);
 		if health <= 0:
@@ -83,14 +83,14 @@ func main_routine():
 		
 		#Attack #1
 			#Turn to left
-		anim_ref.run_transition(&"Turn", turn_animation_time);
-		anim_ref.flip_h = false;
+		get_node(anim_ref).run_transition(&"Turn", turn_animation_time);
+		get_node(anim_ref).flip_h = false;
 		await get_tree().create_timer(turn_animation_time).timeout;
 		
 			#Run attack animation
 		if health <= 0:
 			return;
-		anim_ref.run_transition(&"Attack", attack_animation_time);	
+		get_node(anim_ref).run_transition(&"Attack", attack_animation_time);	
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		if health <= 0:
 			return;
@@ -100,8 +100,8 @@ func main_routine():
 		SoundFX.PlaySound(fireSoundFX, get_tree(), global_position);
 		Player.Damage(1);
 			#Turn to right
-		anim_ref.run_transition_backwards(&"Turn", turn_animation_time);
-		anim_ref.flip_h = true;
+		get_node(anim_ref).run_transition_backwards(&"Turn", turn_animation_time);
+		get_node(anim_ref).flip_h = true;
 		await get_tree().create_timer(turn_animation_time).timeout;
 		get_node(muzzleFlarePath).visible = false;
 		
@@ -109,7 +109,7 @@ func main_routine():
 		if health <= 0:
 			return;
 		SetMoveDir(1.0);
-		anim_ref.set_main_loop(&"Walk");
+		get_node(anim_ref).set_main_loop(&"Walk");
 		await get_tree().create_timer(move_right_timer).timeout;
 	
 		#Attack #2
@@ -118,11 +118,11 @@ func main_routine():
 		SetMoveDir(0.0);
 	
 			#Turn to right
-		anim_ref.flip_h = true;
-		anim_ref.run_transition(&"Turn", turn_animation_time);
+		get_node(anim_ref).flip_h = true;
+		get_node(anim_ref).run_transition(&"Turn", turn_animation_time);
 		await get_tree().create_timer(turn_animation_time).timeout;
 			#Run attack
-		anim_ref.run_transition(&"Attack", attack_animation_time);	
+		get_node(anim_ref).run_transition(&"Attack", attack_animation_time);	
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		if health <= 0:
 			return;
@@ -134,8 +134,8 @@ func main_routine():
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 			#Turn to left
 		get_node(muzzleFlarePath).visible = false;
-		anim_ref.flip_h = false;	
-		anim_ref.run_transition_backwards(&"Turn", turn_animation_time);
+		get_node(anim_ref).flip_h = false;	
+		get_node(anim_ref).run_transition_backwards(&"Turn", turn_animation_time);
 		await get_tree().create_timer(turn_animation_time).timeout;
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

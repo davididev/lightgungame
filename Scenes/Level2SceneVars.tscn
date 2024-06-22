@@ -17,5 +17,4 @@ ending_x = 5800.0
 script = ExtResource("1_rc020")
 steps = Array[ExtResource("2_lmfm0")]([SubResource("Resource_s7hve"), SubResource("Resource_g5hae")])
 song_name = "IndoorLevel"
-ending_x = 5800.0
-next_scene = "Level2"
+next_scene = "Bonus2"

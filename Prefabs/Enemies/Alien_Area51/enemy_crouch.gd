@@ -1,7 +1,7 @@
 extends RigidBody2D
 @export var PointsOnShoot = 5;
 @export var health = 1;
-@export var anim_ref : AnimatedSpriteUtility;
+@export var anim_ref : NodePath;
 @export var crouch_animation_time : float;
 @export var attack_animation_time : float;
 @export var death_animation_offset : Vector2;
@@ -17,7 +17,7 @@ const BLINK_TIMER = 0.1;  #How long to wait in between blinks before alternating
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim_ref.set_main_loop(&"CrouchIdle");
+	get_node(anim_ref).set_main_loop(&"CrouchIdle");
 
 func _on_become_visible():  #SHould be called by visibility notifier
 	main_routine();
@@ -26,7 +26,7 @@ func main_routine():
 	while health > 0:
 		#stand up
 		covered = true;
-		anim_ref.run_transition(&"CrouchUp", crouch_animation_time);
+		get_node(anim_ref).run_transition(&"CrouchUp", crouch_animation_time);
 		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
 		covered = false;
 		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
@@ -35,14 +35,14 @@ func main_routine():
 		if health <= 0:
 			return;
 		#Idle for .5 seconds
-		anim_ref.set_main_loop(&"Idle");
+		get_node(anim_ref).set_main_loop(&"Idle");
 		await get_tree().create_timer(1.0).timeout;
 		
 		#Attack
 			#Play animation
 		if health <= 0:
 			return;
-		anim_ref.run_transition(&"Attack", attack_animation_time);
+		get_node(anim_ref).run_transition(&"Attack", attack_animation_time);
 		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		
 			#Run attack (add muzzle flare later)
@@ -57,7 +57,7 @@ func main_routine():
 		#Crouch back down
 		if health <= 0:
 			return;
-		anim_ref.run_transition(&"CrouchDown", crouch_animation_time);
+		get_node(anim_ref).run_transition(&"CrouchDown", crouch_animation_time);
 		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
 		if health <= 0:
 			return;
@@ -67,7 +67,7 @@ func main_routine():
 			return;
 			
 		#Stay crouched down for 1 second
-		anim_ref.set_main_loop(&"CrouchIdle");
+		get_node(anim_ref).set_main_loop(&"CrouchIdle");
 		await get_tree().create_timer(1.0).timeout;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,9 +82,9 @@ func when_shot():
 		return;
 	health -= 1;
 	if health == 0:
-		anim_ref.flip_h = false;
-		anim_ref.run_transition(&"Die", 2.0);
-		anim_ref.offset = death_animation_offset;
+		get_node(anim_ref).flip_h = false;
+		get_node(anim_ref).run_transition(&"Die", 2.0);
+		get_node(anim_ref).offset = death_animation_offset;
 		SaveData.Score += PointsOnShoot;
 		var instance2 : AddScore = preload("res://Prefabs/Preload/AddScore.tscn").instantiate();
 		instance2.set_label(PointsOnShoot);
@@ -96,11 +96,11 @@ func RunBlink():
 	damage_delay = true;
 	var blinkVisibility : bool = false;
 	for i in range(0, BLINK_COUNT, 1):
-		anim_ref.visible = blinkVisibility;
+		get_node(anim_ref).visible = blinkVisibility;
 		blinkVisibility = !blinkVisibility;
 		await get_tree().create_timer(BLINK_TIMER).timeout;
 	
-	anim_ref.visible = true;
+	get_node(anim_ref).visible = true;
 	damage_delay = false;
 
 	if health == 0:

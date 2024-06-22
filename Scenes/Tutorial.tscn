@@ -23,6 +23,8 @@ position = Vector2(600, 352)
 forceLeft = 0.0
 forceUp = 0.0
 gravity_scale_on_seen = 0.0
+ref_to_label = NodePath("")
+ref_to_sprite = NodePath("")
 
 [node name="Target0" parent="TutorialHolder" instance=ExtResource("4_p0v6w")]
 visible = false
