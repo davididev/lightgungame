@@ -1,6 +1,7 @@
 extends Area2D
 
-const SCALE_PER_SECOND : float = 2.0;
+const SCALE_PER_SECOND : float = 0.5;
+var lifetime : float = 0.2;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,12 +11,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var my_scale = scale;
-	my_scale.x = move_toward(my_scale.x, 0.0, delta * SCALE_PER_SECOND)
-	my_scale.y = move_toward(my_scale.y, 0.0, delta * SCALE_PER_SECOND)
-	if my_scale.x == 0.0:
+	my_scale += Vector2.ONE * SCALE_PER_SECOND * delta;
+	scale = my_scale;
+	lifetime -= delta;
+	if lifetime <= 0.0:
 		queue_free()
-	else:
-		scale = my_scale;
 
 
 
