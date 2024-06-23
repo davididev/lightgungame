@@ -33,7 +33,8 @@ func RunBlink():
 	for i in range(0, BLINK_COUNT, 1):
 		get_node(anim_ref).visible = blinkVisibility;
 		blinkVisibility = !blinkVisibility;
-		await get_tree().create_timer(BLINK_TIMER).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(BLINK_TIMER).timeout;
 	
 	get_node(anim_ref).visible = true;
 	damage_delay = false;
@@ -74,7 +75,8 @@ func main_routine():
 			return;
 		get_node(anim_ref).flip_h = false;
 		get_node(anim_ref).set_main_loop(&"Walk");
-		await get_tree().create_timer(move_left_timer).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(move_left_timer).timeout;
 		SetMoveDir(0.0);
 		if health <= 0:
 			return;
@@ -85,7 +87,8 @@ func main_routine():
 			#Turn to left
 		get_node(anim_ref).run_transition(&"Turn", turn_animation_time);
 		get_node(anim_ref).flip_h = false;
-		await get_tree().create_timer(turn_animation_time).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(turn_animation_time).timeout;
 		
 			#Run attack animation
 		if health <= 0:
@@ -102,7 +105,8 @@ func main_routine():
 			#Turn to right
 		get_node(anim_ref).run_transition_backwards(&"Turn", turn_animation_time);
 		get_node(anim_ref).flip_h = true;
-		await get_tree().create_timer(turn_animation_time).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(turn_animation_time).timeout;
 		get_node(muzzleFlarePath).visible = false;
 		
 		
@@ -110,7 +114,9 @@ func main_routine():
 			return;
 		SetMoveDir(1.0);
 		get_node(anim_ref).set_main_loop(&"Walk");
-		await get_tree().create_timer(move_right_timer).timeout;
+		
+		if get_tree() != null:
+			await get_tree().create_timer(move_right_timer).timeout;
 	
 		#Attack #2
 		if health <= 0:
@@ -120,10 +126,12 @@ func main_routine():
 			#Turn to right
 		get_node(anim_ref).flip_h = true;
 		get_node(anim_ref).run_transition(&"Turn", turn_animation_time);
-		await get_tree().create_timer(turn_animation_time).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(turn_animation_time).timeout;
 			#Run attack
 		get_node(anim_ref).run_transition(&"Attack", attack_animation_time);	
-		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		if health <= 0:
 			return;
 		#Create muzzle flare here
@@ -131,12 +139,14 @@ func main_routine():
 		get_node(muzzleFlarePath).play("Fire");
 		SoundFX.PlaySound(fireSoundFX, get_tree(), global_position);
 		Player.Damage(1);
-		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 			#Turn to left
 		get_node(muzzleFlarePath).visible = false;
 		get_node(anim_ref).flip_h = false;	
 		get_node(anim_ref).run_transition_backwards(&"Turn", turn_animation_time);
-		await get_tree().create_timer(turn_animation_time).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(turn_animation_time).timeout;
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

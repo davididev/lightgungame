@@ -27,23 +27,27 @@ func main_routine():
 		#stand up
 		covered = true;
 		get_node(anim_ref).run_transition(&"CrouchUp", crouch_animation_time);
-		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
 		covered = false;
-		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
 		
 		
 		if health <= 0:
 			return;
 		#Idle for .5 seconds
 		get_node(anim_ref).set_main_loop(&"Idle");
-		await get_tree().create_timer(1.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(1.0).timeout;
 		
 		#Attack
 			#Play animation
 		if health <= 0:
 			return;
 		get_node(anim_ref).run_transition(&"Attack", attack_animation_time);
-		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		
 			#Run attack (add muzzle flare later)
 		get_node(muzzleFlarePath).visible = true;
@@ -52,23 +56,27 @@ func main_routine():
 		if health <= 0:
 			return;
 		Player.Damage(1);
-		await get_tree().create_timer(attack_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(attack_animation_time / 2.0).timeout;
 		get_node(muzzleFlarePath).visible = false;
 		#Crouch back down
 		if health <= 0:
 			return;
 		get_node(anim_ref).run_transition(&"CrouchDown", crouch_animation_time);
-		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
 		if health <= 0:
 			return;
 		covered = true;
-		await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(crouch_animation_time / 2.0).timeout;
 		if health <= 0:
 			return;
 			
 		#Stay crouched down for 1 second
 		get_node(anim_ref).set_main_loop(&"CrouchIdle");
-		await get_tree().create_timer(1.0).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(1.0).timeout;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -98,7 +106,8 @@ func RunBlink():
 	for i in range(0, BLINK_COUNT, 1):
 		get_node(anim_ref).visible = blinkVisibility;
 		blinkVisibility = !blinkVisibility;
-		await get_tree().create_timer(BLINK_TIMER).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(BLINK_TIMER).timeout;
 	
 	get_node(anim_ref).visible = true;
 	damage_delay = false;

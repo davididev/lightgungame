@@ -38,7 +38,8 @@ func RunBlink():
 	for i in range(0, BLINK_COUNT, 1):
 		get_node(anim_ref).visible = blinkVisibility;
 		blinkVisibility = !blinkVisibility;
-		await get_tree().create_timer(BLINK_TIMER).timeout;
+		if get_tree() != null:
+			await get_tree().create_timer(BLINK_TIMER).timeout;
 	
 	get_node(anim_ref).visible = true;
 	damage_delay = false;
@@ -72,7 +73,9 @@ func when_far_left():
 func AttackRoutine():
 	
 	get_node(anim_ref).run_transition(&"Attack", attack_duration);
-	await get_tree().create_timer(attack_duration / 2.0);
+	if get_tree() != null:
+		await get_tree().create_timer(attack_duration / 2.0);
 	if health > 0:
 		Player.Damage(1);
-	await get_tree().create_timer(attack_duration / 2.0);
+	if get_tree() != null:
+		await get_tree().create_timer(attack_duration / 2.0);
