@@ -12,10 +12,14 @@ var blink_step_timer : float = 0.0;
 var invincible_timer : float = 0.0;
 const BLINK_DAMAGE_TIME = 20.0 * BLINK_TIMER;  #How long it should be "invincible" when they die
 const BLINK_TIMER = 0.1;  #How long to wait in between blinks before alternating to off and on
+const SCALE_UP_PER_SECOND = 0.10;
+var TARGET_SCALE = 1.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Count += 1;
+	TARGET_SCALE = get_node(Anim_Ref).scale.x;
+	get_node(Anim_Ref).scale = Vector2(0.01, 0.01);
 	var randx = randi_range(-2, 2);
 	if randx == 0:
 		randx = 2;
@@ -33,6 +37,12 @@ func _process(delta):
 		linear_velocity = current_direction * Move_Speed;
 	run_blink(delta);
 	
+	var s = get_node(Anim_Ref).scale.x;
+	if s < TARGET_SCALE:
+		s += SCALE_UP_PER_SECOND * delta;
+		if s > TARGET_SCALE:
+			s = TARGET_SCALE;
+		get_node(Anim_Ref).scale = Vector2(s, s);
 	
 func run_blink(delta):
 	if invincible_timer > 0.0:
