@@ -1,0 +1,162 @@
+[gd_scene load_steps=15 format=3 uid="uid://dqvqbv1xia87t"]
+
+[ext_resource type="Script" path="res://Prefabs/Enemies/AlienBat/enemy_move_randomly.gd" id="1_q3b85"]
+[ext_resource type="Texture2D" uid="uid://c531syhn70auu" path="res://Sprites/Enemies/Bat/Bat2.png" id="2_888vh"]
+[ext_resource type="Script" path="res://Prefabs/Enemies/AnimatedSpriteUtility.gd" id="3_txxep"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yecif"]
+radius = 22.0
+height = 110.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i21d4"]
+atlas = ExtResource("2_888vh")
+region = Rect2(1172, 1053, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tmh0"]
+atlas = ExtResource("2_888vh")
+region = Rect2(2344, 1053, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m88y3"]
+atlas = ExtResource("2_888vh")
+region = Rect2(0, 0, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghc54"]
+atlas = ExtResource("2_888vh")
+region = Rect2(1172, 0, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goc6x"]
+atlas = ExtResource("2_888vh")
+region = Rect2(2344, 0, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_550ls"]
+atlas = ExtResource("2_888vh")
+region = Rect2(3516, 0, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofsvb"]
+atlas = ExtResource("2_888vh")
+region = Rect2(0, 1053, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuk2g"]
+atlas = ExtResource("2_888vh")
+region = Rect2(1172, 1053, 1172, 1053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mjt5"]
+atlas = ExtResource("2_888vh")
+region = Rect2(2344, 1053, 1172, 1053)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f7v7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i21d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tmh0")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m88y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghc54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goc6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_550ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofsvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuk2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mjt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuk2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofsvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_550ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goc6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghc54")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 20.0
+}]
+
+[node name="green_bat_bossspawn" type="RigidBody2D"]
+collision_layer = 8
+gravity_scale = 0.0
+script = ExtResource("1_q3b85")
+Anim_Ref = NodePath("CollisionShape2D/AnimatedSpriteUtility")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yecif")
+
+[node name="AnimatedSpriteUtility" type="AnimatedSprite2D" parent="CollisionShape2D"]
+rotation = -1.5708
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_f7v7l")
+animation = &"Die"
+frame = 7
+frame_progress = 1.0
+script = ExtResource("3_txxep")
+
+[node name="VisibleLeft" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
+position = Vector2(0, 72)
+
+[node name="VisibleUp" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
+position = Vector2(-56, 0)
+
+[node name="VisibleDown" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
+position = Vector2(56, -7.62939e-06)
+
+[node name="VisibleRight" type="VisibleOnScreenNotifier2D" parent="CollisionShape2D"]
+position = Vector2(-1.52588e-05, -72)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="on_shot" from="." to="." method="_on_on_shot"]
+[connection signal="screen_exited" from="CollisionShape2D/VisibleLeft" to="." method="_on_visible_left_screen_exited"]
+[connection signal="screen_exited" from="CollisionShape2D/VisibleUp" to="." method="_on_visible_up_screen_exited"]
+[connection signal="screen_exited" from="CollisionShape2D/VisibleDown" to="." method="_on_visible_down_screen_exited"]
+[connection signal="screen_exited" from="CollisionShape2D/VisibleRight" to="." method="_on_visible_right_screen_exited"]
