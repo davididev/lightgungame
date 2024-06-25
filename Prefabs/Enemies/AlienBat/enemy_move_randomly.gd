@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name BossBatSpawn;
 
 @export var Health = 2;
 @export var Anim_Ref : NodePath;

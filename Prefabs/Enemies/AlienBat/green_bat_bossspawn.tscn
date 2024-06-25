@@ -124,6 +124,7 @@ animations = [{
 }]
 
 [node name="green_bat_bossspawn" type="RigidBody2D"]
+top_level = true
 collision_layer = 8
 gravity_scale = 0.0
 script = ExtResource("1_q3b85")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7g46dxvt21fo"]
+
+[ext_resource type="Script" path="res://Prefabs/Enemies/BirdBoss/Boss_Muzzle_Flare.gd" id="1_55n3w"]
+[ext_resource type="Texture2D" uid="uid://bdyabr8i3vlm4" path="res://Sprites/Enemies/Boss/LensFlare.png" id="1_f1fox"]
+[ext_resource type="Texture2D" uid="uid://b3tni8cur247u" path="res://Sprites/Enemies/Boss/LightningRayTex.png" id="2_giv63"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8xrva"]
+blend_mode = 1
+
+[node name="Node2D" type="Node2D"]
+top_level = true
+script = ExtResource("1_55n3w")
+Muzzle_Ref = NodePath("MuzzleFlare")
+Lit_Ray_Ref = NodePath("LightningRay")
+
+[node name="MuzzleFlare" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_8xrva")
+scale = Vector2(3, 3)
+texture = ExtResource("1_f1fox")
+
+[node name="LightningRay" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_giv63")
+offset = Vector2(0, 128)

@@ -6,6 +6,7 @@ class_name SceneVars
 @export var next_scene = "Level1";
 @export var checkpoint = false;
 
+static var NextScene = "";
 static var MoveSpeed = 32.0;
 static var EndedLevel : bool = false;
 static var FreezeMovement : bool = false;  #Should be called for the tutorial and end of level
@@ -13,6 +14,7 @@ var current_step = -1;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	EndedLevel = false;
+	NextScene = next_scene;
 	PlayMusic.PlaySong(song_name, get_tree());
 	if checkpoint:
 		SaveData.CheckpointLevel = SaveData.CurrentLevel;
