@@ -22,7 +22,7 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_3jyyb")
 bbcode_enabled = true
-text = "[center]Insert Game Title Here[/center]"
+text = "[center]Green Alien Hunter[/center]"
 
 [node name="Panel_SelectFile" type="NinePatchRect" parent="CanvasLayer"]
 texture_filter = 1
