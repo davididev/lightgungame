@@ -57,7 +57,7 @@ func TutorialRoutine():
 	PlayerUI.TutorialOverlayArrow = 1;
 	PlayerUI.TutorialOverlayTimer = step_time;
 	if is_mobile:
-		PlayerUI.TutorialOverlayText = "Tap [color=yellow]‘Forcefield’[/color] to activate forcefield.  Use to block enemy shots.  [color=yellow]Watch the forcefield barp[/color]- don’t shatter it.";
+		PlayerUI.TutorialOverlayText = "Tap [color=yellow]‘Forcefield’[/color] to activate forcefield.  Use to block enemy shots.  [color=yellow]Watch the forcefield bar[/color]- don’t shatter it.";
 	else:
 		PlayerUI.TutorialOverlayText = "Press [color=yellow]F[/color] or [color=yellow]click ‘Forcefield’[/color] to activate forcefield. Use to block enemy shots.  [color=yellow]Watch the forcefield bar[/color]- don’t shatter it.";
 	await get_tree().create_timer(step_time).timeout;
