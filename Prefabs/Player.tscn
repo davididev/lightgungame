@@ -797,12 +797,6 @@ offset_bottom = 152.0
 theme = ExtResource("12_7c54a")
 text = "00"
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 79.0
-offset_bottom = 34.0
-theme = ExtResource("4_gqqo2")
-text = "Health:"
-
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
 offset_left = 296.0
 offset_top = 24.0
@@ -812,10 +806,10 @@ theme = ExtResource("4_gqqo2")
 text = "Score: 0000000000"
 
 [node name="HealthBG" type="TextureRect" parent="CanvasLayer"]
-offset_left = 72.0
-offset_top = 2.0
-offset_right = 263.0
-offset_bottom = 66.0
+offset_left = 100.0
+offset_top = 17.0
+offset_right = 291.0
+offset_bottom = 81.0
 texture = ExtResource("3_xvyfe")
 expand_mode = 1
 stretch_mode = 1
@@ -868,10 +862,10 @@ offset_bottom = 64.0
 texture = ExtResource("4_hpysl")
 
 [node name="ForcefieldChargeBG" type="TextureRect" parent="CanvasLayer"]
-offset_left = 73.0
-offset_top = 71.0
-offset_right = 253.0
-offset_bottom = 91.0
+offset_left = 104.0
+offset_top = 90.0
+offset_right = 284.0
+offset_bottom = 110.0
 texture = ExtResource("6_emh5t")
 
 [node name="ForcefieldChargeFG" type="NinePatchRect" parent="CanvasLayer/ForcefieldChargeBG"]
@@ -885,10 +879,10 @@ patch_margin_left = 8
 patch_margin_right = 8
 
 [node name="ForcefieldButton" type="Button" parent="CanvasLayer"]
-offset_left = 2.0
-offset_top = 30.0
-offset_right = 63.0
-offset_bottom = 98.0
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 103.0
+offset_bottom = 118.0
 theme = ExtResource("9_3kfrd")
 keep_pressed_outside = true
 text = "
