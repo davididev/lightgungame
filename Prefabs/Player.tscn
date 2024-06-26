@@ -1182,6 +1182,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("12_7c54a")
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 
 [node name="FailOverlay" type="TextureRect" parent="CanvasLayer"]

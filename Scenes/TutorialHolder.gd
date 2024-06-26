@@ -40,9 +40,9 @@ func TutorialRoutine():
 	PlayerUI.TutorialOverlayArrow = 0;
 	PlayerUI.TutorialOverlayTimer = step_time;
 	if is_mobile:
-		PlayerUI.TutorialOverlayText = "[color=yellow]Tap here to select the machine gun.  If you run out of ammo, select the [color=yellow]infinite[/color] one to the left.";
+		PlayerUI.TutorialOverlayText = "[color=yellow]Tap here[/color] to select the machine gun.  If you run out of ammo, [color=yellow]select the infinite[/color] one to the left.";
 	else:
-		PlayerUI.TutorialOverlayText = "Press [color=yellow]2[/color] on the keyboard or [color=yellow]click here[/color] to select the machine gun.  If you run out of ammo, [color=yellow]click[/color] the infinite one to the left (or press [color=yellow]1[/color])";
+		PlayerUI.TutorialOverlayText = "[color=yellow]Press 2[/color] on the keyboard or [color=yellow]click here[/color] to select the machine gun.  If you run out of ammo, [color=yellow]click[/color] the infinite one to the left (or [color=yellow]press 1[/color])";
 	await get_tree().create_timer(step_time).timeout;
 
 	#Step 4: Shoot enemies
@@ -63,6 +63,7 @@ func TutorialRoutine():
 	await get_tree().create_timer(step_time).timeout;
 
 	SaveData.NewFile(SaveData.File_ID);  #Reset score and ammo
+	PlayerUI.Update_Ammo_UI = true;
 	SaveData.CurrentLevel = "Bonus1";
 	
 	step_time = 8.0;
