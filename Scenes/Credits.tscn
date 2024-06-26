@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfkdq1ioj63nt"]
+[gd_scene load_steps=9 format=3 uid="uid://bfkdq1ioj63nt"]
 
 [ext_resource type="PackedScene" uid="uid://byosm6kwjujrd" path="res://Prefabs/Player.tscn" id="1_mharb"]
 [ext_resource type="PackedScene" uid="uid://dmdt3dp3l83b" path="res://Scenes/CreditsSCeneVars.tscn" id="3_cvaqx"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://5va5il5367ow" path="res://Prefabs/Credits/CreditsSubSection.tscn" id="6_7v6is"]
 [ext_resource type="Texture2D" uid="uid://rovcqaumcc00" path="res://Backgrounds/TutorialBG1.png" id="6_kl6bm"]
 [ext_resource type="Resource" uid="uid://jka5alohlscq" path="res://Credits/CreditsForThis.tres" id="7_8qxkk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws44l"]
+size = Vector2(3240, 20)
 
 [node name="Node2D" type="Node2D"]
 
@@ -52,3 +55,9 @@ position = Vector2(0, 180)
 
 [node name="Spawn2" type="Node2D" parent="CreditsSpawnHolder"]
 position = Vector2(0, 270)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 648)
+shape = SubResource("RectangleShape2D_ws44l")
