@@ -45,6 +45,13 @@ func TutorialRoutine():
 		PlayerUI.TutorialOverlayText = "[color=yellow]Press 2[/color] on the keyboard or [color=yellow]click here[/color] to select the machine gun.  If you run out of ammo, [color=yellow]click[/color] the infinite one to the left (or [color=yellow]press 1[/color])";
 	await get_tree().create_timer(step_time).timeout;
 
+	if is_mobile:
+		PlayerUI.TutorialOverlayText = "Each type does the same damage, but each behaves specially.  For instance, the  [color=yellow]machine gun lets you keep firing when you hold down your finger[/color]";
+	else:
+		PlayerUI.TutorialOverlayText = "Each type does the same damage, but each behaves specially.  For instance, the  [color=yellow]machine gun lets you keep firing when you hold down the mouse[/color]";
+	
+	PlayerUI.TutorialOverlayTimer = step_time;
+	await get_tree().create_timer(step_time).timeout;
 	#Step 4: Shoot enemies
 	get_node("Target0").visible = true;
 	get_node("Target1").visible = true;

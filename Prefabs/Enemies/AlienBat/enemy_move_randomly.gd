@@ -44,7 +44,8 @@ func _process(delta):
 		if s > TARGET_SCALE:
 			s = TARGET_SCALE;
 		get_node(Anim_Ref).scale = Vector2(s, s);
-	
+
+var first_count  = true;
 func run_blink(delta):
 	if invincible_timer > 0.0:
 		invincible_timer -= delta;
@@ -52,7 +53,9 @@ func run_blink(delta):
 			get_node(Anim_Ref).visible = true;
 			invincible = false;
 			if Health <= 0:
-				Count -= 1;
+				if first_count:
+					Count -= 1;
+					first_count = false;
 				queue_free();
 		else:
 			blink_step_timer += delta;
